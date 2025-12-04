@@ -32,13 +32,13 @@ const showTree = ref(false)
 <style scoped>
 .site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: var(--base);
+  left: var(--base);
+  right: var(--base);
   height: 60px;
   display: flex;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: var(--base) 1.5rem;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(46, 79, 59, 0.1);

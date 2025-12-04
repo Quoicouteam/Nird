@@ -1,6 +1,3 @@
-// Structure de l'arbre de compétences NIRD
-// Chaque nœud a un id, un titre, et ses enfants
-
 export const skillTree = {
   id: 'presentation',
   title: 'Présentation NIRD',
@@ -23,7 +20,6 @@ export const skillTree = {
   ]
 }
 
-// Fonction pour trouver un nœud par son ID
 export function findNode(tree, id) {
   if (tree.id === id) return tree
   if (tree.children) {
@@ -32,10 +28,9 @@ export function findNode(tree, id) {
       if (found) return found
     }
   }
-  return null
+  return
 }
 
-// Fonction pour obtenir le chemin vers un nœud
 export function getPathToNode(tree, id, path = []) {
   if (tree.id === id) return [...path, tree]
   if (tree.children) {
@@ -44,6 +39,6 @@ export function getPathToNode(tree, id, path = []) {
       if (found) return found
     }
   }
-  return null
+  return
 }
 

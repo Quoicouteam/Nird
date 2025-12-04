@@ -68,8 +68,11 @@ function goToPage(nodeId) {
             }"
             @click="goToPage('presentation')"
           >
+            <!-- TODO : Refacto cet endroit -->
             <ellipse cx="300" cy="380" rx="35" ry="28" class="node-shape"/>
             <text x="300" y="385" text-anchor="middle" class="node-text">NIRD</text>
+            
+
             <!-- Petites feuilles autour -->
             <path d="M265 375 Q255 365 260 355" stroke="#5a7d6a" stroke-width="2" fill="none"/>
             <path d="M335 375 Q345 365 340 355" stroke="#5a7d6a" stroke-width="2" fill="none"/>
@@ -138,7 +141,7 @@ function goToPage(nodeId) {
 <style scoped>
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  inset: var(--base);
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
@@ -155,7 +158,7 @@ function goToPage(nodeId) {
   max-height: 90vh;
   padding: 2rem;
   position: relative;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--base) 25px 50px rgba(0, 0, 0, 0.25);
   border: 2px solid rgba(90, 125, 106, 0.2);
 }
 

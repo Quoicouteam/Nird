@@ -1,7 +1,11 @@
-/* Reset et base */
+:root {
+  --base: 0;
+}
+
+
 * {
-  margin: 0;
-  padding: 0;
+  margin: var(--base);
+  padding: var(--base);
   box-sizing: border-box;
 }
 
@@ -16,7 +20,6 @@ body {
   min-height: 100vh;
 }
 
-/* Liens */
 a {
   text-decoration: none;
   color: #5a7d6a;
@@ -32,9 +35,9 @@ a:hover {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
+  padding: var(--base);
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  border: 0;
+  border: var(--base);
 }

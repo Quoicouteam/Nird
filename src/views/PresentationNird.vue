@@ -92,11 +92,11 @@ function chooseNext(choice) {
           <span class="choice-arrow">→</span>
         </button>
 
-        <button class="choice-button choice-button--disabled" disabled>
+        <button class="choice-button" @click="chooseNext('licences')">
           <span class="choice-icon">💰</span>
-          <span class="choice-title">Licences coûteuses</span>
-          <span class="choice-desc">Bientôt disponible</span>
-          <span class="choice-soon">🌱 En croissance</span>
+          <span class="choice-title">Licences Payantes</span>
+          <span class="choice-desc">Les enjeux des logiciels propriétaires</span>
+          <span class="choice-arrow">→</span>
         </button>
 
         <button class="choice-button choice-button--disabled" disabled>
@@ -132,8 +132,9 @@ function chooseNext(choice) {
 .leaf {
   position: absolute;
   font-size: 2rem;
-  opacity: 0.15;
-  animation: float 6s ease-in-out infinite;
+  opacity: 0.1;
+  animation: float-leaf 8s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(46, 79, 59, 0.1));
 }
 
 .leaf-1 { top: 10%; left: 5%; animation-delay: 0s; }
@@ -143,9 +144,11 @@ function chooseNext(choice) {
 .leaf-5 { top: 20%; right: 15%; animation-delay: 4s; }
 .leaf-6 { top: 60%; left: 10%; animation-delay: 5s; font-size: 2.2rem; }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
+@keyframes float-leaf {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-20px) translateX(5px) rotate(10deg) scale(1.05); }
+  50% { transform: translateY(-30px) translateX(-5px) rotate(-5deg) scale(0.95); }
+  75% { transform: translateY(-15px) translateX(8px) rotate(15deg) scale(1.02); }
 }
 
 .content {
@@ -165,6 +168,7 @@ function chooseNext(choice) {
   font-size: 4rem;
   margin-bottom: 1rem;
   animation: gentle-bounce 3s ease-in-out infinite;
+  display: inline-block;
 }
 
 @keyframes gentle-bounce {
@@ -202,6 +206,12 @@ h2 {
   border-radius: 16px;
   border-left: 4px solid #5a7d6a;
   position: relative;
+  transition: all 0.3s ease;
+}
+
+.intro:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 20px rgba(90, 125, 106, 0.15);
 }
 
 .intro::before {
@@ -210,6 +220,7 @@ h2 {
   top: -10px;
   right: 20px;
   font-size: 1.5rem;
+  animation: float-gentle 3s ease-in-out infinite;
 }
 
 /* Features grid */
@@ -227,17 +238,41 @@ h2 {
   text-align: center;
   box-shadow: 0 4px 15px rgba(46, 79, 59, 0.08);
   border: 1px solid rgba(90, 125, 106, 0.1);
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(93, 175, 125, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .feature:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(46, 79, 59, 0.15);
+}
+
+.feature:hover::before {
+  opacity: 1;
 }
 
 .feature-icon {
   font-size: 2rem;
-  display: block;
+  display: inline-block;
   margin-bottom: 0.75rem;
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.feature:hover .feature-icon {
+  animation: pulse-grow 0.6s ease-in-out;
 }
 
 .feature h3 {
@@ -268,14 +303,40 @@ h2 {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: white;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fdf8 100%);
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(46, 79, 59, 0.05);
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #5a7d6a 0%, #7dab8a 100%);
+  border-radius: 12px 0 0 12px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 20px rgba(46, 79, 59, 0.12);
+}
+
+.step:hover::before {
+  transform: scaleY(1);
 }
 
 .step-number {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background: linear-gradient(135deg, #5a7d6a, #7dab8a);
   color: white;
   border-radius: 50%;
@@ -284,6 +345,13 @@ h2 {
   justify-content: center;
   font-weight: 700;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(90, 125, 106, 0.25);
+}
+
+.step:hover .step-number {
+  transform: scale(1.1) rotate(360deg);
+  box-shadow: 0 6px 16px rgba(90, 125, 106, 0.35);
 }
 
 .step p {
@@ -329,11 +397,11 @@ h2 {
   flex-direction: column;
   align-items: center;
   padding: 2rem 1.5rem;
-  background: white;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fdf8 100%);
   border: 2px solid #d4e5da;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -346,19 +414,44 @@ h2 {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #5a7d6a, #7dab8a);
+  background: linear-gradient(90deg, #5a7d6a, #7dab8a, #5a7d6a);
+  background-size: 200% 100%;
   transform: scaleX(0);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
+  animation: shimmer 2s infinite;
+}
+
+.choice-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(93, 175, 125, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
 .choice-button:hover:not(:disabled)::before {
   transform: scaleX(1);
 }
 
+.choice-button:hover:not(:disabled)::after {
+  width: 300px;
+  height: 300px;
+}
+
 .choice-button:hover:not(:disabled) {
   border-color: #5a7d6a;
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(46, 79, 59, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(46, 79, 59, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7f3 100%);
+}
+
+.choice-button:active:not(:disabled) {
+  transform: translateY(-4px) scale(1);
 }
 
 .choice-button--disabled {
@@ -369,6 +462,12 @@ h2 {
 .choice-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  display: inline-block;
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.choice-button:hover:not(:disabled) .choice-icon {
+  animation: pulse-grow 0.6s ease-in-out;
 }
 
 .choice-title {
@@ -376,6 +475,12 @@ h2 {
   font-weight: 600;
   color: #2e4f3b;
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.choice-button:hover:not(:disabled) .choice-title {
+  color: #3d6b4f;
+  animation: glow 2s ease-in-out infinite;
 }
 
 .choice-desc {
@@ -388,11 +493,14 @@ h2 {
   font-size: 1.5rem;
   color: #5a7d6a;
   margin-top: 0.5rem;
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0.7;
 }
 
 .choice-button:hover:not(:disabled) .choice-arrow {
-  transform: translateX(5px);
+  transform: translateX(8px) rotate(15deg);
+  opacity: 1;
+  color: #3d6b4f;
 }
 
 .choice-soon {

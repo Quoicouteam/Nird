@@ -41,8 +41,21 @@ const showTree = ref(false)
   padding: var(--base) 1.5rem;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(46, 79, 59, 0.1);
+  border-bottom: 2px solid rgba(46, 79, 59, 0.1);
   z-index: 100;
+  box-shadow: 0 2px 8px rgba(46, 79, 59, 0.05);
+  animation: header-slide-in 0.4s ease-out;
+}
+
+@keyframes header-slide-in {
+  from {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .tree-button {
@@ -57,17 +70,41 @@ const showTree = ref(false)
   justify-content: center;
   transition: all 0.3s ease;
   color: #2e4f3b;
+  position: relative;
+  overflow: hidden;
+}
+
+.tree-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(125, 171, 138, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .tree-button:hover {
   background: #2e4f3b;
   color: white;
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 4px 12px rgba(46, 79, 59, 0.25);
+}
+
+.tree-button:hover::before {
+  opacity: 1;
 }
 
 .tree-icon {
   width: 28px;
   height: 28px;
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.tree-button:hover .tree-icon {
+  animation: pulse-grow 0.6s ease-in-out;
 }
 </style>
 

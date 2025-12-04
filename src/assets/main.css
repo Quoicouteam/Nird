@@ -11,23 +11,67 @@
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background: #faf9f7;
+  background: linear-gradient(180deg, #faf9f7 0%, #f5f8f6 50%, #f0f4f2 100%);
   color: #333;
   line-height: 1.6;
 }
 
 #app {
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animations globales */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateX(0) scaleX(1); }
+  50% { transform: translateX(3px) scaleX(1); }
+}
+
+@keyframes pulse-grow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(90, 125, 106, 0.3); }
+  50% { text-shadow: 0 0 15px rgba(90, 125, 106, 0.6); }
 }
 
 a {
   text-decoration: none;
   color: #5a7d6a;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #5a7d6a, #7dab8a);
+  transition: width 0.3s ease;
 }
 
 a:hover {
   color: #2e4f3b;
+}
+
+a:hover::after {
+  width: 100%;
 }
 
 /* Utilitaires */
@@ -40,4 +84,25 @@ a:hover {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: var(--base);
+}
+
+/* Animations des éléments de texte */
+h1, h2, h3 {
+  animation: slide-in-top 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slide-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation au survol des labels */
+label {
+  transition: color 0.2s ease;
 }

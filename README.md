@@ -22,11 +22,16 @@ Notre équipe a choisi de participer aux défis suivants :
 
 ### 2. Défi : Visualisation Audio & ft_rube_goldberg
 - **Objectifs :** Créer une expérience de visualisation audio amusante et concevoir une "machine de Rube Goldberg" (une séquence d'événements complexes pour une tâche simple).
-- **Notre approche :** Nous avons lié ces deux défis. L'arbre de compétences contient une "quête annexe" (une pousse) qui mène à un visualiseur audio. Dans ce visualisateur audio, nous avons une petite machine de Rube Goldberg permettant de modifier la puissance de la musique avec un tourne-disque capricieux.
+- **Notre approche :** Nous avons lié ces deux défis. L'arbre de compétences contient une "quête annexe" (une pousse) qui mène à un visualiseur audio. Dans ce visualiseur audio, nous avons une petite machine de Rube Goldberg permettant de modifier la puissance de la musique avec un tourne-disque capricieux.
+- **Dépôts associés :**
+  - [Audio-Visualizer-With-Goldberg-Volume](https://github.com/Quoicouteam/Audio-Visualizer-With-Goldberg-Volume)
+  - [Audio-Visualizer](https://github.com/Quoicouteam/Audio-Visualizer)
+  - [VolumeGoldberg](https://github.com/Quoicouteam/VolumeGoldberg)
 
 ### 3. Easter Egg : Hidden Snake
 - **Concept :** Un mini-jeu Snake est caché dans le site.
 - **Activation :** En complétant des QCM éparpillés dans le site, on découvre les lettres à taper pour lancer le jeu. Le [code secret](/CODE_SECRET.md) est disponible pour les développeurs. 
+- **Dépôt associé :** [Hidden-Snake](https://github.com/Quoicouteam/Hidden-Snake)
 
 ## Arborescence du projet
 

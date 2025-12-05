@@ -36,8 +36,7 @@ const masked = computed(() => {
         <span v-for="(ch, idx) in masked" :key="idx" :id="'masked-letter-' + letters[idx]" class="masked-letter">{{ ch }}</span>
       </div>
     </div>
-
-    <a href="src/troll/rickroll/pageRickroll.html" target="_blank" class="snake-troll">
+    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1" target="_blank" class="snake-troll">
       <img src="../troll/snakeTroll.jpeg" alt="snaketroll">
     </a>
   </header>

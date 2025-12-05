@@ -72,7 +72,8 @@ const teleportToRandomPage = () => {
   }
   
   // 3. Filtrer les IDs débloqués pour ne garder que ceux qui ont une route valide
-  const validDestinations = unlockedIds.filter(id => idToRoute[id])
+  // On exclut explicitement 'audio-visualizer' car c'est une page externe/spéciale
+  const validDestinations = unlockedIds.filter(id => idToRoute[id] && id !== 'audio-visualizer')
   
   if (validDestinations.length > 0) {
     // 4. Choisir une destination au hasard

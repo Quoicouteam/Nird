@@ -41,6 +41,13 @@
       "parent": "presentation"
     },
     {
+      "id": "logiciels-alternatifs",
+      "title": "Logiciels",
+      "subtitle": "Alternatifs",
+      "route": "/page/logiciels-alternatifs",
+      "parent": "licences"
+    },
+    {
       "id": "windows-payant",
       "title": "Windows",
       "subtitle": "Payant",

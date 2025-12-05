@@ -1,0 +1,675 @@
+<template>
+  <div class="page">
+    <!-- Décoration de fond végétale -->
+    <div class="nature-bg">
+      <div class="leaf leaf-1">🍃</div>
+      <div class="leaf leaf-2">🌿</div>
+      <div class="leaf leaf-3">🍂</div>
+      <div class="leaf leaf-4">🌱</div>
+      <div class="leaf leaf-5">🍃</div>
+      <div class="leaf leaf-6">🌿</div>
+    </div>
+
+    <article class="content">
+      <div class="header">
+        <div class="header-icon">🔄</div>
+        <h1>Logiciels Payants et Alternatives Libres</h1>
+        <p class="subtitle">Des alternatives gratuites et performantes existent pour tous vos besoins</p>
+      </div>
+
+      <section class="section">
+        <h2>🎯 Le Constat</h2>
+        <p>
+          Les logiciels professionnels payants sont souvent considérés comme indispensables. Pourtant, pour chaque solution propriétaire coûteuse, il existe des alternatives libres et gratuites, souvent tout aussi performantes.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>🎬 Montage Vidéo</h2>
+        <div class="alternative-card">
+          <div class="soft-comparison">
+            <div class="soft-item paid">
+              <span class="soft-icon">💰</span>
+              <h3>Adobe Premiere Pro</h3>
+              <p class="price">~24€/mois (abonnement)</p>
+              <p>Logiciel professionnel de référence, mais coûteux et lourd</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="soft-item free">
+              <span class="soft-icon">🆓</span>
+              <h3>Kdenlive</h3>
+              <p class="price">Gratuit & Open Source</p>
+              <p>Puissant, complet, utilisé par des professionnels. Compatible avec tous les formats.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>📝 Suite Bureautique</h2>
+        <div class="alternative-card">
+          <div class="soft-comparison">
+            <div class="soft-item paid">
+              <span class="soft-icon">💰</span>
+              <h3>Microsoft 365</h3>
+              <p class="price">~70€/an (par utilisateur)</p>
+              <p>Word, Excel, PowerPoint dans le cloud avec OneDrive</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="soft-item free">
+              <span class="soft-icon">🆓</span>
+              <h3>LibreOffice</h3>
+              <p class="price">Gratuit & Open Source</p>
+              <p>Writer, Calc, Impress. Compatible avec tous les formats Office. Aucun abonnement.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>🎨 Retouche Photo</h2>
+        <div class="alternative-card">
+          <div class="soft-comparison">
+            <div class="soft-item paid">
+              <span class="soft-icon">💰</span>
+              <h3>Adobe Photoshop</h3>
+              <p class="price">~24€/mois (abonnement)</p>
+              <p>La référence en retouche photo professionnelle</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="soft-item free">
+              <span class="soft-icon">🆓</span>
+              <h3>GIMP</h3>
+              <p class="price">Gratuit & Open Source</p>
+              <p>Retouche photo avancée, calques, filtres, plugins. Utilisé par des millions de designers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>🤖 Intelligence Artificielle</h2>
+        <div class="alternative-card">
+          <div class="soft-comparison">
+            <div class="soft-item paid">
+              <span class="soft-icon">💰</span>
+              <h3>ChatGPT Plus</h3>
+              <p class="price">~20€/mois</p>
+              <p>IA conversationnelle avec modèle GPT-4</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="soft-item free">
+              <span class="soft-icon">🆓</span>
+              <h3>HuggingChat</h3>
+              <p class="price">Gratuit & Open Source</p>
+              <p>IA open source avec plusieurs modèles disponibles. Respecte votre vie privée.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>📊 Tableau Récapitulatif</h2>
+        <div class="recap-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Besoin</th>
+                <th>💰 Payant</th>
+                <th>🆓 Gratuit</th>
+                <th>💡 Économie annuelle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Montage Vidéo</td>
+                <td>Premiere Pro</td>
+                <td>Kdenlive</td>
+                <td>~288€</td>
+              </tr>
+              <tr>
+                <td>Bureautique</td>
+                <td>Microsoft 365</td>
+                <td>LibreOffice</td>
+                <td>~70€</td>
+              </tr>
+              <tr>
+                <td>Retouche Photo</td>
+                <td>Photoshop</td>
+                <td>GIMP</td>
+                <td>~288€</td>
+              </tr>
+              <tr>
+                <td>IA Conversationnelle</td>
+                <td>ChatGPT Plus</td>
+                <td>HuggingChat</td>
+                <td>~240€</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="3"><strong>TOTAL PAR AN</strong></td>
+                <td><strong>~886€</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="text-align: center; margin-top: 1rem; color: #5a7d6a; font-style: italic;">
+          *Pour un lycée de 500 élèves, cela représente des centaines de milliers d'euros économisés chaque année.
+        </p>
+      </section>
+
+      <section class="section call-to-action">
+        <h3>💡 À Retenir</h3>
+        <p>
+          Les logiciels libres ne sont pas des "versions pauvres". Ce sont des outils professionnels, 
+          maintenus par des communautés passionnées, utilisés dans le monde entier par des entreprises, 
+          des écoles et des créateurs professionnels.
+        </p>
+      </section>
+    </article>
+
+    <!-- ========================================= -->
+    <!-- QUIZ INTERACTIF -->
+    <!-- ========================================= -->
+
+    <div class="quiz-wrapper">
+      <div class="quiz-container">
+        <h2>🎮 Mission : Connaître les Alternatives</h2>
+        
+        <!-- ÉCRAN DE FIN -->
+        <div v-if="quizFinished">
+          <p class="mission-status">Mission Terminée !</p>
+          <div class="score-box">{{ score }} / {{ questions.length }}</div>
+          <p v-if="score === questions.length">🌟 Parfait ! Tu connais maintenant les alternatives libres.</p>
+          <p v-else>⚠️ Relis bien les comparaisons pour retenir les alternatives.</p>
+
+          <div class="continue-choices">
+            <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
+              <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+              <button class="btn-next" @click="restartQuiz">Relancer le quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUESTIONNAIRE -->
+        <div v-else>
+          <p class="question-count">Question {{ currentQuestion + 1 }} / {{ questions.length }}</p>
+          <h3 class="question-text">{{ questions[currentQuestion].text }}</h3>
+
+          <div v-for="(option, index) in questions[currentQuestion].options" :key="index">
+            <button 
+              class="btn-option" 
+              :class="{ 
+                  'correct': hasAnswered && option.isCorrect, 
+                  'wrong': hasAnswered && !option.isCorrect && selectedAnswer === index 
+              }"
+              :disabled="hasAnswered"
+              @click="selectAnswer(index, option.isCorrect)"
+            >
+              {{ option.text }}
+            </button>
+          </div>
+
+          <p v-if="hasAnswered && isCurrentCorrect" class="feedback success">✅ Correct ! {{ questions[currentQuestion].explanation }}</p>
+          <p v-if="hasAnswered && !isCurrentCorrect" class="feedback error">❌ Erreur ! {{ questions[currentQuestion].explanation }}</p>
+
+          <button v-if="hasAnswered" class="btn-next" @click="nextQuestion">
+            {{ currentQuestion < questions.length - 1 ? 'Question Suivante' : 'Voir le résultat' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { unlockPage, navigateToPage } from '../../../../router/progress.js'
+
+export default {
+  name: 'PageLogicielsAlternatifs',
+  mounted() {
+    unlockPage('logiciels-alternatifs')
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    } catch (e) {}
+  },
+  data() {
+    return {
+      currentQuestion: 0,
+      score: 0,
+      hasAnswered: false,
+      selectedAnswer: null,
+      isCurrentCorrect: false,
+      quizFinished: false,
+      questions: [
+        {
+          text: "Quelle est l'alternative gratuite à Adobe Premiere Pro pour le montage vidéo ?",
+          explanation: "Kdenlive est un logiciel de montage vidéo professionnel, gratuit et open source.",
+          options: [
+            { text: "Windows Movie Maker", isCorrect: false },
+            { text: "Kdenlive", isCorrect: true },
+            { text: "iMovie", isCorrect: false }
+          ]
+        },
+        {
+          text: "Quelle suite bureautique gratuite remplace Microsoft 365 ?",
+          explanation: "LibreOffice est une suite bureautique complète, gratuite et compatible avec les formats Office.",
+          options: [
+            { text: "Google Docs", isCorrect: false },
+            { text: "LibreOffice", isCorrect: true },
+            { text: "WPS Office", isCorrect: false }
+          ]
+        },
+        {
+          text: "Quel logiciel libre peut remplacer Adobe Photoshop ?",
+          explanation: "GIMP (GNU Image Manipulation Program) est l'alternative libre la plus puissante à Photoshop.",
+          options: [
+            { text: "GIMP", isCorrect: true },
+            { text: "Paint.NET", isCorrect: false },
+            { text: "Canva", isCorrect: false }
+          ]
+        },
+        {
+          text: "Quelle est l'économie annuelle approximative en utilisant toutes ces alternatives gratuites ?",
+          explanation: "En utilisant Kdenlive, LibreOffice, GIMP et HuggingChat au lieu des versions payantes, on économise environ 886€ par an.",
+          options: [
+            { text: "~200€", isCorrect: false },
+            { text: "~500€", isCorrect: false },
+            { text: "~886€", isCorrect: true }
+          ]
+        }
+      ]
+    }
+  },
+  methods: {
+    selectAnswer(index, isCorrect) {
+      this.hasAnswered = true
+      this.selectedAnswer = index
+      this.isCurrentCorrect = isCorrect
+      if (isCorrect) {
+        this.score++
+      }
+    },
+    nextQuestion() {
+      if (this.currentQuestion < this.questions.length - 1) {
+        this.currentQuestion++
+        this.hasAnswered = false
+        this.selectedAnswer = null
+      } else {
+        this.quizFinished = true
+      }
+    },
+    restartQuiz() {
+      this.currentQuestion = 0
+      this.score = 0
+      this.hasAnswered = false
+      this.selectedAnswer = null
+      this.quizFinished = false
+    },
+    continueTo(pageId) {
+      navigateToPage('logiciels-alternatifs', pageId, this.$router)
+    }
+  }
+}
+</script>
+
+<style scoped>
+.page {
+  min-height: calc(100vh - 60px);
+  padding-top: 80px;
+  background: linear-gradient(180deg, #f8f6f3 0%, #fff 50%, #f0f4f2 100%);
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid #7dab8a;
+}
+
+.header-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  color: #2e4f3b;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #5a7d6a;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+h2 {
+  color: #3d6b4f;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  font-weight: 600;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.alternative-card {
+  background: linear-gradient(135deg, #f5f9f7 0%, #e8f5e9 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #c8e6c9;
+}
+
+.soft-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .soft-comparison {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .arrow {
+    display: none;
+  }
+}
+
+.soft-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.soft-item.paid {
+  border: 3px solid #e74c3c;
+}
+
+.soft-item.free {
+  border: 3px solid #66bb6a;
+}
+
+.soft-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.soft-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.soft-item h3 {
+  color: #2e4f3b;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.price {
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.soft-item.free .price {
+  color: #66bb6a;
+}
+
+.soft-item p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: #5a7d6a;
+  font-weight: bold;
+}
+
+.recap-table {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
+  color: white;
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #e8f0eb;
+  color: #555;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #f5faf8;
+}
+
+.total-row {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  font-weight: 700;
+}
+
+.total-row td {
+  color: #2e4f3b;
+  font-size: 1.1rem;
+}
+
+.call-to-action {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 5px solid #66bb6a;
+  text-align: center;
+}
+
+.call-to-action h3 {
+  color: #2e4f3b;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.call-to-action p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* Décoration de fond végétale */
+.nature-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.leaf {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.08;
+  animation: float 8s ease-in-out infinite;
+}
+
+.leaf-1 { top: 5%; left: 5%; animation-delay: 0s; }
+.leaf-2 { top: 15%; right: 10%; animation-delay: 2s; }
+.leaf-3 { bottom: 20%; left: 15%; animation-delay: 4s; }
+.leaf-4 { top: 50%; right: 5%; animation-delay: 1s; }
+.leaf-5 { bottom: 10%; right: 20%; animation-delay: 3s; }
+.leaf-6 { top: 30%; left: 10%; animation-delay: 5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(20px) rotate(10deg); }
+}
+
+/* Quiz styles */
+.quiz-wrapper {
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.quiz-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(46, 79, 59, 0.1);
+  border: 2px solid #d4e5da;
+  text-align: center;
+}
+
+.quiz-container h2 {
+  display: block;
+  margin-bottom: 2rem;
+  color: #2e4f3b;
+  margin-top: 0;
+}
+
+.question-count {
+  color: #5a7d6a;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  color: #2e4f3b;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.btn-option {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  background: white;
+  color: #555;
+  border: 2px solid #d4e5da;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.btn-option:hover:not(:disabled) {
+  border-color: #5a7d6a;
+  background: #f5faf8;
+  transform: translateX(5px);
+}
+
+.btn-option.correct {
+  background: rgba(125, 171, 138, 0.15);
+  border-color: #7dab8a;
+  color: #2e4f3b;
+}
+
+.btn-option.wrong {
+  background: rgba(248, 113, 113, 0.15);
+  border-color: #f87171;
+  color: #c53030;
+}
+
+.score-box {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #5a7d6a;
+  margin: 1.5rem 0;
+}
+
+.mission-status {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e4f3b;
+}
+
+.btn-next {
+  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(90, 125, 106, 0.2);
+}
+
+.btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 125, 106, 0.3);
+}
+
+.continue-choices {
+  margin-top: 1.5rem;
+}
+
+.feedback {
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.feedback.success {
+  color: #7dab8a;
+}
+
+.feedback.error {
+  color: #c53030;
+}
+</style>

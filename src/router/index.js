@@ -3,6 +3,7 @@ import Windows from '../components/TreeViews/Windows/Windows.vue'
 import WindowsPayant from '../components/TreeViews/Licenses/Windows/WindowsPayant.vue'
 import PresentationNird from '../components/TreeViews/PresentationNird.vue'
 import LicensesProblem from '../components/TreeViews/Licenses/LicensesProblem.vue'
+import LogicielsAlternatifs from '../components/TreeViews/Licenses/LogicielsAlternatifs/LogicielsAlternatifs.vue'
 import RGPDPage from '../components/TreeViews/RGPD/RGPD.vue'
 import StockageHorsUE from '../components/TreeViews/RGPD/StockageHorsUE/StockageHorsUE.vue'
 import OpenSource from '../components/TreeViews/RGPD/StockageHorsUE/OpenSource/OpenSource.vue'
@@ -68,15 +69,24 @@ const routes = [
       parent: 'licences'
     }
   },
-    {
-        path: '/page/licences',
-        name: 'licences',
-        component: LicensesProblem,
-        meta: {
-            title: 'Licenses Problem',
-            parent: 'presentation'
-        }
+  {
+    path: '/page/licences',
+    name: 'licences',
+    component: LicensesProblem,
+    meta: {
+      title: 'Licences Coûteuses',
+      parent: 'presentation'
     }
+  },
+  {
+    path: '/page/logiciels-alternatifs',
+    name: 'logiciels-alternatifs',
+    component: LogicielsAlternatifs,
+    meta: {
+      title: 'Logiciels Alternatifs',
+      parent: 'licences'
+    }
+  }
   ,
   {
     path: '/page/sobriete',

@@ -1,29 +1,6 @@
-<script setup>
-import { useRouter } from 'vue-router'
-import { usePageUnlock } from '../../../router/usePageUnlock.js'
-import { completePage } from '../../../router/progress.js'
-
-const router = useRouter()
-
-// Débloquer automatiquement cette page
-usePageUnlock()
-
-function markAsRead() {
-  completePage('licences')
-  router.push('/')
-}
-
-function goToWindowsPayant() {
-  // marquer la page comme lue puis naviguer vers la page WindowsPayant
-  completePage('licences')
-  router.push('/page/windows-payant')
-}
-</script>
-
 <template>
   <div class="page">
-
-        <!-- Décoration de fond végétale -->
+    <!-- Décoration de fond végétale -->
     <div class="nature-bg">
       <div class="leaf leaf-1">🍃</div>
       <div class="leaf leaf-2">🌿</div>
@@ -32,15 +9,16 @@ function goToWindowsPayant() {
       <div class="leaf leaf-5">🍃</div>
       <div class="leaf leaf-6">🌿</div>
     </div>
+
     <article class="content">
       <div class="header">
         <div class="header-icon">💰</div>
-        <h1>Les Licences Payantes</h1>
-        <p class="subtitle">Comprendre l'enjeu des logiciels propriétaires et payants</p>
+        <h1>Les Licences Coûteuses</h1>
+        <p class="subtitle">Abonnements et licences : un coût caché du numérique</p>
       </div>
 
       <section class="section">
-        <h2>🎯 Le Problème</h2>
+        <h2>🎯 Le Constat</h2>
         <p>
           Les licences de logiciels payants représentent un enjeu majeur dans le contexte du numérique responsable.
           Elles créent des barrières à l'accès à la technologie, augmentent les coûts pour les entreprises et les
@@ -51,17 +29,29 @@ function goToWindowsPayant() {
       <section class="section">
         <h2>💸 Enjeux Économiques</h2>
         <div class="issue-card">
-          <h3>📊 Coûts Croissants</h3>
+          <h3>📊 Coûts Récurrents</h3>
           <p>
             Les licences payantes génèrent des dépenses continues pour les entreprises et les particuliers.
             Ces coûts peuvent devenir prohibitifs, en particulier pour les petites structures et les pays en développement.
           </p>
+          <div class="cost-example">
+            <p><strong>Exemple concret :</strong></p>
+            <ul>
+              <li>Microsoft 365 : ~70€/an par utilisateur</li>
+              <li>Adobe Creative Cloud : ~60€/mois (~720€/an)</li>
+              <li>Windows Pro : ~259€ (licence unique)</li>
+              <li>Pour une petite entreprise de 10 personnes : plusieurs milliers d'euros par an</li>
+            </ul>
+          </div>
         </div>
         <div class="issue-card">
-          <h3>🔒 Enfermement Propriétaire</h3>
+          <h3>🔒 Enfermement Propriétaire (Lock-in)</h3>
           <p>
-            Une fois dépendant d'un logiciel payant, il est difficile de en changer sans perdre ses données ou
-            investissements. C'est ce qu'on appelle le « lock-in » ou enfermement numériques.
+            Une fois dépendant d'un logiciel payant, il est difficile d'en changer sans perdre ses données ou
+            investissements. C'est ce qu'on appelle le « lock-in » ou enfermement numérique.
+          </p>
+          <p style="margin-top: 0.75rem;">
+            <strong>Conséquence :</strong> Les entreprises sont "piégées" et doivent continuer à payer, même si le prix augmente.
           </p>
         </div>
         <div class="issue-card">
@@ -99,7 +89,7 @@ function goToWindowsPayant() {
       </section>
 
       <section class="section">
-        <h2>🌱 Solutions : Les Alternatives Libres</h2>
+        <h2>🌱 La Solution : Les Alternatives Libres</h2>
         <p>
           Face à ces enjeux, le logiciel libre et open source offre des alternatives crédibles et responsables :
         </p>
@@ -123,28 +113,6 @@ function goToWindowsPayant() {
             <div class="solution-icon">🔐</div>
             <h3>Sécurité Renforcée</h3>
             <p>De nombreux regards examinent le code, découvrant les failles rapidement</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section examples">
-        <h2>📚 Exemples d'Alternatives Libres</h2>
-        <div class="examples-grid">
-          <div class="example-box">
-            <strong>Bureautique</strong>
-            <p>LibreOffice, Apache OpenOffice</p>
-          </div>
-          <div class="example-box">
-            <strong>Design Graphique</strong>
-            <p>GIMP, Inkscape, Krita</p>
-          </div>
-          <div class="example-box">
-            <strong>Développement</strong>
-            <p>Visual Studio Code, Blender, Audacity</p>
-          </div>
-          <div class="example-box">
-            <strong>Systèmes d'Exploitation</strong>
-            <p>Linux, Ubuntu, Fedora</p>
           </div>
         </div>
       </section>
@@ -176,9 +144,14 @@ function goToWindowsPayant() {
           <div class="continue-choices">
             <p class="choices-label">Que veux-tu faire maintenant ?</p>
             <div class="choices-grid">
+              <button class="choice-button" @click="continueTo('logiciels-alternatifs')">
+                <span class="choice-icon">🔄</span>
+                <span class="choice-title">Logiciels Alternatifs</span>
+                <span class="choice-desc">Découvrir les alternatives gratuites</span>
+              </button>
               <button class="choice-button" @click="continueTo('windows-payant')">
                 <span class="choice-icon">💰</span>
-                <span class="choice-title">Continuer : Windows Payant</span>
+                <span class="choice-title">Windows Payant</span>
                 <span class="choice-desc">Explorer le cas de Windows</span>
               </button>
             </div>

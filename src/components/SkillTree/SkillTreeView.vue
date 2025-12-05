@@ -75,7 +75,13 @@ function getNodeClass(nodeId) {
 
 function handleNodeClick(node) {
   if (isPageUnlocked(node.id)) {
-    emit('node-click', node)
+    // Si le nœud a une URL externe, ouvrir dans un nouvel onglet
+    if (node.externalUrl) {
+      window.open(node.externalUrl, '_blank', 'noopener,noreferrer')
+    } else {
+      // Sinon, navigation interne normale
+      emit('node-click', node)
+    }
   }
 }
 

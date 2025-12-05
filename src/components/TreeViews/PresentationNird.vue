@@ -13,6 +13,39 @@ function chooseNext(choice) {
 }
 </script>
 
+<script>
+    const SEQUENCE_CACHE = ['s', 'n', 'a', 'k', 'e'];
+    let touchesTapees = [];
+
+    function gererFrappeClavier(event) {
+        const touche = event.key.toLowerCase();
+        touchesTapees.push(touche);
+
+        touchesTapees = touchesTapees.slice(-SEQUENCE_CACHE.length);
+
+        if (verifierSequence()) {
+            window.location.href = "/hiddenSnake/PageSnake.html";
+
+            touchesTapees = [];
+        }
+    }
+
+    function verifierSequence() {
+        if (touchesTapees.length !== SEQUENCE_CACHE.length) {
+            return false;
+        }
+
+        for (let i = 0; i < SEQUENCE_CACHE.length; i++) {
+            if (touchesTapees[i] !== SEQUENCE_CACHE[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    document.addEventListener('keydown', gererFrappeClavier);
+</script>
+
 <template>
   <div class="page">
     <!-- Décoration de fond végétale -->
@@ -97,10 +130,10 @@ function chooseNext(choice) {
           <span class="choice-desc">Protéger vos données personnelles</span>
           <span class="choice-arrow">→</span>
         </button>
-        
+
         <button class="choice-button" @click="chooseNext('windows')">
             <span class="choice-icon">🪟</span>
-            <span class="choice-title">Windows & Proprietary OS</span>
+            <span class="choice-title">Windows & OS Propriétaire</span>
             <span class="choice-desc">Comprendre les systèmes d'exploitation propriétaires</span>
             <span class="choice-arrow">→</span>
           </button>
@@ -119,7 +152,7 @@ function chooseNext(choice) {
           <span class="choice-arrow">→</span>
         </button>
 
-      
+
       </div>
     </div>
   </div>

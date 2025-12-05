@@ -26,6 +26,15 @@ function chooseNext(choice) {
       <div class="leaf leaf-4">🌱</div>
       <div class="leaf leaf-5">🍃</div>
       <div class="leaf leaf-6">🌿</div>
+      <div class="leaf leaf-7">🍂</div>
+      <div class="leaf leaf-8">🌱</div>
+      <div class="leaf leaf-9">🍃</div>
+      <div class="leaf leaf-10">🌿</div>
+      <div class="leaf leaf-11">🍂</div>
+      <div class="leaf leaf-12">🌱</div>
+      <div class="leaf leaf-13">🍃</div>
+      <div class="leaf leaf-14">🌿</div>
+      <div class="leaf leaf-15">🍂</div>
     </div>
 
     <article class="content">
@@ -143,6 +152,15 @@ function chooseNext(choice) {
 .leaf-4 { top: 70%; right: 5%; animation-delay: 3s; font-size: 1.5rem; }
 .leaf-5 { top: 20%; right: 15%; animation-delay: 4s; }
 .leaf-6 { top: 60%; left: 10%; animation-delay: 5s; font-size: 2.2rem; }
+.leaf-7 { top: 15%; left: 25%; animation-delay: 1.5s; font-size: 1.8rem; }
+.leaf-8 { top: 45%; right: 20%; animation-delay: 2.5s; }
+.leaf-9 { top: 75%; left: 35%; animation-delay: 3.5s; font-size: 2.1rem; }
+.leaf-10 { top: 25%; left: 45%; animation-delay: 4.5s; }
+.leaf-11 { top: 55%; right: 35%; animation-delay: 5.5s; font-size: 1.9rem; }
+.leaf-12 { top: 80%; right: 25%; animation-delay: 0.5s; }
+.leaf-13 { top: 5%; right: 30%; animation-delay: 3s; font-size: 2.3rem; }
+.leaf-14 { top: 40%; left: 65%; animation-delay: 2s; }
+.leaf-15 { top: 65%; right: 50%; animation-delay: 4s; font-size: 1.7rem; }
 
 @keyframes float-leaf {
   0%, 100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
@@ -202,7 +220,7 @@ h2 {
   color: #4a4a4a;
   margin-bottom: 2.5rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #e8f0eb 0%, #f0f5f2 100%);
+  background: #f8f6f3;
   border-radius: 16px;
   border-left: 4px solid #5a7d6a;
   position: relative;
@@ -335,8 +353,8 @@ h2 {
 }
 
 .step-number {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: linear-gradient(135deg, #5a7d6a, #7dab8a);
   color: white;
   border-radius: 50%;
@@ -361,7 +379,7 @@ h2 {
 
 /* Choices section */
 .choices {
-  background: linear-gradient(180deg, #f0f5f2 0%, #e8f0eb 100%);
+  background: #f1f1f1;
   padding: 3rem 2rem;
   margin-top: 2rem;
   position: relative;

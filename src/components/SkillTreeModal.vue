@@ -130,6 +130,7 @@ function goToPage(nodeId) {
           <ellipse cx="350" cy="200" rx="12" ry="8" fill="#c8e6c9" opacity="0.5"/>
           <ellipse cx="180" cy="160" rx="10" ry="7" fill="#a5d6a7" opacity="0.4"/>
           <ellipse cx="420" cy="160" rx="10" ry="7" fill="#a5d6a7" opacity="0.4"/>
+
         </svg>
       </div>
       
@@ -151,7 +152,7 @@ function goToPage(nodeId) {
 }
 
 .modal-content {
-  background: linear-gradient(180deg, #f8f6f3 0%, #e8f0eb 100%);
+  background: white;
   border-radius: 24px;
   width: 100%;
   max-width: 850px;
@@ -160,6 +161,8 @@ function goToPage(nodeId) {
   position: relative;
   box-shadow: var(--base) 25px 50px rgba(0, 0, 0, 0.25);
   border: 2px solid rgba(90, 125, 106, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
 .close-button {
@@ -193,6 +196,10 @@ function goToPage(nodeId) {
 .tree-container {
   width: 100%;
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .tree-svg {
@@ -225,10 +232,12 @@ function goToPage(nodeId) {
   filter: blur(2px);
   opacity: 0.5;
   transition: all 0.3s ease;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 .leaf-shape {
-  rx: 45;
+  rx: 45px;
 }
 
 .node-text {

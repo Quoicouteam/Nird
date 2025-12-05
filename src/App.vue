@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import SiteHeader from './components/SiteHeader.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import SkillTreeManager from './components/SkillTree/SkillTreeManager.vue'
+import LaserGame from './components/LaserGame.vue'
 
 const showTree = ref(false)
 </script>
@@ -15,6 +16,7 @@ const showTree = ref(false)
     </main>
     <SiteFooter />
     <SkillTreeManager v-if="showTree" @close="showTree = false" />
+    <LaserGame />
   </div>
 </template>
 

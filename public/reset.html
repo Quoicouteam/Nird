@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset NIRD Progress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #5a7d6a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #2e4f3b;
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌳 NIRD - Gestion de la progression</h1>
+        
+        <div style="margin: 20px 0;">
+            <button onclick="initProgress()">🔧 Initialiser avec la bonne structure</button>
+            <button onclick="resetProgress()">🗑️ Réinitialiser complètement</button>
+            <button onclick="unlockAll()">🔓 Débloquer toutes les pages</button>
+            <button onclick="location.href='/'">🏠 Retour à l'accueil</button>
+        </div>
+        
+        <div id="status"></div>
+        
+        <div id="current"></div>
+    </div>
+    
+    <script>
+        function showCurrent() {
+            const current = localStorage.getItem('nird-progress');
+            const parsed = current ? JSON.parse(current) : null;
+            document.getElementById('current').innerHTML = 
+                '<h2>État actuel:</h2><pre>' + 
+                JSON.stringify(parsed, null, 2) + 
+                '</pre>';
+        }
+        
+        function initProgress() {
+            const defaultProgress = {
+                unlockedPages: ['presentation'],
+                completed: []
+            };
+            localStorage.setItem('nird-progress', JSON.stringify(defaultProgress));
+            document.getElementById('status').innerHTML = '<p class="success">✅ Progression initialisée avec la structure correcte!</p>';
+            showCurrent();
+        }
+        
+        function resetProgress() {
+            localStorage.removeItem('nird-progress');
+            document.getElementById('status').innerHTML = '<p class="success">✅ Progression supprimée! Rechargez la page pour réinitialiser.</p>';
+            showCurrent();
+        }
+        
+        function unlockAll() {
+            const allUnlocked = {
+                unlockedPages: ['presentation', 'confidentialite', 'licences', 'sobriete'],
+                completed: []
+            };
+            localStorage.setItem('nird-progress', JSON.stringify(allUnlocked));
+            document.getElementById('status').innerHTML = '<p class="success">✅ Toutes les pages débloquées!</p>';
+            showCurrent();
+        }
+        
+        // Afficher l'état au chargement
+        showCurrent();
+    </script>
+</body>
+</html>

@@ -9,10 +9,6 @@
       <div class="leaf leaf-5">🍃</div>
       <div class="leaf leaf-6">🌿</div>
     </div>
-    
-    <!-- ========================================= -->
-    <!-- PARTIE 1 : LE CONTENU PÉDAGOGIQUE (COURS) -->
-    <!-- ========================================= -->
 
     <div class="container">
       
@@ -116,18 +112,6 @@
                   <span class="choice-title">Continuer : Stockage des données hors UE</span>
                   <span class="choice-desc">Revoir ou approfondir le stockage hors UE</span>
                 </button>
-
-                <button class="choice-button" @click="continueTo('licences')">
-                  <span class="choice-icon">💰</span>
-                  <span class="choice-title">Continuer : Licences coûteuses</span>
-                  <span class="choice-desc">Explorer la page sur les licences</span>
-                </button>
-
-                <button class="choice-button" @click="continueTo('sobriete')">
-                  <span class="choice-icon">🌱</span>
-                  <span class="choice-title">Continuer : Sobriété & Écologie</span>
-                  <span class="choice-desc">Aller vers les pratiques sobres</span>
-                </button>
               </div>
 
               <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
@@ -171,11 +155,13 @@
 </template>
 
 <script>
-import { completePage, unlockChildren } from '../stores/progress.js'
+import { unlockPage, navigateToPage } from '../../../router/progress.js'
 
 export default {
   name: 'PageRGPD',
   mounted() {
+    // Débloquer cette page
+    unlockPage('confidentialite')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -245,10 +231,9 @@ export default {
         this.hasAnswered = false;
         this.selectedAnswer = null;
       } else {
-        // Quiz fini : marquer la page comme complétée et débloquer les enfants
+        // Quiz fini : marquer la page comme complétée
         try {
           completePage('confidentialite')
-          unlockChildren(['confidentialite', 'stockage-hors-ue', 'licences', 'sobriete'])
         } catch (e) {
           // ignore if store not available
         }
@@ -264,21 +249,8 @@ export default {
     }
     ,
     continueTo(pageId) {
-      // Assure que la page courante est marquée complétée et que les enfants sont débloqués
-      try {
-        completePage('confidentialite')
-        unlockChildren(['confidentialite', 'stockage-hors-ue', 'licences', 'sobriete'])
-      } catch (e) {}
-
-      // Si la route existe (par name), on y va, sinon on retourne à l'accueil (arbre)
-      if (this.$router && this.$router.hasRoute && this.$router.hasRoute(pageId)) {
-        this.$router.push({ name: pageId })
-      } else if (pageId === 'tree' || pageId === '/' ) {
-        this.$router.push('/')
-      } else {
-        // fallback : redirige vers l'accueil (arbre des compétences)
-        this.$router.push('/')
-      }
+      // Utiliser la méthode centralisée de navigation
+      navigateToPage('confidentialite', pageId, this.$router)
     }
   }
 }

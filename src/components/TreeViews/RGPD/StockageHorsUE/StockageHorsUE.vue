@@ -1,14 +1,5 @@
 <template>
-  <div class="sobriete-page">
-    <!-- Décoration de fond végétale -->
-    <div class="nature-bg">
-      <div class="leaf leaf-1">🍃</div>
-      <div class="leaf leaf-2">🌿</div>
-      <div class="leaf leaf-3">🍂</div>
-      <div class="leaf leaf-4">🌱</div>
-      <div class="leaf leaf-5">🍃</div>
-      <div class="leaf leaf-6">🌿</div>
-    </div>
+  <div class="stockage-page">
     
     <!-- ========================================= -->
     <!-- PARTIE 1 : LE CONTENU PÉDAGOGIQUE (COURS) -->
@@ -18,53 +9,79 @@
       
       <!-- HEADER -->
       <header>
-        <h1>🌱 La Sobriété Numérique</h1>
-        <p class="subtitle">"Le meilleur déchet est celui qu'on ne produit pas... même numériquement."</p>
+        <h1>☁️ La Forteresse Lointaine (Stockage Hors UE)</h1>
+        <p class="subtitle">Le Cloud n'est pas un nuage. C'est l'ordinateur de quelqu'un d'autre.</p>
       </header>
 
-      <!-- LE POIDS INVISIBLE -->
+      <!-- LE MYTHE DU NUAGE -->
       <section class="card">
-        <h2>⚖️ Le Poids Invisible du Virtuel</h2>
-        <p>On pense souvent que le numérique est "immatériel" ou "propre". C'est faux.</p>
-        <p>Internet pollue autant que l'aviation civile mondiale. Chaque email stocké, chaque vidéo streamée consomme de l'électricité dans un Data Center climatisé qui tourne 24h/24.</p>
-        <div class="alert-box">
-          <p>🔥 <strong>Le Chiffre Choc :</strong> Un simple email avec une pièce jointe de 1 Mo émet environ <strong>19g de CO₂</strong>. Imaginez les millions d'emails qui dorment inutilement dans nos boîtes...</p>
+        <p>Quand on te dit que tes fichiers sont "dans le Cloud", ils ne flottent pas dans le ciel. Ils sont stockés physiquement sur des disques durs, dans des hangars immenses (Data Centers) qui consomment énormément d'énergie et d'eau pour se refroidir.</p>
+        <p><strong>La question cruciale est : Où se trouve ce hangar ? Et à qui appartient-il ?</strong></p>
+      </section>
+
+      <!-- LE PROBLÈME JURIDIQUE -->
+      <section>
+        <h2>🇺🇸 Le Piège de l'Extra-territorialité</h2>
+        <div class="card">
+          <p>La majorité des données scolaires (ENT, notes, dossiers) transite souvent par les "Hyperscalers" : <strong>AWS (Amazon), Azure (Microsoft) ou Google Cloud</strong>.</p>
+          <p>Même si ces entreprises vous disent "Ne vous inquiétez pas, le serveur est à Paris", elles restent des entreprises américaines.</p>
+          <div class="alert-box">
+            <p>🚨 <strong>Le CLOUD Act (Encore lui) :</strong> Cette loi américaine oblige toute entreprise US à donner les données qu'elle stocke aux autorités américaines (FBI, NSA), même si ces données sont stockées physiquement en Europe. C'est une violation de notre souveraineté.</p>
+          </div>
         </div>
       </section>
 
-      <!-- MISSION NETTOYAGE -->
+      <!-- LA SOLUTION SOUVERAINE -->
       <section>
-        <h2>🧹 Mission : Grand Nettoyage</h2>
+        <h2>🇪🇺 La Souveraineté Numérique</h2>
         <div class="card">
-          <p>Pour alléger ton sac à dos numérique et sauver des arbres, voici les cibles prioritaires :</p>
-          <ul class="eco-list">
-            <li>
-              <strong>Vider sa boîte mail :</strong>
-              <br><span class="desc">Supprime les vieux messages, les spams et désabonne-toi des newsletters que tu ne lis jamais (utilise des outils comme <em>Cleanfox</em> ou fais-le à la main).</span>
-            </li>
-            <li>
-              <strong>Arrêter les pièces jointes lourdes :</strong>
-              <br><span class="desc">Au lieu d'envoyer un fichier de 10 Mo à 30 personnes (300 Mo stockés !), envoie un <strong>lien de téléchargement</strong> (via FileSender ou Nextcloud) qui expire après 7 jours.</span>
-            </li>
-            <li>
-              <strong>La vidéo en basse résolution :</strong>
-              <br><span class="desc">As-tu vraiment besoin de regarder un tuto YouTube en 4K sur ton téléphone ? Passe en 720p ou 480p pour diviser ta consommation par 4.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- L'ÉNERGIE FANTÔME (ÉCRANS) -->
-      <section>
-        <h2>🧛 Chasser l'Énergie Fantôme</h2>
-        <div class="card">
-          <p>Ton matériel consomme même quand tu ne l'utilises pas.</p>
+          <p>Pour résister, le Village NIRD doit rapatrier ses ressources. C'est ce qu'on appelle la <strong>Souveraineté Numérique</strong> : être maître chez soi.</p>
           <ul>
-            <li><strong>Le mode "Veille" est un piège :</strong> Un ordinateur en veille continue de consommer. Éteins-le vraiment le soir.</li>
-            <li><strong>La luminosité de l'écran :</strong> Baisser la luminosité de 100% à 70% économise jusqu'à 20% de batterie (et d'énergie).</li>
-            <li><strong>Le Dark Mode (Mode Sombre) :</strong> Sur les écrans OLED (smartphones modernes), le noir éteint les pixels. C'est bon pour la planète et pour tes yeux !</li>
+            <li><strong>Hébergement Local :</strong> Utiliser des hébergeurs européens (OVHcloud, Scaleway, Hetzner) qui ne sont pas soumis aux lois américaines.</li>
+            <li><strong>Auto-hébergement :</strong> Le stade ultime de la résistance. Installer son propre serveur dans le lycée (un simple vieux PC peut suffire pour commencer !).</li>
           </ul>
         </div>
+      </section>
+
+      <!-- COMPARATEUR -->
+      <section>
+        <h2>⚔️ Le Duel des Hébergeurs</h2>
+        <div class="card no-padding">
+          <table>
+            <thead>
+              <tr>
+                <th>❌ Le Cloud de l'Empire (GAFAM)</th>
+                <th>✅ Le Cloud Résistant (Souverain)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Soumis au droit américain (Patriot Act / Cloud Act).</td>
+                <td>Protégé par le droit européen (RGPD strict).</td>
+              </tr>
+              <tr>
+                <td>Données souvent répliquées aux USA sans qu'on le sache.</td>
+                <td>Garantie que les données restent en France/UE.</td>
+              </tr>
+              <tr>
+                <td>Tarifs opaques qui augmentent quand on est captif.</td>
+                <td>Tarifs transparents et soutien à l'économie locale.</td>
+              </tr>
+              <tr>
+                <td>Risque d'espionnage industriel ou politique.</td>
+                <td>Confidentialité garantie pour les services publics.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TRANSITION VERS LA PROCHAINE PAGE -->
+      <section style="margin-top: 2rem; text-align: center;">
+        <p style="color: var(--text-muted); font-style: italic;">
+          "C'est bien de stocker ses données en France... mais si le logiciel qu'on utilise est une 'Boîte Noire' fermée, sommes-nous vraiment en sécurité ?"<br>
+          👉 <strong>Prochaine étape : L'Open Source.</strong>
+        </p>
       </section>
 
       <!-- ========================================= -->
@@ -73,17 +90,29 @@
 
       <div class="quiz-wrapper">
         <div class="quiz-container">
-          <h2>🎮 Mission : Éco-Gestes</h2>
+          <h2>🎮 Mission : Rapatriement des Données</h2>
           
           <!-- ÉCRAN DE FIN -->
           <div v-if="quizFinished">
-            <p class="mission-status">Bilan Carbone Terminé !</p>
+            <p class="mission-status">Mission Terminée !</p>
             <div class="score-box">{{ score }} / {{ questions.length }}</div>
-            <p v-if="score === questions.length">🌟 Bravo ! Tu es un véritable Éco-Résistant.</p>
-            <p v-else>⚠️ Ton empreinte carbone est encore trop élevée. Relis les conseils !</p>
-            <div style="display:flex; gap:0.75rem; justify-content:center; margin-top:1rem;">
-              <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
-              <button class="btn-next" @click="restartQuiz">Refaire le bilan</button>
+            <p v-if="score === questions.length">🌟 Bravo ! Nos données sont désormais en sécurité sur le sol européen.</p>
+            <p v-else>⚠️ Attention, certaines de tes données ont été interceptées à la frontière !</p>
+
+            <div class="continue-choices">
+              <p class="choices-label">Que veux-tu faire maintenant ?</p>
+              <div class="choices-grid">
+                <button class="choice-button" @click="continueTo('open-source')">
+                  <span class="choice-icon">📦</span>
+                  <span class="choice-title">Continuer : Open Source</span>
+                  <span class="choice-desc">Aller à la page Open Source</span>
+                </button>
+              </div>
+
+              <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
+                <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+                <button class="btn-next" @click="restartQuiz">Recommencer la mission</button>
+              </div>
             </div>
           </div>
 
@@ -121,11 +150,13 @@
 </template>
 
 <script>
-import { completePage, unlockChildren } from '../stores/progress.js'
+import { unlockPage, navigateToPage } from '../../../../router/progress.js'
 
 export default {
-  name: 'PageSobriete',
+  name: 'PageStockage',
   mounted() {
+    // Débloquer cette page
+    unlockPage('stockage-hors-ue')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -142,39 +173,39 @@ export default {
       quizFinished: false,
       questions: [
         {
-          text: "Pourquoi est-il mieux d'envoyer un lien plutôt qu'une pièce jointe ?",
-          explanation: "La pièce jointe est dupliquée chez chaque destinataire, ce qui multiplie le stockage inutile.",
+          text: "Concrètement, c'est quoi le 'Cloud' ?",
+          explanation: "Ce n'est pas magique, c'est juste l'ordinateur de quelqu'un d'autre connecté à Internet.",
           options: [
-            { text: "C'est plus joli", isCorrect: false },
-            { text: "Les liens sont magiques", isCorrect: false},
-            { text: "Ça évite de stocker le fichier en plusieurs exemplaires", isCorrect: true  }
+            { text: "Un nuage de vapeur numérique", isCorrect: false },
+            { text: "Des serveurs physiques dans des Data Centers", isCorrect: true },
+            { text: "Un satellite dans l'espace", isCorrect: false }
           ]
         },
         {
-          text: "Quelle action permet d'économiser de l'énergie sur un écran OLED ?",
-          explanation: "Sur l'OLED, le noir = pixel éteint = 0 consommation.",
+          text: "Si Microsoft met un serveur à Paris, est-il protégé des espions américains ?",
+          explanation: "Non ! À cause du CLOUD Act, la nationalité de l'entreprise prime sur la localisation du serveur.",
           options: [
-            { text: "Mettre un fond d'écran blanc", isCorrect: false },
-            { text: "Activer le Mode Sombre (Dark Mode)", isCorrect: true },
-            { text: "Nettoyer l'écran avec un chiffon", isCorrect: false }
+            { text: "Oui, car il est sur le sol français", isCorrect: false },
+            { text: "Ça dépend de la météo", isCorrect: false },
+            { text: "Non, car l'entreprise reste américaine (CLOUD Act)", isCorrect: true  }
           ]
         },
         {
-          text: "Un email stocké dans ta boîte de réception consomme-t-il de l'énergie ?",
-          explanation: "Oui ! Il est stocké sur un disque dur dans un Data Center qui doit être alimenté et refroidi 24h/24.",
+          text: "Lequel de ces acteurs est une solution 'Souveraine' (Européenne) ?",
+          explanation: "OVHcloud est français (Roubaix). AWS est à Amazon (USA) et Azure à Microsoft (USA).",
           options: [
-            { text: "Non, une fois reçu il ne bouge plus", isCorrect: false },
-            { text: "Seulement s'il contient des smileys", isCorrect: false  },
-            { text: "Oui, tant qu'il n'est pas supprimé, il consomme", isCorrect: true }
+            { text: "AWS (Amazon Web Services)", isCorrect: false },
+            { text: "OVHcloud", isCorrect: true },
+            { text: "Microsoft Azure", isCorrect: false }
           ]
         },
         {
-          text: "Que faire de son ordinateur le soir ?",
-          explanation: "La veille consomme toujours un peu d'électricité. L'extinction complète est la seule solution zéro conso.",
+          text: "Quel est l'avantage principal de l'auto-hébergement ?",
+          explanation: "Si le serveur est chez toi, personne d'autre n'y a accès physiquement.",
           options: [
-            { text: "L'éteindre complètement", isCorrect: true },
-            { text: "Le mettre en veille", isCorrect: false },
-            { text: "Le laisser allumé pour les mises à jour", isCorrect: false }
+            { text: "On contrôle physiquement ses données à 100%", isCorrect: true  },
+            { text: "C'est gratuit et facile", isCorrect: false},
+            { text: "Ça fait aller Internet plus vite", isCorrect: false }
           ]
         }
       ]
@@ -194,13 +225,15 @@ export default {
         this.currentQuestion++;
         this.hasAnswered = false;
         this.selectedAnswer = null;
-      } else {
-        // marque la page comme complétée
-        try {
-          completePage('sobriete')
-        } catch (e) { /* ignore */ }
-        this.quizFinished = true;
-      }
+          } else {
+          // Quiz fini : marquer la page comme complétée
+          try {
+            completePage('stockage-hors-ue')
+          } catch (e) {
+            // ignore
+          }
+          this.quizFinished = true;
+        }
     },
     restartQuiz() {
       this.currentQuestion = 0;
@@ -211,27 +244,15 @@ export default {
     }
     ,
     continueTo(pageId) {
-      // marque comme complétée et navigue
-      try {
-        completePage('sobriete')
-      } catch (e) {}
-
-      if (this.$router && this.$router.hasRoute && this.$router.hasRoute(pageId)) {
-        this.$router.push({ name: pageId })
-      } else if (pageId === '/' || pageId === 'tree') {
-        this.$router.push('/')
-      } else {
-        this.$router.push('/')
-      }
+      navigateToPage('stockage-hors-ue', pageId, this.$router)
     }
-  },
-
+  }
 }
 </script>
 
 <style scoped>
 /* Page wrapper avec décoration de fond */
-.sobriete-page {
+.rgpd-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5faf8 0%, #eef6f3 100%);
   position: relative;

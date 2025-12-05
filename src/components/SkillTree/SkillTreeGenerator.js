@@ -55,6 +55,15 @@ function buildHierarchy(treeData) {
  * Calcule les positions des nœuds en fonction de la hiérarchie
  */
 function calculatePositions(node, parentX = ROOT_X, index = 0, siblingsCount = 1) {
+  // Position spéciale pour les pousses (sprout)
+  if (node.special === 'sprout') {
+    node.position = { x: ROOT_X - 200, y: ROOT_Y + 50 }
+    node.shape = { rx: 25, ry: 20 }
+    node.isRoot = false
+    node.isSprout = true
+    return
+  }
+
   const level = node.level
   const y = ROOT_Y - (level * LEVEL_HEIGHT)
   
@@ -105,7 +114,8 @@ export function generateBranches(nodes) {
   
   // Pour chaque nœud sauf la racine, créer une branche vers son parent
   nodes.forEach(node => {
-    if (node.parent) {
+    // Ignorer les pousses spéciales (pas de branche classique)
+    if (node.parent && node.special !== 'sprout') {
       const parentNode = nodeMap.get(node.parent)
       if (!parentNode) return
       
@@ -145,6 +155,25 @@ export function generateTrunk() {
     path: `M${ROOT_X - 10} ${ROOT_Y + 40} Q${ROOT_X - 15} ${ROOT_Y} ${ROOT_X - 5} ${ROOT_Y - 50} Q${ROOT_X} ${ROOT_Y - 80} ${ROOT_X} ${ROOT_Y - 80}`,
     strokeWidth: 12
   }
+}
+
+/**
+ * Génère les tiges des pousses spéciales qui sortent de l'herbe
+ */
+export function generateSprouts(nodes) {
+  const sprouts = nodes.filter(n => n.special === 'sprout')
+  return sprouts.map(sprout => {
+    const startY = ROOT_Y + 40 // Au niveau du sol
+    const endY = sprout.position.y
+    const x = sprout.position.x
+
+    // Une petite tige qui pousse du sol avec une légère courbe
+    return {
+      nodeId: sprout.id,
+      path: `M${x} ${startY} Q${x - 5} ${(startY + endY) / 2} ${x} ${endY}`,
+      strokeWidth: 3
+    }
+  })
 }
 
 /**

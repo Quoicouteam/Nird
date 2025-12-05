@@ -5,7 +5,8 @@ import {
   generateNodes, 
   generateBranches, 
   generateTrunk, 
-  generateDecorations 
+  generateDecorations,
+  generateSprouts
 } from './SkillTreeGenerator.js'
 import treeData from './SkillTreeData.json'
 
@@ -48,15 +49,27 @@ const decorations = computed(() => {
   }
 })
 
+const sprouts = computed(() => {
+  try {
+    return generateSprouts(nodes.value)
+  } catch (error) {
+    console.error('Erreur génération sprouts:', error)
+    return []
+  }
+})
+
 // Vérification du statut des nœuds
 function getNodeClass(nodeId) {
   const unlocked = isPageUnlocked(nodeId)
   const completed = isPageCompleted(nodeId)
-  
+  const node = nodes.value.find(n => n.id === nodeId)
+  const isSprout = node?.special === 'sprout'
+
   return {
     'node--unlocked': unlocked,
     'node--locked': !unlocked,
-    'node--completed': completed
+    'node--completed': completed,
+    'node--sprout': isSprout
   }
 }
 
@@ -107,6 +120,18 @@ onMounted(() => {
         class="branch--visible"
       />
       
+      <!-- Tiges des pousses dans l'herbe -->
+      <path
+        v-for="sprout in sprouts"
+        :key="'sprout-' + sprout.nodeId"
+        :d="sprout.path"
+        stroke="#7dab8a"
+        :stroke-width="sprout.strokeWidth"
+        fill="none"
+        stroke-linecap="round"
+        class="sprout-stem"
+      />
+
       <!-- Feuillage décoratif de fond -->
       <ellipse 
         :cx="decorations.foliage.cx" 
@@ -218,6 +243,26 @@ onMounted(() => {
   stroke: #8B5A2B;
 }
 
+/* Tiges de pousses dans l'herbe */
+.sprout-stem {
+  opacity: 0.9;
+  stroke: #7dab8a;
+  animation: sprout-grow 2s ease-out;
+}
+
+@keyframes sprout-grow {
+  from {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  to {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    opacity: 0.9;
+  }
+}
+
 /* Nœuds */
 .node {
   cursor: pointer;
@@ -274,6 +319,33 @@ onMounted(() => {
 .node--unlocked:hover .node-shape {
   fill: #a5d6a7;
   transform: scale(1.05);
+}
+
+/* Pousse (quête annexe) - toujours accessible */
+.node--sprout.node--unlocked .node-shape {
+  fill: #b3e5b3;
+  stroke: #6b9b6b;
+  stroke-width: 2.5;
+  animation: sprout-pulse 3s ease-in-out infinite;
+}
+
+.node--sprout.node--unlocked .node-text,
+.node--sprout.node--unlocked .node-text-sub {
+  fill: #2d5a2d;
+}
+
+.node--sprout.node--unlocked:hover .node-shape {
+  fill: #9dd69d;
+  transform: scale(1.1);
+}
+
+@keyframes sprout-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
 }
 
 /* Nœud complété */

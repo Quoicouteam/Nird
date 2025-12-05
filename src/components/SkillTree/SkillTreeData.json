@@ -39,6 +39,14 @@
       "subtitle": "Écologie",
       "route": "/page/sobriete",
       "parent": "presentation"
+    },
+    {
+      "id": "audio-visualizer",
+      "title": "Audio",
+      "subtitle": "Visualizer",
+      "route": "/page/audio-visualizer",
+      "parent": "presentation",
+      "special": "sprout"
     }
   ]
 }

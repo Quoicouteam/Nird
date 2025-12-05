@@ -326,6 +326,16 @@ export default {
   background: linear-gradient(180deg, #f8f6f3 0%, #fff 50%, #f0f4f2 100%);
 }
 
+.unlock-msg {
+  margin-top: 0.5rem;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #e6ffed, #f0fff4);
+  border: 1px solid #bfe6c8;
+  color: #2e7d4a;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
 .content {
   max-width: 900px;
   margin: 0 auto;

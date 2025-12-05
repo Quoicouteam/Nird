@@ -1,12 +1,11 @@
-/* Reset et base */
-
-:root{
-  --base:0;
+:root {
+    --base: 0;
 }
+
 * {
-  margin: var(--base);
-  padding: var(--base);
-  box-sizing: border-box;
+    margin: var(--base);
+    padding: var(--base);
+    box-sizing: border-box;
 }
 
 body {

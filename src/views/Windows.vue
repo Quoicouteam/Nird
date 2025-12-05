@@ -85,19 +85,19 @@
           <p>Avant d'installer Linux (étape suivante), vérifie ton matériel :</p>
           
           <div class="checklist-item">
-            <input type="checkbox" id="c1">
+            <input type="checkbox" id="c1" v-model="checked.c1">
             <label for="c1">J'ai sauvegardé mes données importantes sur un disque externe.</label>
           </div>
           <div class="checklist-item">
-            <input type="checkbox" id="c2">
+            <input type="checkbox" id="c2" v-model="checked.c2">
             <label for="c2">J'ai dépoussiéré les ventilateurs.</label>
           </div>
           <div class="checklist-item">
-            <input type="checkbox" id="c3">
+            <input type="checkbox" id="c3" v-model="checked.c3">
             <label for="c3">Si possible, j'ai remplacé le vieux disque dur par un SSD.</label>
           </div>
           <div class="checklist-item">
-            <input type="checkbox" id="c4">
+            <input type="checkbox" id="c4" v-model="checked.c4">
             <label for="c4">J'ai vérifié si je peux ajouter de la RAM (optionnel).</label>
           </div>
 
@@ -110,7 +110,8 @@
 
       <!-- Bouton retour à l'arbre -->
       <div style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">
-        <button class="btn-next" @click="continueTo('/')">Retour à l'arbre 🌳</button>
+        <button v-if="allChecked" class="btn-next" @click="continueTo('/')">Retour à l'arbre 🌳</button>
+        <p v-else style="color: #6b6b6b; margin:0;">Cochez toutes les cases pour débloquer le bouton.</p>
       </div>
 
     </div>
@@ -125,6 +126,21 @@ export default {
   setup() {
     const router = useRouter()
     return { router }
+  },
+  data() {
+    return {
+      checked: {
+        c1: false,
+        c2: false,
+        c3: false,
+        c4: false
+      }
+    }
+  },
+  computed: {
+    allChecked() {
+      return Object.values(this.checked).every(v => v === true)
+    }
   },
   mounted() {
     // S'assurer d'être en haut de la page lorsque la route est chargée

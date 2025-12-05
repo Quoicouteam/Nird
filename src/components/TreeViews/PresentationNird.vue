@@ -114,7 +114,7 @@ function chooseNext(choice) {
 
           <button class="choice-button" @click="chooseNext('windows')">
             <span class="choice-icon">🪟</span>
-            <span class="choice-title">Windows & Proprietary OS</span>
+            <span class="choice-title">Windows & OS Propriétaire</span>
             <span class="choice-desc">Comprendre les systèmes d'exploitation propriétaires</span>
             <span class="choice-arrow">→</span>
           </button>

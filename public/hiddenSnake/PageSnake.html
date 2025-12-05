@@ -9,6 +9,9 @@
             clearInterval(intervaleJeu);
             location.reload();
         }
+        function quitterPage() {
+            window.location.href = '/';
+        }
     </script>
     </head>
 <body>
@@ -21,6 +24,9 @@
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     
     <script src="snake.js"></script>
-    <button id="rejouer" onclick="rafraichirPage()">Rejouer</button>
+    <div style="text-align: center; margin-top: 10px;">
+        <button id="rejouer" onclick="rafraichirPage()">Rejouer</button>
+        <button id="quitter" onclick="quitterPage()">Quitter</button>
+    </div>
 </body>
 </html>

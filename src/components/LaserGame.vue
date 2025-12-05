@@ -114,7 +114,12 @@ const handleGlobalClick = (event) => {
     '.bottom-card',   // Carte bas de page (Licences)
     '.btn-next',      // Bouton suivant (Licences)
     '.action-button', // Bouton retour (Licences)
-    '.btn-option'     // Options du quiz (RGPD)
+    '.btn-option',    // Options du quiz (RGPD)
+    '.alternative-card', // Carte comparaison (Logiciels)
+    '.soft-item',     // Item logiciel (Logiciels)
+    '.soft-icon',     // Icône logiciel (Logiciels)
+    '.arrow',         // Flèche comparaison (Logiciels)
+    '.recap-table'    // Tableau récapitulatif (Logiciels)
   ].join(', ')
 
   const block = target.closest(blockSelector)
@@ -123,7 +128,7 @@ const handleGlobalClick = (event) => {
     finalTarget = block
   } else {
     // 2. Sinon, éléments de contenu individuels (Textes, Images...)
-    const allowedTags = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'IMG', 'SPAN', 'LI', 'INPUT', 'LABEL', 'STRONG', 'EM', 'I', 'B', 'A']
+    const allowedTags = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'IMG', 'SPAN', 'LI', 'INPUT', 'LABEL', 'STRONG', 'EM', 'I', 'B', 'A', 'TD', 'TH', 'TR']
     if (allowedTags.includes(target.tagName)) {
       finalTarget = target
     }
@@ -143,12 +148,12 @@ const handleGlobalClick = (event) => {
   let points = 0
   
   // Barème de base selon le type d'élément
-  if (finalTarget.matches('.feature, .step, .card, .alert-box, .hero-icon, .issue-card, .solution-card, .example-box, .header-icon, .solution-icon, .bottom-card')) {
+  if (finalTarget.matches('.feature, .step, .card, .alert-box, .hero-icon, .issue-card, .solution-card, .example-box, .header-icon, .solution-icon, .bottom-card, .alternative-card, .soft-item, .recap-table')) {
     points = 50 // Gros blocs
   } else if (finalTarget.matches('h1, h2, h3, h4, h5, h6, button, .choice-button, .btn-next, .action-button, .btn-option')) {
     points = 100 // Titres et boutons
-  } else if (finalTarget.matches('p, a, img, span, li, input, label, strong, em, i, b')) {
-    points = 200 // Petits éléments
+  } else if (finalTarget.matches('p, a, img, span, li, input, label, strong, em, i, b, td, th, tr')) {
+    points = 200 // Petits éléments (inclut cellules de tableau)
   } else if (finalTarget.matches('.leaf')) {
     // Bonus aléatoire pour les feuilles (entre 50 et 100)
     points = Math.floor(Math.random() * (100 - 50 + 1)) + 50

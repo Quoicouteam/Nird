@@ -6,22 +6,29 @@ import skillTreeData from './SkillTree/SkillTreeData.json'
 
 const router = useRouter()
 const isActive = ref(false)
+const showGameOver = ref(false)
 const timeLeft = ref(60)
 const score = ref(0)
 let timerInterval = null
 
-const stopGame = () => {
+const stopGame = (manualStop = false) => {
   isActive.value = false
   if (timerInterval) {
     clearInterval(timerInterval)
     timerInterval = null
   }
+  
+  // Dans tous les cas (fin du temps ou arrêt manuel), on affiche le Game Over
+  showGameOver.value = true
+}
+
+const closeGameOver = () => {
+  showGameOver.value = false
   timeLeft.value = 60
-  // On garde le score affiché un moment ou on le reset ? 
-  // Pour l'instant on le reset au prochain start, donc on le laisse tel quel ici
 }
 
 const startGame = () => {
+  showGameOver.value = false
   isActive.value = true
   teleportToRandomPage()
   timeLeft.value = 60
@@ -32,14 +39,14 @@ const startGame = () => {
   timerInterval = setInterval(() => {
     timeLeft.value--
     if (timeLeft.value <= 0) {
-      stopGame()
+      stopGame(false) // Fin du temps = Game Over
     }
   }, 1000)
 }
 
 const toggleGame = () => {
   if (isActive.value) {
-    stopGame()
+    stopGame(true) // Arrêt manuel = Pas de Game Over
   } else {
     startGame()
   }
@@ -196,6 +203,23 @@ onUnmounted(() => {
 
 <template>
   <div class="laser-game-container">
+    <!-- Écran Game Over (Téléporté au body pour éviter les problèmes de positionnement) -->
+    <Teleport to="body">
+      <div v-if="showGameOver" class="game-over-overlay">
+        <div class="game-over-card">
+          <h2>GAME OVER</h2>
+          <div class="final-score">
+            <span>SCORE FINAL</span>
+            <strong>{{ score }}</strong>
+          </div>
+          <div class="game-over-actions">
+            <button @click="startGame" class="btn-restart">Rejouer 🔫</button>
+            <button @click="closeGameOver" class="btn-close">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
+
     <div v-if="isActive" class="game-stats">
       <div class="timer-display">{{ timeLeft }}s</div>
       <div class="score-display">SCORE: {{ score }}</div>
@@ -315,6 +339,107 @@ onUnmounted(() => {
   padding: 0;
   border-radius: 50%;
   writing-mode: horizontal-tb;
+}
+
+.game-over-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  animation: fade-in 0.3s ease-out;
+}
+
+.game-over-card {
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.2);
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  min-width: 300px;
+}
+
+.game-over-card h2 {
+  font-size: 3rem;
+  margin: 0 0 20px 0;
+  color: #e74c3c;
+  text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+  font-family: 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.final-score {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.final-score span {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.final-score strong {
+  font-size: 4rem;
+  color: #f1c40f;
+  text-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+  line-height: 1;
+}
+
+.game-over-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-restart, .btn-close {
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-restart {
+  background: #2ecc71;
+  color: white;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-restart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+  background: #27ae60;
+}
+
+.btn-close {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 </style>
 

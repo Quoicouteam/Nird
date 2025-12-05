@@ -7,6 +7,7 @@ import skillTreeData from './SkillTree/SkillTreeData.json'
 const router = useRouter()
 const isActive = ref(false)
 const timeLeft = ref(60)
+const score = ref(0)
 let timerInterval = null
 
 const stopGame = () => {
@@ -16,12 +17,15 @@ const stopGame = () => {
     timerInterval = null
   }
   timeLeft.value = 60
+  // On garde le score affiché un moment ou on le reset ? 
+  // Pour l'instant on le reset au prochain start, donc on le laisse tel quel ici
 }
 
 const startGame = () => {
   isActive.value = true
   teleportToRandomPage()
   timeLeft.value = 60
+  score.value = 0
   
   if (timerInterval) clearInterval(timerInterval)
   
@@ -94,7 +98,16 @@ const handleGlobalClick = (event) => {
     '.leaf',          // Les feuilles décoratives
     '.card',          // Les cartes d'info
     '.alert-box',     // Les boîtes d'alerte
-    '.choice-button'  // Explicite pour les choix
+    '.choice-button', // Explicite pour les choix
+    '.issue-card',    // Cartes problèmes (Licences)
+    '.solution-card', // Cartes solutions (Licences)
+    '.example-box',   // Boîtes exemples (Licences)
+    '.header-icon',   // Icône header (Licences)
+    '.solution-icon', // Icônes solutions (Licences)
+    '.bottom-card',   // Carte bas de page (Licences)
+    '.btn-next',      // Bouton suivant (Licences)
+    '.action-button', // Bouton retour (Licences)
+    '.btn-option'     // Options du quiz (RGPD)
   ].join(', ')
 
   const block = target.closest(blockSelector)
@@ -119,6 +132,27 @@ const handleGlobalClick = (event) => {
   event.preventDefault()
   event.stopPropagation()
 
+  // --- CALCUL DU SCORE ---
+  let points = 0
+  
+  // Barème de base selon le type d'élément
+  if (finalTarget.matches('.feature, .step, .card, .alert-box, .hero-icon, .issue-card, .solution-card, .example-box, .header-icon, .solution-icon, .bottom-card')) {
+    points = 50 // Gros blocs
+  } else if (finalTarget.matches('h1, h2, h3, h4, h5, h6, button, .choice-button, .btn-next, .action-button, .btn-option')) {
+    points = 100 // Titres et boutons
+  } else if (finalTarget.matches('p, a, img, span, li, input, label, strong, em, i, b')) {
+    points = 200 // Petits éléments
+  } else if (finalTarget.matches('.leaf')) {
+    // Bonus aléatoire pour les feuilles (entre 50 et 100)
+    points = Math.floor(Math.random() * (100 - 50 + 1)) + 50
+  } else {
+    // Par défaut
+    points = 50
+  }
+
+  score.value += points
+  showFloatingScore(event.clientX, event.clientY, points)
+
   // Ajouter l'effet
   finalTarget.classList.add('laser-hit')
 
@@ -126,6 +160,20 @@ const handleGlobalClick = (event) => {
   setTimeout(() => {
     finalTarget.classList.remove('laser-hit')
   }, 2000)
+}
+
+const showFloatingScore = (x, y, points) => {
+  const el = document.createElement('div')
+  el.textContent = `+${points}`
+  el.className = 'floating-score'
+  el.style.left = `${x}px`
+  el.style.top = `${y}px`
+  document.body.appendChild(el)
+  
+  // Nettoyage après l'animation
+  setTimeout(() => {
+    el.remove()
+  }, 1000)
 }
 
 watch(isActive, (newValue) => {
@@ -148,8 +196,9 @@ onUnmounted(() => {
 
 <template>
   <div class="laser-game-container">
-    <div v-if="isActive" class="timer-display">
-      {{ timeLeft }}s
+    <div v-if="isActive" class="game-stats">
+      <div class="timer-display">{{ timeLeft }}s</div>
+      <div class="score-display">SCORE: {{ score }}</div>
     </div>
     <button 
       class="laser-game-toggle" 
@@ -176,16 +225,36 @@ onUnmounted(() => {
   gap: 10px;
 }
 
+.game-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .timer-display {
   background-color: #e74c3c;
   color: white;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 15px;
   font-weight: bold;
   font-family: monospace;
   font-size: 1.2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.score-display {
+  background-color: #f1c40f;
+  color: #2c3e50;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-family: 'Segoe UI', monospace;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  animation: pop-in 0.3s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
 }
 
 @keyframes pop-in {
@@ -282,5 +351,30 @@ body.laser-mode * {
 @keyframes laser-flash {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+.floating-score {
+  position: fixed;
+  color: #f1c40f;
+  font-weight: bold;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 10000;
+  text-shadow: 2px 2px 0 #000;
+  animation: float-up 1s ease-out forwards;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    transform: translate(-50%, -100%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%) scale(1);
+  }
 }
 </style>

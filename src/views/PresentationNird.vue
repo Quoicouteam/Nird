@@ -108,11 +108,11 @@ function chooseNext(choice) {
           <span class="choice-arrow">→</span>
         </button>
 
-        <button class="choice-button choice-button--disabled" disabled>
+        <button class="choice-button" @click="chooseNext('sobriete')">
           <span class="choice-icon">🌱</span>
           <span class="choice-title">Sobriété & Écologie</span>
-          <span class="choice-desc">Bientôt disponible</span>
-          <span class="choice-soon">🌱 En croissance</span>
+          <span class="choice-desc">Les enjeux environnementaux du numérique</span>
+          <span class="choice-arrow">→</span>
         </button>
       </div>
     </div>

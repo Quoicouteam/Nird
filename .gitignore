@@ -23,6 +23,8 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+.vscode 
+# SEB JE VEUX PAS TES FICHIERS DE CONFIG !!!!
 
 *.tsbuildinfo
 

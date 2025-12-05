@@ -5,7 +5,19 @@ export const skillTree = {
     {
       id: 'confidentialite',
       title: 'Confidentialité (RGPD)',
-      children: []
+      children: [
+        {
+          id: 'stockage-hors-ue',
+          title: 'Stockage des données hors UE',
+          children: [
+            {
+              id: 'open-source',
+              title: 'Open Source',
+              children: []
+            }
+          ]
+        }
+      ]
     },
     {
       id: 'licences',

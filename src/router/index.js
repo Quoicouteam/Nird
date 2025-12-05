@@ -7,6 +7,7 @@ import StockageHorsUE from '../views/StockageHorsUE.vue'
 import OpenSource from '../views/OpenSource.vue'
 import SobrieteEtEcologie from '../views/SobriétéEtEcologie.vue'
 import Windows from '../views/Windows.vue'
+import WindowsPayant from '../views/WindowsPayant.vue'
 
 const routes = [
   {
@@ -50,6 +51,15 @@ const routes = [
     meta: {
       title: 'Windows',
       parent: 'presentation'
+    }
+  },
+  {
+    path: '/page/windows-payant',
+    name: 'windows-payant',
+    component: WindowsPayant,
+    meta: {
+      title: 'Windows Payant',
+      parent: 'licences'
     }
   },
     {

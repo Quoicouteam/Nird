@@ -13,6 +13,12 @@ function markAsRead() {
   completePage('licences')
   router.push('/')
 }
+
+function goToWindowsPayant() {
+  // marquer la page comme lue puis naviguer vers la page WindowsPayant
+  completePage('licences')
+  router.push('/page/windows-payant')
+}
 </script>
 
 <template>
@@ -218,6 +224,19 @@ function markAsRead() {
       </section>
     </article>
 
+    <!-- Carte de navigation vers WindowsPayant -->
+    <section class="section bottom-card-section">
+      <div class="bottom-card">
+        <div class="bottom-card-content">
+          <h3>💻 En savoir plus : Windows Payant</h3>
+          <p>Comprendre en détail les implications des versions payantes de Windows et comment s'en prémunir.</p>
+        </div>
+        <div class="bottom-card-actions">
+          <button class="btn-next" @click="goToWindowsPayant">Aller à Windows (payant)</button>
+        </div>
+      </div>
+    </section>
+
     <div class="actions">
       <button class="action-button" @click="markAsRead">
         J'ai compris, retour à l'accueil
@@ -394,6 +413,35 @@ h3 {
 .solution-card p {
   font-size: 0.9rem;
   margin-bottom: 0;
+}
+
+/* Bottom card linking to WindowsPayant */
+.bottom-card-section {
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  padding: 0 2rem;
+}
+.bottom-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #fffaf6 0%, #f7fbf8 100%);
+  border: 1px solid #e6dfd6;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+.bottom-card-content h3 {
+  margin: 0 0 0.25rem 0;
+  color: #2e4f3b;
+}
+.bottom-card-content p {
+  margin: 0;
+  color: #555;
+}
+.bottom-card-actions .btn-next {
+  padding: 10px 20px;
 }
 
 /* Décoration de fond végétale */

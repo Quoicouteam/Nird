@@ -108,7 +108,7 @@ function chooseNext(choice) {
           <span class="choice-arrow">→</span>
         </button>
 
-          <button class="choice-button" @click="chooseNext('sobriete')">
+        <button class="choice-button" @click="chooseNext('sobriete')">
           <span class="choice-icon">🌱</span>
           <span class="choice-title">Sobriété & Écologie</span>
           <span class="choice-desc">Les enjeux environnementaux du numérique</span>
@@ -413,7 +413,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 

@@ -82,7 +82,7 @@
             <p v-if="score === questions.length">🌟 Bravo ! Tu es un véritable Éco-Résistant.</p>
             <p v-else>⚠️ Ton empreinte carbone est encore trop élevée. Relis les conseils !</p>
             <div style="display:flex; gap:0.75rem; justify-content:center; margin-top:1rem;">
-              <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+              <button class="btn-next" @click="continueTo('/')">Retour au début 🌳</button>
               <button class="btn-next" @click="restartQuiz">Refaire le bilan</button>
             </div>
           </div>

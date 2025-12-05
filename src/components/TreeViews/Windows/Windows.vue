@@ -108,9 +108,9 @@
         </div>
       </section>
 
-      <!-- Bouton retour à l'arbre -->
+      <!-- Bouton retour au début -->
       <div style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">
-        <button v-if="allChecked" class="btn-next" @click="continueTo('/')">Retour à l'arbre 🌳</button>
+        <button v-if="allChecked" class="btn-next" @click="continueTo('/')">Retour au début 🌳</button>
         <p v-else style="color: #6b6b6b; margin:0;">Cochez toutes les cases pour débloquer le bouton.</p>
       </div>
 

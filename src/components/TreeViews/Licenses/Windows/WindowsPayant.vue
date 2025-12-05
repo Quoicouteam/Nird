@@ -93,7 +93,7 @@
               <p class="choices-label">Que veux-tu faire maintenant ?</p>
               
               <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
-                <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+                <button class="btn-next" @click="continueTo('/')">Retour au début 🌳</button>
                 <button class="btn-next" @click="restartQuiz">Relancer le quiz</button>
               </div>
             </div>

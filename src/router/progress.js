@@ -26,7 +26,9 @@ function loadProgress() {
 
   return {
     unlockedPages: defaultUnlocked, // Présentation + toutes les pousses
-    completed: []
+    completed: [],
+    // Lettres collectées pour l'easter-egg (ex: SNAKE)
+    lettersEarned: []
   }
 }
 
@@ -47,6 +49,27 @@ export function unlockPage(pageId) {
   } else {
     console.log('ℹ️ Page déjà débloquée:', pageId)
   }
+}
+
+// --- Easter-egg letters support ---------------------------------
+// Ajouter le champ lettersEarned dans l'objet progress et helpers
+export function grantLetter(letter) {
+  if (!letter) return
+  const ch = String(letter).toUpperCase()
+  if (!progress.lettersEarned) {
+    progress.lettersEarned = []
+  }
+  if (!progress.lettersEarned.includes(ch)) {
+    progress.lettersEarned.push(ch)
+    saveProgress()
+  }
+}
+
+export function hasAllLetters(targetWord) {
+  if (!targetWord) return false
+  const uniq = Array.from(new Set(String(targetWord).toUpperCase().split('')))
+  if (!progress.lettersEarned) return false
+  return uniq.every(ch => progress.lettersEarned.includes(ch))
 }
 
 export function isPageUnlocked(pageId) {

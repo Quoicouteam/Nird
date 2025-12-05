@@ -78,6 +78,7 @@
           <!-- ÉCRAN DE FIN -->
           <div v-if="quizFinished">
             <p class="mission-status">Bilan Carbone Terminé !</p>
+              <div v-if="showUnlockMessageA" class="unlock-msg">✅ Lettre A débloquée !</div>
             <div class="score-box">{{ score }} / {{ questions.length }}</div>
             <p v-if="score === questions.length">🌟 Bravo ! Tu es un véritable Éco-Résistant.</p>
             <p v-else>⚠️ Ton empreinte carbone est encore trop élevée. Relis les conseils !</p>
@@ -121,7 +122,7 @@
 </template>
 
 <script>
-import { unlockPage, navigateToPage } from '../../../router/progress.js'
+import { unlockPage, navigateToPage, completePage, grantLetter } from '../../../router/progress.js'
 
 export default {
   name: 'PageSobriete',
@@ -142,6 +143,8 @@ export default {
       selectedAnswer: null,
       isCurrentCorrect: false,
       quizFinished: false,
+      // message when letter A is unlocked
+      showUnlockMessageA: false,
       questions: [
         {
           text: "Pourquoi est-il mieux d'envoyer un lien plutôt qu'une pièce jointe ?",
@@ -201,6 +204,11 @@ export default {
         try {
           completePage('sobriete')
         } catch (e) { /* ignore */ }
+        // accorder la lettre A pour l'easter-egg
+        try { grantLetter('A') } catch (e) {}
+        this.showUnlockMessageA = true
+        setTimeout(() => { this.showUnlockMessageA = false }, 3000)
+
         this.quizFinished = true;
       }
     },
@@ -404,6 +412,16 @@ tbody tr:hover {
   box-shadow: 0 4px 15px rgba(46, 79, 59, 0.1);
   border: 2px solid #d4e5da;
   text-align: center;
+}
+
+.unlock-msg {
+  margin-top: 0.5rem;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #e6ffed, #f0fff4);
+  border: 1px solid #bfe6c8;
+  color: #2e7d4a;
+  border-radius: 8px;
+  font-weight: 700;
 }
 
 .quiz-container h2 {

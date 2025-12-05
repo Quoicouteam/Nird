@@ -157,7 +157,7 @@ onUnmounted(() => {
       :class="{ 'is-active': isActive }"
       title="Activer/Désactiver le Laser Game"
     >
-      <span v-if="!isActive">🔫</span>
+      <span v-if="!isActive" class="btn-text">Laser Game</span>
       <span v-else>❌</span>
     </button>
   </div>
@@ -199,29 +199,53 @@ onUnmounted(() => {
   /* top: 50%; */
   /* transform: translateY(-50%); */
   /* z-index: 9999; */
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #2c3e50;
+  width: 45px;
+  height: auto;
+  min-height: 140px;
+  padding: 20px 0;
+  border-radius: 30px;
+  
+  /* Design & Couleurs : Gradient "Cyber/Space" */
+  background: linear-gradient(180deg, #2b5876 0%, #4e4376 100%);
   color: white;
-  border: 2px solid #fff;
+  border: 2px solid rgba(255,255,255,0.3);
+  
   cursor: pointer;
-  font-size: 24px;
+  font-size: 16px;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Texte Vertical */
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.btn-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 5px rgba(255,255,255,0.5);
 }
 
 .laser-game-toggle:hover {
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(78, 67, 118, 0.6);
+  border-color: rgba(255,255,255,0.8);
 }
 
 .laser-game-toggle.is-active {
-  background-color: #e74c3c;
-  border-color: #c0392b;
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+  border-color: white;
+  width: 50px;
+  height: 50px;
+  min-height: 50px;
+  padding: 0;
+  border-radius: 50%;
+  writing-mode: horizontal-tb;
 }
 </style>
 
@@ -235,9 +259,9 @@ body.laser-mode * {
 }
 
 .laser-hit {
-  filter: grayscale(100%) brightness(0.8) sepia(0.2) !important;
+  opacity: 0.1 !important;
   pointer-events: none !important;
-  transition: filter 0.1s ease-out;
+  transition: opacity 0.2s ease-out;
   position: relative;
 }
 
@@ -249,7 +273,7 @@ body.laser-mode * {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   pointer-events: none;
   animation: laser-flash 0.2s ease-out forwards;
   z-index: 1000;

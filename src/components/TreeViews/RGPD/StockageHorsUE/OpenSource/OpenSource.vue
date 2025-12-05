@@ -70,6 +70,7 @@
           <!-- ÉCRAN DE FIN -->
           <div v-if="quizFinished">
             <p class="mission-status">Analyse terminée !</p>
+            <div v-if="showUnlockMessage" class="unlock-msg">✅ Lettre S débloquée !</div>
             <div class="score-box">{{ score }} / {{ questions.length }}</div>
             <p v-if="score === questions.length">🌟 Excellent ! Tu as compris la philosophie du Libre.</p>
             <p v-else>⚠️ Tu confonds encore "Gratuit" et "Libre". Relis bien la partie philosophie !</p>
@@ -120,7 +121,7 @@
 </template>
 
 <script>
-import { unlockPage, navigateToPage } from '../../../../../router/progress.js'
+import { unlockPage, navigateToPage, completePage, grantLetter } from '../../../../../router/progress.js'
 
 export default {
   name: 'PageOpenSource',
@@ -141,6 +142,8 @@ export default {
       selectedAnswer: null,
       isCurrentCorrect: false,
       quizFinished: false,
+      // show a small message when a letter is unlocked
+      showUnlockMessage: false,
       questions: [
         {
           text: "Que signifie l'expression 'Si c'est gratuit, c'est toi le produit' ?",
@@ -202,6 +205,14 @@ export default {
         } catch (e) {
           // ignore
         }
+        // Accorder la lettre S et afficher un message simple
+        try {
+          grantLetter('S')
+        } catch (e) {}
+        this.showUnlockMessage = true
+        // masquer le message après quelques secondes
+        setTimeout(() => { this.showUnlockMessage = false }, 3000)
+
         this.quizFinished = true;
       }
     },
@@ -549,5 +560,15 @@ tbody tr:hover {
 
 .feedback.error {
   color: #c53030;
+}
+
+.unlock-msg {
+  margin-top: 0.5rem;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #e6ffed, #f0fff4);
+  border: 1px solid #bfe6c8;
+  color: #2e7d4a;
+  border-radius: 8px;
+  font-weight: 700;
 }
 </style>

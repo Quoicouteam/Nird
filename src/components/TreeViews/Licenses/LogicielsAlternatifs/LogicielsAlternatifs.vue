@@ -178,6 +178,7 @@
         <!-- ÉCRAN DE FIN -->
         <div v-if="quizFinished">
           <p class="mission-status">Mission Terminée !</p>
+          <div v-if="showUnlockMessageN" class="unlock-msg">✅ Lettre N débloquée !</div>
           <div class="score-box">{{ score }} / {{ questions.length }}</div>
           <p v-if="score === questions.length">🌟 Parfait ! Tu connais maintenant les alternatives libres.</p>
           <p v-else>⚠️ Relis bien les comparaisons pour retenir les alternatives.</p>
@@ -222,7 +223,7 @@
 </template>
 
 <script>
-import { unlockPage, navigateToPage } from '../../../../router/progress.js'
+import { unlockPage, navigateToPage, grantLetter } from '../../../../router/progress.js'
 
 export default {
   name: 'PageLogicielsAlternatifs',
@@ -240,6 +241,8 @@ export default {
       selectedAnswer: null,
       isCurrentCorrect: false,
       quizFinished: false,
+      // small message when letter N unlocked
+      showUnlockMessageN: false,
       questions: [
         {
           text: "Quelle est l'alternative gratuite à Adobe Premiere Pro pour le montage vidéo ?",
@@ -296,6 +299,10 @@ export default {
         this.selectedAnswer = null
       } else {
         this.quizFinished = true
+        // grant the 'N' letter for the easter-egg
+        try { grantLetter('N') } catch (e) {}
+        this.showUnlockMessageN = true
+        setTimeout(() => { this.showUnlockMessageN = false }, 3000)
       }
     },
     restartQuiz() {
@@ -317,6 +324,16 @@ export default {
   min-height: calc(100vh - 60px);
   padding-top: 80px;
   background: linear-gradient(180deg, #f8f6f3 0%, #fff 50%, #f0f4f2 100%);
+}
+
+.unlock-msg {
+  margin-top: 0.5rem;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #e6ffed, #f0fff4);
+  border: 1px solid #bfe6c8;
+  color: #2e7d4a;
+  border-radius: 8px;
+  font-weight: 700;
 }
 
 .content {

@@ -1,5 +1,15 @@
 <script setup>
+import { computed } from 'vue'
+import { progress } from '../router/progress.js'
+
 const emit = defineEmits(['open-tree'])
+
+const targetWord = 'SNAKE'
+const letters = targetWord.split('')
+
+const masked = computed(() => {
+  return letters.map(ch => progress.lettersEarned && progress.lettersEarned.includes(ch) ? ch : '_')
+})
 </script>
 
 <template>
@@ -21,6 +31,12 @@ const emit = defineEmits(['open-tree'])
         <circle cx="26" cy="13" r="1.5" fill="#5a8d6a"/>
       </svg>
     </button>
+    <div class="egg-mask" aria-hidden="false">
+      <div class="masked-word">
+        <span v-for="(ch, idx) in masked" :key="idx" :id="'masked-letter-' + letters[idx]" class="masked-letter">{{ ch }}</span>
+      </div>
+    </div>
+
     <a href="src/troll/rickroll/pageRickroll.html" target="_blank" class="snake-troll">
       <img src="../troll/snakeTroll.jpeg" alt="snaketroll">
     </a>
@@ -124,5 +140,20 @@ const emit = defineEmits(['open-tree'])
   right: 10px;
   top: 10px;
 }
+
+/* Masked word center */
+.egg-mask {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.masked-word { display: flex; gap: 0.5rem; font-weight: 800; color: #2e4f3b; font-size: 1rem; }
+.masked-letter { display: inline-block; width: 20px; text-align: center; font-family: inherit; }
 </style>
 

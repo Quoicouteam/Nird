@@ -21,6 +21,9 @@ const emit = defineEmits(['open-tree'])
         <circle cx="26" cy="13" r="1.5" fill="#5a8d6a"/>
       </svg>
     </button>
+    <a href="src/troll/rickroll/pageRickroll.html" target="_blank" class="snake-troll">
+      <img src="../troll/snakeTroll.jpeg" alt="snaketroll">
+    </a>
   </header>
 </template>
 
@@ -102,6 +105,24 @@ const emit = defineEmits(['open-tree'])
 
 .tree-button:hover .tree-icon {
   animation: pulse-grow 0.6s ease-in-out;
+}
+
+
+.snake-troll img {
+  width: 40px;
+  height: 40px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.snake-troll:hover img {
+  opacity: 1;
+}
+
+.snake-troll {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 </style>
 

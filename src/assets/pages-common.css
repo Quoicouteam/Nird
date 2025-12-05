@@ -1,0 +1,504 @@
+/* ============================================ */
+/*  STYLES COMMUNS POUR TOUTES LES PAGES       */
+/* ============================================ */
+
+/* Page wrapper avec décoration de fond */
+.page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5faf8 0%, #eef6f3 100%);
+  position: relative;
+}
+
+/* Styles pour les boutons du quiz */
+.btn-next {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
+  margin-top: 1rem;
+}
+
+.btn-next:hover {
+  background: linear-gradient(135deg, #66bb6a, #388e3c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+}
+
+.btn-next:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+/* Décoration de fond végétale */
+.nature-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.leaf {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.08;
+  animation: float 8s ease-in-out infinite;
+}
+
+.leaf-1 { top: 5%; left: 5%; animation-delay: 0s; }
+.leaf-2 { top: 15%; right: 10%; animation-delay: 2s; }
+.leaf-3 { bottom: 20%; left: 15%; animation-delay: 4s; }
+.leaf-4 { top: 50%; right: 5%; animation-delay: 1s; }
+.leaf-5 { bottom: 10%; right: 20%; animation-delay: 3s; }
+.leaf-6 { top: 30%; left: 10%; animation-delay: 5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(20px) rotate(10deg); }
+}
+
+/* Container principal */
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* En-tête de page */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #2e4f3b;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.page-header .subtitle {
+  font-size: 1.1rem;
+  color: #5a7d6a;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.header-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Sections */
+.page-section {
+  margin-bottom: 2rem;
+}
+
+.page-section h2 {
+  font-size: 1.8rem;
+  color: #2e4f3b;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #7dab8a;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.page-section h3 {
+  color: #2e4f3b;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* Cartes (Cards) */
+.content-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(46, 79, 59, 0.1);
+  border-left: 4px solid #5a7d6a;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.content-card p {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.content-card p:last-child {
+  margin-bottom: 0;
+}
+
+.content-card strong {
+  color: #2e4f3b;
+  font-weight: 600;
+}
+
+/* Listes */
+.content-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content-card ul li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #555;
+}
+
+.content-card ul li::before {
+  content: "🌿";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.content-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Divider */
+.divider {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+  margin: 1.5rem 0;
+}
+
+/* Tableaux */
+.content-card.no-padding {
+  padding: 0;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
+  color: white;
+}
+
+th {
+  padding: 1.2rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #e8f0eb;
+  color: #555;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #f5faf8;
+}
+
+/* Boîtes d'alerte */
+.alert-box {
+  background: linear-gradient(135deg, #fff9f5 0%, #ffe8e8 100%);
+  border-left: 4px solid #e74c3c;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.alert-box p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ============================================ */
+/*  QUIZ STYLES                                 */
+/* ============================================ */
+
+.quiz-wrapper {
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.quiz-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(46, 79, 59, 0.1);
+  border: 2px solid #d4e5da;
+  text-align: center;
+}
+
+.quiz-container h2 {
+  display: block;
+  margin-bottom: 2rem;
+  color: #2e4f3b;
+  margin-top: 0;
+  border-bottom: 3px solid #5a7d6a;
+  padding-bottom: 0.5rem;
+}
+
+.question-count {
+  color: #5a7d6a;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  color: #2e4f3b;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Boutons d'options de quiz */
+.btn-option {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  background: white;
+  color: #555;
+  border: 2px solid #d4e5da;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.btn-option:hover:not(:disabled) {
+  border-color: #5a7d6a;
+  background: #f5faf8;
+  transform: translateX(5px);
+}
+
+.btn-option.correct {
+  background: rgba(125, 171, 138, 0.15);
+  border-color: #7dab8a;
+  color: #2e4f3b;
+}
+
+.btn-option.wrong {
+  background: rgba(248, 113, 113, 0.15);
+  border-color: #f87171;
+  color: #c53030;
+}
+
+/* Score et statut */
+.score-box {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #5a7d6a;
+  margin: 1.5rem 0;
+}
+
+.mission-status {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e4f3b;
+}
+
+/* Feedback */
+.feedback {
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.feedback.success {
+  color: #7dab8a;
+}
+
+.feedback.error {
+  color: #c53030;
+}
+
+/* ============================================ */
+/*  BOUTONS                                     */
+/* ============================================ */
+
+.btn-primary {
+  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(90, 125, 106, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 125, 106, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Choix de continuation après quiz */
+.continue-choices {
+  margin-top: 1.5rem;
+}
+
+.choices-label {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #2e4f3b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.choices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.choice-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  background: white;
+  border: 2px solid #d4e5da;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.choice-button:hover {
+  transform: translateY(-6px);
+  border-color: #5a7d6a;
+  box-shadow: 0 4px 12px rgba(90, 125, 106, 0.15);
+}
+
+.choice-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.choice-title {
+  font-weight: 700;
+  color: #2e4f3b;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.choice-desc {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ============================================ */
+/*  GRILLES ET LAYOUTS                          */
+/* ============================================ */
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.solution-card {
+  background: linear-gradient(135deg, #e8f0eb 0%, #d4e8db 100%);
+  border: 2px solid #a8c4b4;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(90, 125, 106, 0.2);
+}
+
+.solution-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.solution-card h3 {
+  color: #2e4f3b;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.solution-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  color: #555;
+}
+
+/* ============================================ */
+/*  RESPONSIVE                                  */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 2rem 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .page-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .quiz-wrapper {
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .choices-grid {
+    grid-template-columns: 1fr;
+  }
+}

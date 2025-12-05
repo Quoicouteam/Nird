@@ -14,21 +14,23 @@
     <!-- PARTIE 1 : LE CONTENU PÉDAGOGIQUE (COURS) -->
     <!-- ========================================= -->
 
-    <div class="container">
+    <div class="page-container">
       
       <!-- HEADER -->
-      <header>
-        <h1>🌱 La Sobriété Numérique</h1>
-        <p class="subtitle">"Le meilleur déchet est celui qu'on ne produit pas... même numériquement."</p>
+      <header class="page-header">
+        <h1>🌱 Sobriété Numérique et Écologie</h1>
+        <p class="subtitle">Comprendre l'impact environnemental du numérique et adopter des pratiques responsables</p>
       </header>
 
       <!-- LE POIDS INVISIBLE -->
-      <section class="card">
+      <section class="page-section">
         <h2>⚖️ Le Poids Invisible du Virtuel</h2>
-        <p>On pense souvent que le numérique est "immatériel" ou "propre". C'est faux.</p>
-        <p>Internet pollue autant que l'aviation civile mondiale. Chaque email stocké, chaque vidéo streamée consomme de l'électricité dans un Data Center climatisé qui tourne 24h/24.</p>
-        <div class="alert-box">
-          <p>🔥 <strong>Le Chiffre Choc :</strong> Un simple email avec une pièce jointe de 1 Mo émet environ <strong>19g de CO₂</strong>. Imaginez les millions d'emails qui dorment inutilement dans nos boîtes...</p>
+        <div class="content-card">
+          <p>On pense souvent que le numérique est "immatériel" ou "propre". C'est faux.</p>
+          <p>Internet pollue autant que l'aviation civile mondiale. Chaque email stocké, chaque vidéo streamée consomme de l'électricité dans un Data Center climatisé qui tourne 24h/24.</p>
+          <div class="alert-box">
+            <p>🔥 <strong>Le Chiffre Choc :</strong> Un simple email avec une pièce jointe de 1 Mo émet environ <strong>19g de CO₂</strong>. Imaginez les millions d'emails qui dorment inutilement dans nos boîtes...</p>
+          </div>
         </div>
       </section>
 
@@ -73,15 +75,15 @@
 
       <div class="quiz-wrapper">
         <div class="quiz-container">
-          <h2>🎮 Mission : Éco-Gestes</h2>
+          <h2>📋 Quiz : Évaluation des Connaissances en Sobriété Numérique</h2>
           
           <!-- ÉCRAN DE FIN -->
           <div v-if="quizFinished">
-            <p class="mission-status">Bilan Carbone Terminé !</p>
+            <p class="mission-status">Quiz Terminé</p>
               <div v-if="showUnlockMessageA" class="unlock-msg">✅ Lettre A débloquée !</div>
             <div class="score-box">{{ score }} / {{ questions.length }}</div>
-            <p v-if="score === questions.length">🌟 Bravo ! Tu es un véritable Éco-Résistant.</p>
-            <p v-else>⚠️ Ton empreinte carbone est encore trop élevée. Relis les conseils !</p>
+            <p v-if="score === questions.length">🌟 Excellent ! Vous maîtrisez les principes de la sobriété numérique.</p>
+            <p v-else>⚠️ Certaines notions nécessitent une révision. Nous vous recommandons de relire le contenu.</p>
             <div style="display:flex; gap:0.75rem; justify-content:center; margin-top:1rem;">
               <button class="btn-next" @click="continueTo('/')">Retour au début 🌳</button>
               <button class="btn-next" @click="restartQuiz">Refaire le bilan</button>
@@ -414,16 +416,6 @@ tbody tr:hover {
   text-align: center;
 }
 
-.unlock-msg {
-  margin-top: 0.5rem;
-  padding: 8px 12px;
-  background: linear-gradient(90deg, #e6ffed, #f0fff4);
-  border: 1px solid #bfe6c8;
-  color: #2e7d4a;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
 .quiz-container h2 {
   display: block;
   margin-bottom: 2rem;
@@ -454,119 +446,11 @@ tbody tr:hover {
   color: #555;
   border: 2px solid #d4e5da;
   border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  text-align: left;
-  font-weight: 500;
-}
-
-.btn-option:hover:not(:disabled) {
-  border-color: #5a7d6a;
-  background: #f5faf8;
-  transform: translateX(5px);
-}
-
-.btn-option.correct {
-  background: rgba(125, 171, 138, 0.15);
-  border-color: #7dab8a;
-  color: #2e4f3b;
-}
-
-.btn-option.wrong {
-  background: rgba(248, 113, 113, 0.15);
-  border-color: #f87171;
-  color: #c53030;
-}
-
-/* Score box */
-.score-box {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #5a7d6a;
-  margin: 1.5rem 0;
-}
-
-.mission-status {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2e4f3b;
-}
-
-/* Boutons */
-.btn-next {
-  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
-  color: white;
-  font-weight: 600;
-  padding: 12px 32px;
-  border: none;
-  border-radius: 20px;
-  margin-top: 1.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(90, 125, 106, 0.2);
-}
-
-.btn-next:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(90, 125, 106, 0.3);
-}
-
-/* Continuation choices (après quiz) */
-.continue-choices {
   margin-top: 1.5rem;
 }
 
-.choices-label {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #2e4f3b;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.choices-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.choice-button {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem;
-  background: white;
-  border: 2px solid #d4e5da;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.choice-button:hover {
-  transform: translateY(-6px);
-  border-color: #5a7d6a;
-}
-
-.choice-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
-.choice-title { font-weight: 700; color: #2e4f3b; margin-bottom: 0.25rem; }
-.choice-desc { color: #666; font-size: 0.95rem; }
-
-/* Feedback */
-.feedback {
-  margin-top: 1rem;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.feedback.success {
-  color: #7dab8a;
-}
-
-.feedback.error {
-  color: #c53030;
+.eco-list li .desc {
+  font-size: 0.95rem;
+  color: #666;
 }
 </style>

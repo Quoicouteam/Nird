@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page-wrapper">
     <!-- Décoration de fond végétale -->
     <div class="nature-bg">
       <div class="leaf leaf-1">🍃</div>
@@ -10,11 +10,11 @@
       <div class="leaf leaf-6">🌿</div>
     </div>
 
-    <article class="content">
-      <div class="header">
+    <article class="page-container">
+      <div class="page-header">
         <div class="header-icon">🔄</div>
-        <h1>Logiciels Payants et Alternatives Libres</h1>
-        <p class="subtitle">Des alternatives gratuites et performantes existent pour tous vos besoins</p>
+        <h1>Alternatives Libres aux Logiciels Propriétaires</h1>
+        <p class="subtitle">Présentation de solutions open source professionnelles et gratuites</p>
       </div>
 
       <section class="section">
@@ -173,15 +173,15 @@
 
     <div class="quiz-wrapper">
       <div class="quiz-container">
-        <h2>🎮 Mission : Connaître les Alternatives</h2>
+        <h2>📋 Quiz : Évaluation des Connaissances sur les Alternatives Libres</h2>
         
         <!-- ÉCRAN DE FIN -->
         <div v-if="quizFinished">
-          <p class="mission-status">Mission Terminée !</p>
+          <p class="mission-status">Quiz Terminé</p>
           <div v-if="showUnlockMessageN" class="unlock-msg">✅ Lettre N débloquée !</div>
           <div class="score-box">{{ score }} / {{ questions.length }}</div>
-          <p v-if="score === questions.length">🌟 Parfait ! Tu connais maintenant les alternatives libres.</p>
-          <p v-else>⚠️ Relis bien les comparaisons pour retenir les alternatives.</p>
+          <p v-if="score === questions.length">🌟 Excellent ! Vous connaissez maintenant les principales alternatives libres.</p>
+          <p v-else>⚠️ Nous vous recommandons de relire les comparaisons pour mieux mémoriser les alternatives.</p>
 
           <div class="continue-choices">
             <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
@@ -326,16 +326,6 @@ export default {
   background: linear-gradient(180deg, #f8f6f3 0%, #fff 50%, #f0f4f2 100%);
 }
 
-.unlock-msg {
-  margin-top: 0.5rem;
-  padding: 8px 12px;
-  background: linear-gradient(90deg, #e6ffed, #f0fff4);
-  border: 1px solid #bfe6c8;
-  color: #2e7d4a;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
 .content {
   max-width: 900px;
   margin: 0 auto;
@@ -467,45 +457,6 @@ h2 {
   font-weight: bold;
 }
 
-.recap-table {
-  overflow-x: auto;
-  margin-top: 1.5rem;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-thead {
-  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
-  color: white;
-}
-
-th {
-  padding: 1rem;
-  text-align: left;
-  font-weight: 600;
-}
-
-td {
-  padding: 1rem;
-  border-bottom: 1px solid #e8f0eb;
-  color: #555;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-
-tbody tr:hover {
-  background: #f5faf8;
-}
-
 .total-row {
   background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
   font-weight: 700;
@@ -529,164 +480,5 @@ tbody tr:hover {
   font-size: 1.4rem;
   margin-bottom: 1rem;
   margin-top: 0;
-}
-
-.call-to-action p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 0;
-}
-
-/* Décoration de fond végétale */
-.nature-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.leaf {
-  position: absolute;
-  font-size: 3rem;
-  opacity: 0.08;
-  animation: float 8s ease-in-out infinite;
-}
-
-.leaf-1 { top: 5%; left: 5%; animation-delay: 0s; }
-.leaf-2 { top: 15%; right: 10%; animation-delay: 2s; }
-.leaf-3 { bottom: 20%; left: 15%; animation-delay: 4s; }
-.leaf-4 { top: 50%; right: 5%; animation-delay: 1s; }
-.leaf-5 { bottom: 10%; right: 20%; animation-delay: 3s; }
-.leaf-6 { top: 30%; left: 10%; animation-delay: 5s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(20px) rotate(10deg); }
-}
-
-/* Quiz styles */
-.quiz-wrapper {
-  margin-top: 3rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 2rem 2rem 2rem;
-}
-
-.quiz-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(46, 79, 59, 0.1);
-  border: 2px solid #d4e5da;
-  text-align: center;
-}
-
-.quiz-container h2 {
-  display: block;
-  margin-bottom: 2rem;
-  color: #2e4f3b;
-  margin-top: 0;
-}
-
-.question-count {
-  color: #5a7d6a;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.question-text {
-  font-size: 1.3rem;
-  color: #2e4f3b;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.btn-option {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  margin: 0.75rem 0;
-  background: white;
-  color: #555;
-  border: 2px solid #d4e5da;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  text-align: left;
-  font-weight: 500;
-}
-
-.btn-option:hover:not(:disabled) {
-  border-color: #5a7d6a;
-  background: #f5faf8;
-  transform: translateX(5px);
-}
-
-.btn-option.correct {
-  background: rgba(125, 171, 138, 0.15);
-  border-color: #7dab8a;
-  color: #2e4f3b;
-}
-
-.btn-option.wrong {
-  background: rgba(248, 113, 113, 0.15);
-  border-color: #f87171;
-  color: #c53030;
-}
-
-.score-box {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #5a7d6a;
-  margin: 1.5rem 0;
-}
-
-.mission-status {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2e4f3b;
-}
-
-.btn-next {
-  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
-  color: white;
-  font-weight: 600;
-  padding: 12px 32px;
-  border: none;
-  border-radius: 20px;
-  margin-top: 1.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(90, 125, 106, 0.2);
-}
-
-.btn-next:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(90, 125, 106, 0.3);
-}
-
-.continue-choices {
-  margin-top: 1.5rem;
-}
-
-.feedback {
-  margin-top: 1rem;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.feedback.success {
-  color: #7dab8a;
-}
-
-.feedback.error {
-  color: #c53030;
 }
 </style>

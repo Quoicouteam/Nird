@@ -4,8 +4,9 @@ import WindowsPayant from '../components/TreeViews/Licenses/Windows/WindowsPayan
 import PresentationNird from '../components/TreeViews/PresentationNird.vue'
 import LicensesProblem from '../components/TreeViews/Licenses/LicensesProblem.vue'
 import LogicielsAlternatifs from '../components/TreeViews/Licenses/LogicielsAlternatifs/LogicielsAlternatifs.vue'
-import DistroDebutants from '../components/TreeViews/Linux/DistroDebutants.vue'
-import DistroGPU from '../components/TreeViews/Linux/DistroGPU.vue'
+import Linux from '../components/TreeViews/Linux/Linux.vue'
+import LinuxDistrosDebutants from '../components/TreeViews/Linux/LinuxDistrosDebutants.vue'
+import LinuxDistrosGPU from '../components/TreeViews/Linux/LinuxDistrosGPU.vue'
 import RGPDPage from '../components/TreeViews/RGPD/RGPD.vue'
 import StockageHorsUE from '../components/TreeViews/RGPD/StockageHorsUE/StockageHorsUE.vue'
 import OpenSource from '../components/TreeViews/RGPD/StockageHorsUE/OpenSource/OpenSource.vue'
@@ -72,6 +73,33 @@ const routes = [
     }
   },
   {
+    path: '/page/linux',
+    name: 'linux',
+    component: Linux,
+    meta: {
+      title: 'Linux',
+      parent: 'windows-payant'
+    }
+  },
+  {
+    path: '/page/linux-distros-debutants',
+    name: 'linux-distros-debutants',
+    component: LinuxDistrosDebutants,
+    meta: {
+      title: 'Linux Distros Débutants',
+      parent: 'linux'
+    }
+  },
+  {
+    path: '/page/linux-distros-gpu',
+    name: 'linux-distros-gpu',
+    component: LinuxDistrosGPU,
+    meta: {
+      title: 'Linux Distros Gaming/GPU',
+      parent: 'linux'
+    }
+  },
+  {
     path: '/page/licences',
     name: 'licences',
     component: LicensesProblem,
@@ -87,25 +115,6 @@ const routes = [
     meta: {
       title: 'Logiciels Alternatifs',
       parent: 'licences'
-    }
-  }
-  ,
-  {
-    path: '/page/distro-debutants',
-    name: 'distro-debutants',
-    component: DistroDebutants,
-    meta: {
-      title: 'Distro Débutants',
-      parent: ['licences', 'windows']
-    }
-  },
-  {
-    path: '/page/distro-gpu',
-    name: 'distro-gpu',
-    component: DistroGPU,
-    meta: {
-      title: 'Distro Gaming/GPU',
-      parent: ['licences', 'windows']
     }
   }
   ,

@@ -55,6 +55,27 @@
       "parent": "licences"
     },
     {
+      "id": "linux",
+      "title": "Linux",
+      "subtitle": "Liberté",
+      "route": "/page/linux",
+      "parent": "windows-payant"
+    },
+    {
+      "id": "linux-distros-debutants",
+      "title": "Distros",
+      "subtitle": "Débutants",
+      "route": "/page/linux-distros-debutants",
+      "parent": "linux"
+    },
+    {
+      "id": "linux-distros-gpu",
+      "title": "Distros",
+      "subtitle": "Gaming/GPU",
+      "route": "/page/linux-distros-gpu",
+      "parent": "linux"
+    },
+    {
       "id": "sobriete",
       "title": "Sobriété",
       "subtitle": "Écologie",

@@ -97,6 +97,13 @@ function chooseNext(choice) {
           <span class="choice-desc">Protéger vos données personnelles</span>
           <span class="choice-arrow">→</span>
         </button>
+        
+        <button class="choice-button" @click="chooseNext('windows')">
+            <span class="choice-icon">🪟</span>
+            <span class="choice-title">Windows & Proprietary OS</span>
+            <span class="choice-desc">Comprendre les systèmes d'exploitation propriétaires</span>
+            <span class="choice-arrow">→</span>
+          </button>
 
         <button class="choice-button" @click="chooseNext('licences')">
           <span class="choice-icon">💰</span>
@@ -112,12 +119,7 @@ function chooseNext(choice) {
           <span class="choice-arrow">→</span>
         </button>
 
-          <button class="choice-button" @click="chooseNext('windows')">
-            <span class="choice-icon">🪟</span>
-            <span class="choice-title">Windows & Proprietary OS</span>
-            <span class="choice-desc">Comprendre les systèmes d'exploitation propriétaires</span>
-            <span class="choice-arrow">→</span>
-          </button>
+      
       </div>
     </div>
   </div>

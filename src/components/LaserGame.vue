@@ -6,12 +6,38 @@ import skillTreeData from './SkillTree/SkillTreeData.json'
 
 const router = useRouter()
 const isActive = ref(false)
+const timeLeft = ref(60)
+let timerInterval = null
+
+const stopGame = () => {
+  isActive.value = false
+  if (timerInterval) {
+    clearInterval(timerInterval)
+    timerInterval = null
+  }
+  timeLeft.value = 60
+}
+
+const startGame = () => {
+  isActive.value = true
+  teleportToRandomPage()
+  timeLeft.value = 60
+  
+  if (timerInterval) clearInterval(timerInterval)
+  
+  timerInterval = setInterval(() => {
+    timeLeft.value--
+    if (timeLeft.value <= 0) {
+      stopGame()
+    }
+  }, 1000)
+}
 
 const toggleGame = () => {
-  isActive.value = !isActive.value
-  
   if (isActive.value) {
-    teleportToRandomPage()
+    stopGame()
+  } else {
+    startGame()
   }
 }
 
@@ -114,30 +140,65 @@ watch(isActive, (newValue) => {
 })
 
 onUnmounted(() => {
+  if (timerInterval) clearInterval(timerInterval)
   document.body.classList.remove('laser-mode')
   window.removeEventListener('click', handleGlobalClick, { capture: true })
 })
 </script>
 
 <template>
-  <button 
-    class="laser-game-toggle" 
-    @click="toggleGame"
-    :class="{ 'is-active': isActive }"
-    title="Activer/Désactiver le Laser Game"
-  >
-    <span v-if="!isActive">🔫</span>
-    <span v-else>❌</span>
-  </button>
+  <div class="laser-game-container">
+    <div v-if="isActive" class="timer-display">
+      {{ timeLeft }}s
+    </div>
+    <button 
+      class="laser-game-toggle" 
+      @click="toggleGame"
+      :class="{ 'is-active': isActive }"
+      title="Activer/Désactiver le Laser Game"
+    >
+      <span v-if="!isActive">🔫</span>
+      <span v-else>❌</span>
+    </button>
+  </div>
 </template>
 
 <style scoped>
-.laser-game-toggle {
+.laser-game-container {
   position: fixed;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.timer-display {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop-in {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.laser-game-toggle {
+  /* position: fixed;  <-- On retire le position fixed car le parent gère le positionnement maintenant */
+  /* right: 20px; */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  /* z-index: 9999; */
   width: 50px;
   height: 50px;
   border-radius: 50%;

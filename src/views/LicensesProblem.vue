@@ -112,6 +112,71 @@ function markAsRead() {
         </div>
       </section>
 
+      <section class="section windows-section">
+        <h2>💻 Le Cas Particulier : Windows</h2>
+        <div class="windows-content">
+          <div class="windows-intro">
+            <p>
+              Windows est un système d'exploitation propriétaire de Microsoft, présent sur plus de 70% des ordinateurs dans le monde.
+              Son modèle économique illustre parfaitement les problèmes des licences payantes à grande échelle.
+            </p>
+          </div>
+
+          <div class="windows-cost">
+            <h3>💰 Le Coût de Windows</h3>
+            <div class="cost-breakdown">
+              <div class="cost-item">
+                <span class="cost-label">Windows 11 Home</span>
+                <span class="cost-value">~145€</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">Windows 11 Pro</span>
+                <span class="cost-value">~259€</span>
+              </div>
+              <div class="cost-item enterprise">
+                <span class="cost-label">Entreprises (licences multiples)</span>
+                <span class="cost-value">Des milliers d'euros/an</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="windows-issues">
+            <h3>⚠️ Problématiques</h3>
+            <div class="issues-grid">
+              <div class="issue-box">
+                <div class="issue-icon">🔒</div>
+                <h4>Écosystème Fermé</h4>
+                <p>Difficile de quitter l'écosystème Microsoft une fois installé (Office, OneDrive, etc.)</p>
+              </div>
+              <div class="issue-box">
+                <div class="issue-icon">👁️</div>
+                <h4>Télémétrie Invasive</h4>
+                <p>Collecte massive de données utilisateur, difficile à désactiver complètement</p>
+              </div>
+              <div class="issue-box">
+                <div class="issue-icon">📱</div>
+                <h4>Bloatware</h4>
+                <p>Applications pré-installées non désirées, publicités dans le système</p>
+              </div>
+              <div class="issue-box">
+                <div class="issue-icon">🔄</div>
+                <h4>Mises à jour Forcées</h4>
+                <p>Contrôle limité sur les mises à jour, parfois problématiques</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="windows-alternative">
+            <h3>🐧 L'Alternative : GNU/Linux</h3>
+            <p class="linux-brief">
+              Des systèmes d'exploitation libres et gratuits comme <strong>Ubuntu</strong>, <strong>Linux Mint</strong> ou 
+              <strong>Fedora</strong> offrent une alternative complète à Windows, sans coût de licence, avec un respect total 
+              de votre vie privée et des performances optimales. Cette alternative sera explorée en détail dans une page dédiée.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section class="section examples">
         <h2>📚 Exemples d'Alternatives Libres</h2>
         <div class="examples-grid">
@@ -319,6 +384,170 @@ h3 {
 .solution-card p {
   font-size: 0.9rem;
   margin-bottom: 0;
+}
+
+.examples {
+  background: linear-gradient(135deg, #f5f9f7 0%, #f0f6f3 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #d4e8db;
+}
+
+/* Section Windows */
+.windows-section {
+  background: linear-gradient(135deg, #e8f4fd 0%, #d4e9f7 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 3px solid #4a90e2;
+  margin: 3rem 0;
+}
+
+.windows-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.windows-intro {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #4a90e2;
+}
+
+.windows-intro p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.windows-cost {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.windows-cost h3 {
+  color: #2e4f3b;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.cost-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+  transition: all 0.3s ease;
+}
+
+.cost-item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+.cost-item.enterprise {
+  background: linear-gradient(135deg, #ffe8e8 0%, #ffd6d6 100%);
+  border-left-color: #e74c3c;
+}
+
+.cost-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.cost-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e74c3c;
+}
+
+.windows-issues h3 {
+  color: #2e4f3b;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.issue-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #ffd6d6;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.issue-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(231, 76, 60, 0.15);
+  border-color: #e74c3c;
+}
+
+.issue-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.issue-box h4 {
+  color: #2e4f3b;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.issue-box p {
+  font-size: 0.85rem;
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.windows-alternative {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #66bb6a;
+}
+
+.windows-alternative h3 {
+  color: #2e4f3b;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.linux-brief {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: center;
+  border-left: 4px solid #66bb6a;
 }
 
 .examples {

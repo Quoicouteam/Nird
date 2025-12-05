@@ -17,6 +17,16 @@ function markAsRead() {
 
 <template>
   <div class="page">
+
+        <!-- Décoration de fond végétale -->
+    <div class="nature-bg">
+      <div class="leaf leaf-1">🍃</div>
+      <div class="leaf leaf-2">🌿</div>
+      <div class="leaf leaf-3">🍂</div>
+      <div class="leaf leaf-4">🌱</div>
+      <div class="leaf leaf-5">🍃</div>
+      <div class="leaf leaf-6">🌿</div>
+    </div>
     <article class="content">
       <div class="header">
         <div class="header-icon">💰</div>
@@ -384,6 +394,37 @@ h3 {
 .solution-card p {
   font-size: 0.9rem;
   margin-bottom: 0;
+}
+
+/* Décoration de fond végétale */
+.nature-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.leaf {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.08;
+  animation: float 8s ease-in-out infinite;
+}
+
+.leaf-1 { top: 5%; left: 5%; animation-delay: 0s; }
+.leaf-2 { top: 15%; right: 10%; animation-delay: 2s; }
+.leaf-3 { bottom: 20%; left: 15%; animation-delay: 4s; }
+.leaf-4 { top: 50%; right: 5%; animation-delay: 1s; }
+.leaf-5 { bottom: 10%; right: 20%; animation-delay: 3s; }
+.leaf-6 { top: 30%; left: 10%; animation-delay: 5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(20px) rotate(10deg); }
 }
 
 .examples {

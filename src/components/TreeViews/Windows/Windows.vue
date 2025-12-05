@@ -114,6 +114,23 @@
         <p v-else style="color: #6b6b6b; margin:0;">Cochez toutes les cases pour débloquer le bouton.</p>
       </div>
 
+      <!-- Boutons Linux -->
+      <div v-if="allChecked" class="linux-choices">
+        <p class="choices-label">Quel type de Linux t'intéresse ?</p>
+        <div class="choices-grid">
+          <button class="choice-button" @click="continueTo('distro-debutants')">
+            <span class="choice-icon">🐧</span>
+            <span class="choice-title">Distro Débutants</span>
+            <span class="choice-desc">Débuter avec Linux simplement</span>
+          </button>
+          <button class="choice-button" @click="continueTo('distro-gpu')">
+            <span class="choice-icon">🎮</span>
+            <span class="choice-title">Distro Gaming/GPU</span>
+            <span class="choice-desc">Linux pour le graphisme et jeux</span>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -454,23 +471,135 @@ tbody tr:hover {
 .choice-button {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem;
-  background: white;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fdf8 100%);
   border: 2px solid #d4e5da;
-  border-radius: 12px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #5a7d6a, #7dab8a, #5a7d6a);
+  background-size: 200% 100%;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  animation: shimmer 2s infinite;
+}
+
+.choice-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(93, 175, 125, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
 .choice-button:hover {
-  transform: translateY(-6px);
   border-color: #5a7d6a;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(46, 79, 59, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7f3 100%);
 }
 
-.choice-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
-.choice-title { font-weight: 700; color: #2e4f3b; margin-bottom: 0.25rem; }
-.choice-desc { color: #666; font-size: 0.95rem; }
+.choice-button:hover::before {
+  transform: scaleX(1);
+}
+
+.choice-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.choice-button:active {
+  transform: translateY(-4px) scale(1);
+}
+
+.choice-icon { 
+  font-size: 2.5rem; 
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: float-gentle 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.choice-button:hover .choice-icon {
+  animation: pulse-grow 0.6s ease-in-out;
+}
+
+.choice-title { 
+  font-weight: 700; 
+  color: #2e4f3b; 
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.choice-button:hover .choice-title {
+  color: #3d6b4f;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.choice-desc { 
+  color: #666; 
+  font-size: 0.95rem;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pulse-grow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(90, 125, 106, 0.3); }
+  50% { text-shadow: 0 0 15px rgba(90, 125, 106, 0.6); }
+}
+
+.linux-choices {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.choices-label {
+  color: #2e4f3b;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.choices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
 
 /* Feedback */
 .feedback {

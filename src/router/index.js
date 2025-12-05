@@ -4,6 +4,8 @@ import WindowsPayant from '../components/TreeViews/Licenses/Windows/WindowsPayan
 import PresentationNird from '../components/TreeViews/PresentationNird.vue'
 import LicensesProblem from '../components/TreeViews/Licenses/LicensesProblem.vue'
 import LogicielsAlternatifs from '../components/TreeViews/Licenses/LogicielsAlternatifs/LogicielsAlternatifs.vue'
+import DistroDebutants from '../components/TreeViews/Linux/DistroDebutants.vue'
+import DistroGPU from '../components/TreeViews/Linux/DistroGPU.vue'
 import RGPDPage from '../components/TreeViews/RGPD/RGPD.vue'
 import StockageHorsUE from '../components/TreeViews/RGPD/StockageHorsUE/StockageHorsUE.vue'
 import OpenSource from '../components/TreeViews/RGPD/StockageHorsUE/OpenSource/OpenSource.vue'
@@ -89,6 +91,25 @@ const routes = [
   }
   ,
   {
+    path: '/page/distro-debutants',
+    name: 'distro-debutants',
+    component: DistroDebutants,
+    meta: {
+      title: 'Distro Débutants',
+      parent: ['licences', 'windows']
+    }
+  },
+  {
+    path: '/page/distro-gpu',
+    name: 'distro-gpu',
+    component: DistroGPU,
+    meta: {
+      title: 'Distro Gaming/GPU',
+      parent: ['licences', 'windows']
+    }
+  }
+  ,
+  {
     path: '/page/sobriete',
     name: 'sobriete',
     component: SobrieteEtEcologie,
@@ -122,7 +143,10 @@ router.beforeEach((to, from, next) => {
   // Vérifier UNIQUEMENT si la page a un parent requis qui est débloqué
   // La page elle-même sera débloquée par usePageUnlock() à l'arrivée
   if (to.meta?.parent) {
-    const parentUnlocked = isPageUnlocked(to.meta.parent)
+    // Support des parents multiples (array) et single parent (string)
+    const parents = Array.isArray(to.meta.parent) ? to.meta.parent : [to.meta.parent]
+    const parentUnlocked = parents.some(parentId => isPageUnlocked(parentId))
+    
     console.log('🔐 Vérification parent:', { 
       parent: to.meta.parent, 
       unlocked: parentUnlocked,
@@ -130,8 +154,8 @@ router.beforeEach((to, from, next) => {
     })
     
     if (!parentUnlocked) {
-      // Rediriger vers la page d'accès refusé si le parent n'est pas débloqué
-      console.warn(`⚠️ Accès refusé à ${to.name} : parent ${to.meta.parent} non débloqué`)
+      // Rediriger vers la page d'accès refusé si aucun parent n'est débloqué
+      console.warn(`⚠️ Accès refusé à ${to.name} : aucun parent parmi ${parents.join(', ')} n'est débloqué`)
       return next({ name: 'access-denied' })
     }
   }

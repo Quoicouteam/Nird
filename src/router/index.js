@@ -5,6 +5,7 @@ import LicensesProblem from '../views/LicensesProblem.vue'
 import RGPDPage from '../views/rgpd.vue'
 import StockageHorsUE from '../views/StockageHorsUE.vue'
 import OpenSource from '../views/OpenSource.vue'
+import SobrieteEtEcologie from '../views/SobriétéEtEcologie.vue'
 
 const routes = [
   {
@@ -39,6 +40,16 @@ const routes = [
     meta: {
       title: 'Open Source',
       parent: 'stockage-hors-ue'
+    }
+  }
+  ,
+  {
+    path: '/page/sobriete',
+    name: 'sobriete',
+    component: SobrieteEtEcologie,
+    meta: {
+      title: 'Sobriété & Écologie',
+      parent: 'open-source'
     }
   }
 ]

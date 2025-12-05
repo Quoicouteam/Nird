@@ -6,6 +6,7 @@ import RGPDPage from '../views/rgpd.vue'
 import StockageHorsUE from '../views/StockageHorsUE.vue'
 import OpenSource from '../views/OpenSource.vue'
 import SobrieteEtEcologie from '../views/SobriétéEtEcologie.vue'
+import Windows from '../views/Windows.vue'
 
 const routes = [
   {
@@ -41,8 +42,16 @@ const routes = [
       title: 'Open Source',
       parent: 'stockage-hors-ue'
     }
-  }
-  ,
+  },
+  {
+    path: '/page/windows',
+    name: 'windows',
+    component: Windows,
+    meta: {
+      title: 'Windows',
+      parent: 'presentation'
+    }
+  },
     {
         path: '/page/licences',
         name: 'licences',

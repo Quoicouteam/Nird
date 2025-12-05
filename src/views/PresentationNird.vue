@@ -108,12 +108,19 @@ function chooseNext(choice) {
           <span class="choice-arrow">→</span>
         </button>
 
-        <button class="choice-button" @click="chooseNext('sobriete')">
+          <button class="choice-button" @click="chooseNext('sobriete')">
           <span class="choice-icon">🌱</span>
           <span class="choice-title">Sobriété & Écologie</span>
           <span class="choice-desc">Les enjeux environnementaux du numérique</span>
           <span class="choice-arrow">→</span>
         </button>
+
+          <button class="choice-button" @click="chooseNext('windows')">
+            <span class="choice-icon">🪟</span>
+            <span class="choice-title">Windows & Proprietary OS</span>
+            <span class="choice-desc">Comprendre les systèmes d'exploitation propriétaires</span>
+            <span class="choice-arrow">→</span>
+          </button>
       </div>
     </div>
   </div>

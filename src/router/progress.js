@@ -1,14 +1,31 @@
 import { reactive } from 'vue'
+import treeData from '../components/SkillTree/SkillTreeData.json'
 
 const STORAGE_KEY = 'nird-progress'
 
 function loadProgress() {
   const saved = localStorage.getItem(STORAGE_KEY)
+
+  // Trouver toutes les pousses (quêtes annexes) à débloquer automatiquement
+  const sprouts = treeData.children
+    .filter(child => child.special === 'sprout')
+    .map(child => child.id)
+
+  const defaultUnlocked = ['presentation', ...sprouts]
+
   if (saved) {
-    return JSON.parse(saved)
+    const progress = JSON.parse(saved)
+    // S'assurer que les pousses sont toujours débloquées même si sauvegarde existante
+    sprouts.forEach(sproutId => {
+      if (!progress.unlockedPages.includes(sproutId)) {
+        progress.unlockedPages.push(sproutId)
+      }
+    })
+    return progress
   }
+
   return {
-    unlockedPages: ['presentation'], // Seule la page de présentation est débloquée au départ
+    unlockedPages: defaultUnlocked, // Présentation + toutes les pousses
     completed: []
   }
 }

@@ -250,18 +250,25 @@
           </ul>
         </section>
       </article>
+
+      <div class="completion-box" style="text-align:center; margin-top:1.5rem;">
+        <button class="btn-next" @click="unlockLetterK">Marquer comme terminé et débloquer la lettre K</button>
+        <div v-if="showUnlockMessageK" class="unlock-msg" style="margin-top:0.75rem; font-weight:700; color:#2e7d4a;">✅ Vous avez débloqué la lettre K</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { unlockPage } from '../../../router/progress.js'
+import { unlockPage, completePage, grantLetter } from '../../../router/progress.js'
 import { navigateToPage } from '../../../router/progress.js'
 import '../../../assets/pages-common.css'
 
 const router = useRouter()
+
+const showUnlockMessageK = ref(false)
 
 onMounted(() => {
   unlockPage('linux-distros-debutants')
@@ -272,6 +279,17 @@ onMounted(() => {
 
 function continueTo(pageId) {
   navigateToPage('linux-distros-debutants', pageId, router)
+}
+
+function unlockLetterK() {
+  try {
+    grantLetter('K')
+  } catch (e) {}
+  try {
+    completePage('linux-distros-debutants')
+  } catch (e) {}
+  showUnlockMessageK.value = true
+  setTimeout(() => { showUnlockMessageK.value = false }, 3000)
 }
 </script>
 

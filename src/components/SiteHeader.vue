@@ -1,6 +1,6 @@
 <script setup>
-import { computed } from 'vue'
-import { progress } from '../router/progress.js'
+import { computed, ref, watch } from 'vue'
+import { progress, hasAllLetters } from '../router/progress.js'
 
 const emit = defineEmits(['open-tree'])
 
@@ -9,6 +9,14 @@ const letters = targetWord.split('')
 
 const masked = computed(() => {
   return letters.map(ch => progress.lettersEarned && progress.lettersEarned.includes(ch) ? ch : '_')
+})
+
+const unlocked = computed(() => hasAllLetters(targetWord))
+const showPopup = ref(false)
+
+// Afficher la popup une fois le mot déverrouillé
+watch(unlocked, (v) => {
+  if (v) showPopup.value = true
 })
 </script>
 
@@ -154,5 +162,35 @@ const masked = computed(() => {
 
 .masked-word { display: flex; gap: 0.5rem; font-weight: 800; color: #2e4f3b; font-size: 1rem; }
 .masked-letter { display: inline-block; width: 20px; text-align: center; font-family: inherit; }
+
+/* Popup when full word is unlocked */
+.egg-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  z-index: 1200;
+}
+.egg-popup-card {
+  background: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+.egg-popup-card h3 { margin: 0 0 0.5rem 0; color: #2e7d4a }
+.egg-popup-card p { margin: 0 0 1rem 0; color: #444 }
+.popup-actions { display:flex; gap:0.75rem; justify-content:center }
+.btn-primary { background: #5a7d6a; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer }
+.btn-ghost { background: transparent; border: 1px solid #ddd; padding: 8px 12px; border-radius: 8px; cursor: pointer }
+.close-popup { position: absolute; right: 8px; top: 8px; background: transparent; border: none; font-size: 1rem; cursor: pointer }
 </style>
 

@@ -178,7 +178,6 @@
         <!-- ÉCRAN DE FIN -->
         <div v-if="quizFinished">
           <p class="mission-status">Quiz Terminé</p>
-          <div v-if="showUnlockMessageN" class="unlock-msg">✅ Lettre N débloquée !</div>
           <div class="score-box">{{ score }} / {{ questions.length }}</div>
           <p v-if="score === questions.length">🌟 Excellent ! Vous connaissez maintenant les principales alternatives libres.</p>
           <p v-else>⚠️ Nous vous recommandons de relire les comparaisons pour mieux mémoriser les alternatives.</p>
@@ -320,72 +319,7 @@ export default {
 </script>
 
 <style scoped>
-.page {
-  min-height: calc(100vh - 60px);
-  padding-top: 80px;
-  background: linear-gradient(180deg, #f8f6f3 0%, #fff 50%, #f0f4f2 100%);
-}
-
-.unlock-msg {
-  margin-top: 0.5rem;
-  padding: 8px 12px;
-  background: linear-gradient(90deg, #e6ffed, #f0fff4);
-  border: 1px solid #bfe6c8;
-  color: #2e7d4a;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-.content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 3px solid #7dab8a;
-}
-
-.header-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-h1 {
-  color: #2e4f3b;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.subtitle {
-  color: #5a7d6a;
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
-h2 {
-  color: #3d6b4f;
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-  margin-top: 2.5rem;
-  font-weight: 600;
-}
-
-.section {
-  margin-bottom: 2.5rem;
-}
-
-.section p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 1rem;
-}
-
+/* Styles spécifiques pour les comparaisons de logiciels */
 .alternative-card {
   background: linear-gradient(135deg, #f5f9f7 0%, #e8f5e9 100%);
   border-radius: 16px;

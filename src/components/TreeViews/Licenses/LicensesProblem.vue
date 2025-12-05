@@ -276,8 +276,8 @@ export default {
           explanation: "L'accès au code source permet à tous d'examiner, modifier et améliorer le logiciel.",
           options: [
             { text: "Ils sont toujours plus rapides", isCorrect: false },
-            { text: "Accès au code source pour tous", isCorrect: true },
-            { text: "Ils n'ont jamais de bugs", isCorrect: false }
+            { text: "Ils n'ont jamais de bugs", isCorrect: false },
+            { text: "Accès au code source pour tous", isCorrect: true }
           ]
         }
       ]

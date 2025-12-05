@@ -159,8 +159,8 @@ export default {
           text: "Pourquoi dit-on que Windows n'est pas vraiment 'gratuit' ?",
           explanation: "Le prix de la licence Windows est inclus dans le prix du PC (la 'Taxe Microsoft').",
           options: [
-            { text: "Parce qu'il faut payer pour les mises à jour", isCorrect: false },
             { text: "Parce que le prix de la licence est inclus dans le prix du PC", isCorrect: true },
+            { text: "Parce qu'il faut payer pour les mises à jour", isCorrect: false },
             { text: "Parce qu'il est illégal de l'utiliser gratuitement", isCorrect: false }
           ]
         },
@@ -177,8 +177,8 @@ export default {
           text: "Qu'est-ce que la 'Télémétrie' dans Windows ?",
           explanation: "La télémétrie envoie des données sur vos habitudes d'utilisation aux serveurs de Microsoft.",
           options: [
-            { text: "Un système de mesure de la température du PC", isCorrect: false },
-            { text: "L'envoi de données sur vos habitudes aux serveurs Microsoft", isCorrect: true },
+            { text: "L'envoi de données sur vos habitudes aux serveurs Microsoft", isCorrect: true  },
+            { text: "Un système de mesure de la température du PC", isCorrect: false},
             { text: "Une fonctionnalité pour mesurer la vitesse d'Internet", isCorrect: false }
           ]
         },

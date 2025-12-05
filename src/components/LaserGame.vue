@@ -25,7 +25,6 @@ const handleGlobalClick = (event) => {
     '.leaf',          // Les feuilles décoratives
     '.card',          // Les cartes d'info
     '.alert-box',     // Les boîtes d'alerte
-    'button',         // Tous les boutons (inclut l'arbre du header et les choix)
     '.choice-button'  // Explicite pour les choix
   ].join(', ')
 
@@ -124,14 +123,11 @@ onUnmounted(() => {
 
 <style>
 /* Styles globaux pour le mode jeu */
-body.laser-mode {
-  /* On force le curseur sur tout le body */
-  cursor: url('../assets/img/blaster.png') 16 16, auto !important;
-}
-
-/* On s'assure que tous les éléments héritent du curseur */
+body.laser-mode,
 body.laser-mode * {
-  cursor: inherit !important;
+  /* On force le curseur sur tout le body et ses enfants */
+  /* Ajustement du point d'ancrage au centre (64 64 pour une image 128x128) */
+  cursor: url('../assets/img/blaster.png') 64 64, auto !important;
 }
 
 .laser-hit {

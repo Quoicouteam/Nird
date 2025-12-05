@@ -1,10 +1,53 @@
 <script setup>
 import { ref, watch, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { progress } from '../router/progress.js'
+import skillTreeData from './SkillTree/SkillTreeData.json'
 
+const router = useRouter()
 const isActive = ref(false)
 
 const toggleGame = () => {
   isActive.value = !isActive.value
+  
+  if (isActive.value) {
+    teleportToRandomPage()
+  }
+}
+
+const teleportToRandomPage = () => {
+  // 1. Récupérer tous les IDs de pages débloquées
+  const unlockedIds = progress.unlockedPages
+  
+  // 2. Construire une map ID -> Route pour faciliter la recherche
+  const idToRoute = {}
+  
+  // Ajouter la racine
+  if (skillTreeData.root) {
+    idToRoute[skillTreeData.root.id] = skillTreeData.root.route
+  }
+  
+  // Ajouter les enfants
+  if (skillTreeData.children) {
+    skillTreeData.children.forEach(child => {
+      idToRoute[child.id] = child.route
+    })
+  }
+  
+  // 3. Filtrer les IDs débloqués pour ne garder que ceux qui ont une route valide
+  const validDestinations = unlockedIds.filter(id => idToRoute[id])
+  
+  if (validDestinations.length > 0) {
+    // 4. Choisir une destination au hasard
+    const randomIndex = Math.floor(Math.random() * validDestinations.length)
+    const randomId = validDestinations[randomIndex]
+    const targetRoute = idToRoute[randomId]
+    
+    console.log(`🎲 Laser Game Teleport: ${randomId} -> ${targetRoute}`)
+    
+    // 5. Rediriger
+    router.push(targetRoute)
+  }
 }
 
 const handleGlobalClick = (event) => {

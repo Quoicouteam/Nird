@@ -94,6 +94,13 @@ const handleGlobalClick = (event) => {
   // Ne pas tirer sur le bouton du jeu lui-même
   if (event.target.closest('.laser-game-toggle')) return
 
+  // Ne pas tirer sur le header
+  if (event.target.closest('.site-header')) {
+    event.preventDefault()
+    event.stopPropagation()
+    return
+  }
+
   const target = event.target
   let finalTarget = null
 

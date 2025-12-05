@@ -14,20 +14,49 @@ const handleGlobalClick = (event) => {
   if (event.target.closest('.laser-game-toggle')) return
 
   const target = event.target
+  let finalTarget = null
+
+  // 1. Priorité aux blocs conteneurs définis (Les "Blocks" demandés)
+  // On utilise closest() pour cibler le conteneur parent si on clique sur un enfant
+  const blockSelector = [
+    '.feature',       // Blocs Découvrez, Apprenez, Agissez
+    '.step',          // Blocs 1, 2, 3
+    '.hero-icon',     // L'arbre principal
+    '.leaf',          // Les feuilles décoratives
+    '.card',          // Les cartes d'info
+    '.alert-box',     // Les boîtes d'alerte
+    'button',         // Tous les boutons (inclut l'arbre du header et les choix)
+    '.choice-button'  // Explicite pour les choix
+  ].join(', ')
+
+  const block = target.closest(blockSelector)
   
+  if (block) {
+    finalTarget = block
+  } else {
+    // 2. Sinon, éléments de contenu individuels (Textes, Images...)
+    const allowedTags = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'IMG', 'SPAN', 'LI', 'INPUT', 'LABEL', 'STRONG', 'EM', 'I', 'B', 'A']
+    if (allowedTags.includes(target.tagName)) {
+      finalTarget = target
+    }
+  }
+
+  // Si aucune cible valide trouvée, on arrête
+  if (!finalTarget) return
+
   // Si déjà touché, on ne fait rien
-  if (target.classList.contains('laser-hit')) return
+  if (finalTarget.classList.contains('laser-hit')) return
 
   // Empêcher l'action par défaut (clic sur lien, bouton, etc.)
   event.preventDefault()
   event.stopPropagation()
 
   // Ajouter l'effet
-  target.classList.add('laser-hit')
+  finalTarget.classList.add('laser-hit')
 
   // Retirer l'effet après 2 secondes
   setTimeout(() => {
-    target.classList.remove('laser-hit')
+    finalTarget.classList.remove('laser-hit')
   }, 2000)
 }
 

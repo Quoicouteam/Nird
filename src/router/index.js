@@ -2,10 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PresentationNird from '../views/PresentationNird.vue'
 import PlaceholderPage from '../views/PlaceholderPage.vue'
 import LicensesProblem from '../views/LicensesProblem.vue'
-import Office365ToLibreOffice from '../views/Office365ToLibreOffice.vue'
-import PhotoshopToGimp from '../views/PhotoshopToGimp.vue'
-import ChatGPTToHuggingChat from '../views/ChatGPTToHuggingChat.vue'
-import PremierToKdenlive from '../views/PremierToKdenlive.vue'
 import RGPDPage from '../views/rgpd.vue'
 import StockageHorsUE from '../views/StockageHorsUE.vue'
 import OpenSource from '../views/OpenSource.vue'
@@ -34,42 +30,6 @@ const routes = [
     meta: {
       title: 'Stockage des données hors UE',
       parent: 'confidentialite'
-    }
-  },
-  {
-    path: '/page/office365-libreoffice',
-    name: 'office365-libreoffice',
-    component: Office365ToLibreOffice,
-    meta: {
-      title: 'Microsoft 365 → LibreOffice',
-      parent: 'licences'
-    }
-  },
-  {
-    path: '/page/photoshop-gimp',
-    name: 'photoshop-gimp',
-    component: PhotoshopToGimp,
-    meta: {
-      title: 'Photoshop → GIMP',
-      parent: 'licences'
-    }
-  },
-  {
-    path: '/page/chatgpt-huggingchat',
-    name: 'chatgpt-huggingchat',
-    component: ChatGPTToHuggingChat,
-    meta: {
-      title: 'ChatGPT → HuggingChat',
-      parent: 'licences'
-    }
-  },
-  {
-    path: '/page/premier-kdenlive',
-    name: 'premier-kdenlive',
-    component: PremierToKdenlive,
-    meta: {
-      title: 'Premiere Pro → Kdenlive',
-      parent: 'licences'
     }
   }
   ,

@@ -41,14 +41,33 @@ function saveProgress() {
 export function unlockPage(pageId) {
   console.log('🔓 unlockPage appelé:', pageId)
   console.log('📋 Pages débloquées avant:', [...progress.unlockedPages])
+  
+  // Débloquer la page elle-même
   if (!progress.unlockedPages.includes(pageId)) {
     progress.unlockedPages.push(pageId)
-    saveProgress()
     console.log('✅ Page débloquée:', pageId)
-    console.log('📋 Pages débloquées après:', [...progress.unlockedPages])
   } else {
     console.log('ℹ️ Page déjà débloquée:', pageId)
   }
+  
+  // Trouver le parent de cette page dans l'arbre
+  const currentNode = treeData.children.find(node => node.id === pageId)
+  if (currentNode && currentNode.parent) {
+    const parentId = currentNode.parent
+    
+    // Trouver tous les frères/sœurs (enfants du même parent)
+    const siblings = treeData.children.filter(node => node.parent === parentId)
+    
+    // Débloquer tous les frères/sœurs
+    siblings.forEach(sibling => {
+      if (!progress.unlockedPages.includes(sibling.id)) {
+        progress.unlockedPages.push(sibling.id)
+      }
+    })
+  }
+  
+  saveProgress()
+  console.log('📋 Pages débloquées après:', [...progress.unlockedPages])
 }
 
 // --- Easter-egg letters support ---------------------------------

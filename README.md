@@ -86,6 +86,17 @@ Pour lancer le projet en local, suivez ces étapes :
     npm run build
     ```
 
+## Outil de Développement : `reset.html`
+
+À la racine du dossier `public`, vous trouverez le fichier `reset.html`. Cette page est un outil simple destiné aux développeurs pour faciliter les tests de progression dans l'application.
+
+Elle offre les fonctionnalités suivantes :
+- **Initialiser la progression :** Crée la structure de base dans le `localStorage` pour commencer la navigation.
+- **Réinitialiser la progression :** Supprime toutes les données de progression, idéal pour recommencer un test depuis le début.
+- **Débloquer toutes les pages :** Permet d'accéder à toutes les branches principales de l'arbre de compétences sans avoir à compléter les prérequis.
+
+Pour l'utiliser, lancez le projet en local et accédez à l'URL `/reset.html`. La page est également accessible directement en production : [nuitdelinfo.bessastien.fr/reset.html](https://nuitdelinfo.bessastien.fr/reset.html).
+
 ## Collaborateurs
 
 Ce projet a été réalisé par une équipe d'étudiants de l'EPSI Lyon :

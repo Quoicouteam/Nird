@@ -44,6 +44,7 @@ watch(unlocked, (v) => {
         <span v-for="(ch, idx) in masked" :key="idx" :id="'masked-letter-' + letters[idx]" class="masked-letter">{{ ch }}</span>
       </div>
     </div>
+<<<<<<< HEAD
 
     <!-- Popup informant l'utilisateur qu'il doit taper 'snake' pour ouvrir le jeu -->
     <div v-if="showPopup" class="egg-popup">
@@ -59,6 +60,9 @@ watch(unlocked, (v) => {
     </div>
 
     <a href="src/troll/rickroll/pageRickroll.html" target="_blank" class="snake-troll">
+=======
+    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1" target="_blank" class="snake-troll">
+>>>>>>> e6b424a46783d0cef9201c09ea0a5f5c78eb1e71
       <img src="../troll/snakeTroll.jpeg" alt="snaketroll">
     </a>
   </header>

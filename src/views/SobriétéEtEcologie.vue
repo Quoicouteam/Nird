@@ -1,5 +1,14 @@
 <template>
   <div class="sobriete-page">
+    <!-- Décoration de fond végétale -->
+    <div class="nature-bg">
+      <div class="leaf leaf-1">🍃</div>
+      <div class="leaf leaf-2">🌿</div>
+      <div class="leaf leaf-3">🍂</div>
+      <div class="leaf leaf-4">🌱</div>
+      <div class="leaf leaf-5">🍃</div>
+      <div class="leaf leaf-6">🌿</div>
+    </div>
     
     <!-- ========================================= -->
     <!-- PARTIE 1 : LE CONTENU PÉDAGOGIQUE (COURS) -->
@@ -222,7 +231,7 @@ export default {
 
 <style scoped>
 /* Page wrapper avec décoration de fond */
-.rgpd-page {
+.sobriete-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5faf8 0%, #eef6f3 100%);
   position: relative;

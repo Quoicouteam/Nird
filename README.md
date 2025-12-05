@@ -28,7 +28,12 @@ Notre équipe a choisi de participer aux défis suivants :
   - [Audio-Visualizer](https://github.com/Quoicouteam/Audio-Visualizer)
   - [VolumeGoldberg](https://github.com/Quoicouteam/VolumeGoldberg)
 
-### 3. Easter Egg : Hidden Snake
+### 3. Défi : La zerguèm de la nuit
+- **Objectifs :** Gamifier la page en transformant le curseur en pistolet laser pour tirer sur des éléments, compter les points et inclure des ennemis qui ripostent.
+- **Notre approche :** Nous avons développé un mini-jeu de tir directement sur la page. Le curseur de l'utilisateur devient un viseur, lui permettant d'interagir de manière ludique avec le contenu en tirant dessus pour marquer des points.
+- **Dépôt associé :** [Lazergu-m-](https://github.com/Quoicouteam/Lazergu-m-)
+
+### 4. Easter Egg : Hidden Snake
 - **Concept :** Un mini-jeu Snake est caché dans le site.
 - **Activation :** En complétant des QCM éparpillés dans le site, on découvre les lettres à taper pour lancer le jeu. Le [code secret](/CODE_SECRET.md) est disponible pour les développeurs. 
 - **Dépôt associé :** [Hidden-Snake](https://github.com/Quoicouteam/Hidden-Snake)

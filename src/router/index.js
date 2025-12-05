@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Windows from '../views/Windows.vue'
-import WindowsPayant from '../views/WindowsPayant.vue'
+import Windows from '../components/TreeViews/Windows/Windows.vue'
+import WindowsPayant from '../components/TreeViews/Licenses/Windows/WindowsPayant.vue'
 import PresentationNird from '../components/TreeViews/PresentationNird.vue'
 import LicensesProblem from '../components/TreeViews/Licenses/LicensesProblem.vue'
 import RGPDPage from '../components/TreeViews/RGPD/RGPD.vue'

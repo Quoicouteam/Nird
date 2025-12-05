@@ -76,7 +76,7 @@
       
       <!-- Bouton retour à la page de présentation / arbre -->
       <div style="text-align:center; margin-top:2.5rem; margin-bottom:2rem;">
-        <button class="btn-next" @click="$router.push({ name: 'presentation' })">Retour à l'arbre 🌳</button>
+        <button class="btn-next" @click="continueTo('/')">Retour à l'arbre 🌳</button>
       </div>
 
     </div>
@@ -84,16 +84,23 @@
 </template>
 
 <script>
+import { unlockPage, navigateToPage } from '../../../../router/progress.js'
+
 export default {
   name: 'PageWindows',
   mounted() {
+    // Débloquer cette page
+    unlockPage('windows-payant')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     } catch (e) {}
+  },
+  methods: {
+    continueTo(pageId) {
+      navigateToPage('windows-payant', pageId, this.$router)
+    }
   }
-  
-  
 }
 </script>
 

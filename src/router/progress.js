@@ -77,14 +77,16 @@ export function navigateToPage(currentPageId, targetPageId, router) {
     completePage(currentPageId)
   }
   
+  // Si la cible est '/' ou 'presentation', aller à la page d'accueil
+  if (targetPageId === '/' || targetPageId === 'presentation') {
+    router.push('/')
+    return
+  }
+  
   // Débloquer la page cible
   unlockPage(targetPageId)
   
   // Naviguer
-  if (targetPageId === 'presentation') {
-    router.push('/')
-  } else {
-    router.push(`/page/${targetPageId}`)
-  }
+  router.push(`/page/${targetPageId}`)
 }
 

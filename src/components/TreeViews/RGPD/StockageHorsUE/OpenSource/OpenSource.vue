@@ -80,7 +80,7 @@
               </div>
 
               <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
-                <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+                <button class="btn-next" @click="continueTo('presentation')">Aller à l'arbre 🌳</button>
                 <button class="btn-next" @click="restartQuiz">Relancer le scan</button>
               </div>
             </div>

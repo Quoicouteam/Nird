@@ -119,13 +119,17 @@
 </template>
 
 <script>
-import { useRouter } from 'vue-router'
+import { unlockPage, navigateToPage } from '../../../router/progress.js'
 
 export default {
   name: 'PageMateriel',
-  setup() {
-    const router = useRouter()
-    return { router }
+  mounted() {
+    // Débloquer cette page
+    unlockPage('windows')
+    // S'assurer d'être en haut de la page lorsque la route est chargée
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    } catch (e) {}
   },
   data() {
     return {
@@ -142,21 +146,9 @@ export default {
       return Object.values(this.checked).every(v => v === true)
     }
   },
-  mounted() {
-    // S'assurer d'être en haut de la page lorsque la route est chargée
-    try {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-    } catch (e) {}
-  },
   methods: {
     continueTo(pageId) {
-      if (this.$router && this.$router.hasRoute && this.$router.hasRoute(pageId)) {
-        this.$router.push({ name: pageId })
-      } else if (pageId === '/' || pageId === 'tree') {
-        this.$router.push('/')
-      } else {
-        this.$router.push('/')
-      }
+      navigateToPage('windows', pageId, this.$router)
     }
   }
 }

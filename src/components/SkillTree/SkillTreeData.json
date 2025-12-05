@@ -27,11 +27,25 @@
       "parent": "stockage-hors-ue"
     },
     {
+      "id": "windows",
+      "title": "Windows",
+      "subtitle": "Matériel",
+      "route": "/page/windows",
+      "parent": "presentation"
+    },
+    {
       "id": "licences",
       "title": "Licences",
       "subtitle": "coûteuses",
       "route": "/page/licences",
       "parent": "presentation"
+    },
+    {
+      "id": "windows-payant",
+      "title": "Windows",
+      "subtitle": "Payant",
+      "route": "/page/windows-payant",
+      "parent": "licences"
     },
     {
       "id": "sobriete",

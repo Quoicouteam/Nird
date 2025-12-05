@@ -212,7 +212,7 @@ onUnmounted(() => {
     <Teleport to="body">
       <div v-if="showGameOver" class="game-over-overlay">
         <div class="game-over-card">
-          <h2>GAME OVER</h2>
+          <h2>Partie Terminée</h2>
           <div class="final-score">
             <span>SCORE FINAL</span>
             <strong>{{ score }}</strong>
@@ -352,56 +352,63 @@ onUnmounted(() => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.5); /* Noir semi-transparent simple */
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(8px);  <-- Supprimé */
   animation: fade-in 0.3s ease-out;
 }
 
 .game-over-card {
-  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+  background: #ffffff;
   padding: 40px;
   border-radius: 20px;
   text-align: center;
-  color: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  border: 2px solid rgba(255,255,255,0.2);
+  color: #2c3e50;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.5);
   animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  min-width: 300px;
+  min-width: 350px;
+  max-width: 90%;
 }
 
 .game-over-card h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 0 0 20px 0;
-  color: #e74c3c;
-  text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+  color: #2e4f3b; /* Vert foncé Nird */
+  text-shadow: none;
   font-family: 'Segoe UI', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #e8d4c4;
+  padding-bottom: 15px;
+  display: inline-block;
 }
 
 .final-score {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .final-score span {
-  font-size: 1.2rem;
-  opacity: 0.8;
+  font-size: 1.1rem;
+  color: #5a7d6a;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .final-score strong {
-  font-size: 4rem;
-  color: #f1c40f;
-  text-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+  font-size: 4.5rem;
+  color: #e67e22; /* Orange/Bronze pour le score */
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
   line-height: 1;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .game-over-actions {
@@ -411,7 +418,7 @@ onUnmounted(() => {
 }
 
 .btn-restart, .btn-close {
-  padding: 12px 24px;
+  padding: 12px 28px;
   border-radius: 50px;
   border: none;
   font-size: 1.1rem;
@@ -421,25 +428,27 @@ onUnmounted(() => {
 }
 
 .btn-restart {
-  background: #2ecc71;
+  background: #5a7d6a;
   color: white;
-  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+  box-shadow: 0 4px 15px rgba(90, 125, 106, 0.3);
 }
 
 .btn-restart:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
-  background: #27ae60;
+  box-shadow: 0 6px 20px rgba(90, 125, 106, 0.4);
+  background: #2e4f3b;
 }
 
 .btn-close {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: #7f8c8d;
+  border: 2px solid #bdc3c7;
 }
 
 .btn-close:hover {
-  background: rgba(255,255,255,0.2);
+  background: #ecf0f1;
+  color: #2c3e50;
+  border-color: #95a5a6;
 }
 
 @keyframes fade-in {

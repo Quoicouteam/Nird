@@ -41,6 +41,16 @@ const routes = [
       parent: 'stockage-hors-ue'
     }
   }
+  ,
+    {
+        path: '/page/licences',
+        name: 'licences',
+        component: LicensesProblem,
+        meta: {
+            title: 'Licenses Problem',
+            parent: 'presentation'
+        }
+    }
 ]
 
 const router = createRouter({

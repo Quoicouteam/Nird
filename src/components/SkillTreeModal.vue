@@ -142,13 +142,13 @@ function goToPage(nodeId) {
 <style scoped>
 .modal-overlay {
   position: fixed;
-  inset: var(--base);
+  inset: 0;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 3rem;
+  padding: 1rem;
 }
 
 .modal-content {
@@ -159,7 +159,7 @@ function goToPage(nodeId) {
   max-height: 90vh;
   padding: 2rem;
   position: relative;
-  box-shadow: var(--base) 25px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
   border: 2px solid rgba(90, 125, 106, 0.2);
   display: flex;
   flex-direction: column;

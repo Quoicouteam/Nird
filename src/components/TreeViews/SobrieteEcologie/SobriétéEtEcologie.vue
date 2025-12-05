@@ -1,5 +1,5 @@
 <template>
-  <div class="rgpd-page">
+  <div class="sobriete-page">
     <!-- Décoration de fond végétale -->
     <div class="nature-bg">
       <div class="leaf leaf-1">🍃</div>
@@ -18,78 +18,52 @@
       
       <!-- HEADER -->
       <header>
-        <h1>🛡️ Le Bouclier de Données (RGPD)</h1>
-        <p class="subtitle">Protège ton identité face à l'Empire Numérique</p>
+        <h1>🌱 La Sobriété Numérique</h1>
+        <p class="subtitle">"Le meilleur déchet est celui qu'on ne produit pas... même numériquement."</p>
       </header>
 
-      <!-- INTRODUCTION -->
+      <!-- LE POIDS INVISIBLE -->
       <section class="card">
-        <p>Le Règlement Général sur la Protection des Données (RGPD) est une réglementation de l'Union Européenne entrée en vigueur le <strong>25 mai 2018</strong>. C'est l'armure qui protège les citoyens contre l'exploitation abusive de leurs données personnelles.</p>
-      </section>
-
-      <!-- C'EST QUOI ? -->
-      <section>
-        <h2>🧐 C'est quoi ce code secret ?</h2>
-        <div class="card">
-          <p>Le RGPD n'est pas une punition administrative. C'est la loi qui dit que <strong>tes données t'appartiennent</strong>. Personne ne peut les voler, les vendre ou les stocker sans ton accord.</p>
-          <p>Dans un établissement scolaire, le RGPD protège les données les plus sensibles : celles des mineurs (élèves), leurs notes, leurs adresses et leurs parcours scolaires.</p>
+        <h2>⚖️ Le Poids Invisible du Virtuel</h2>
+        <p>On pense souvent que le numérique est "immatériel" ou "propre". C'est faux.</p>
+        <p>Internet pollue autant que l'aviation civile mondiale. Chaque email stocké, chaque vidéo streamée consomme de l'électricité dans un Data Center climatisé qui tourne 24h/24.</p>
+        <div class="alert-box">
+          <p>🔥 <strong>Le Chiffre Choc :</strong> Un simple email avec une pièce jointe de 1 Mo émet environ <strong>19g de CO₂</strong>. Imaginez les millions d'emails qui dorment inutilement dans nos boîtes...</p>
         </div>
       </section>
 
-      <!-- POURQUOI ? -->
+      <!-- MISSION NETTOYAGE -->
       <section>
-        <h2>⚠️ Pourquoi avons-nous besoin de ce bouclier ?</h2>
+        <h2>🧹 Mission : Grand Nettoyage</h2>
         <div class="card">
-          <p><strong>Le danger du profilage :</strong> Quand un établissement utilise des outils gratuits de Big Tech, ces entreprises aspirent des données pour créer un "double numérique" de l'élève (goûts, difficultés, opinions).</p>
-          <hr class="divider">
-          <p><strong>Le CLOUD Act :</strong> La plupart des géants (Microsoft, Google) sont américains. La loi US leur permet d'accéder aux données stockées, même en Europe. Le RGPD + des serveurs locaux bloquent cette porte dérobée.</p>
-        </div>
-      </section>
-
-      <!-- LES 5 PILIERS -->
-      <section>
-        <h2>🖐️ Les 5 Piliers de la Résistance</h2>
-        <div class="card">
-          <ul> 
-            <li><strong>La Finalité :</strong> On ne collecte pas des données "au cas où".</li>
-            <li><strong>La Minimisation :</strong> On ne prend que le strict nécessaire (Sobriété).</li>
-            <li><strong>La Durée de Conservation :</strong> Les données ont une date de péremption.</li>
-            <li><strong>La Sécurité :</strong> Chiffrement obligatoire. Pas de clé USB qui traîne !</li>
-            <li><strong>Les Droits des Personnes :</strong> Tu as le droit de demander "Qu'est-ce que vous savez sur moi ?".</li>
+          <p>Pour alléger ton sac à dos numérique et sauver des arbres, voici les cibles prioritaires :</p>
+          <ul class="eco-list">
+            <li>
+              <strong>Vider sa boîte mail :</strong>
+              <br><span class="desc">Supprime les vieux messages, les spams et désabonne-toi des newsletters que tu ne lis jamais (utilise des outils comme <em>Cleanfox</em> ou fais-le à la main).</span>
+            </li>
+            <li>
+              <strong>Arrêter les pièces jointes lourdes :</strong>
+              <br><span class="desc">Au lieu d'envoyer un fichier de 10 Mo à 30 personnes (300 Mo stockés !), envoie un <strong>lien de téléchargement</strong> (via FileSender ou Nextcloud) qui expire après 7 jours.</span>
+            </li>
+            <li>
+              <strong>La vidéo en basse résolution :</strong>
+              <br><span class="desc">As-tu vraiment besoin de regarder un tuto YouTube en 4K sur ton téléphone ? Passe en 720p ou 480p pour diviser ta consommation par 4.</span>
+            </li>
           </ul>
         </div>
       </section>
 
-      <!-- TABLEAU COMPARATIF -->
+      <!-- L'ÉNERGIE FANTÔME (ÉCRANS) -->
       <section>
-        <h2>✅ Les bons réflexes (Le Comparateur)</h2>
-        <div class="card no-padding">
-          <table>
-            <thead>
-              <tr>
-                <th>❌ Pratique de l'Empire</th>
-                <th>✅ Pratique Résistante (NIRD)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Groupe WhatsApp / Facebook</td>
-                <td>Signal ou Messagerie ENT</td>
-              </tr>
-              <tr>
-                <td>Google Drive / Dropbox</td>
-                <td>Nextcloud / Serveur du Lycée</td>
-              </tr>
-              <tr>
-                <td>WeTransfer</td>
-                <td>FileSender (Éducation Nationale)</td>
-              </tr>
-              <tr>
-                <td>Photos sans floutage</td>
-                <td>Autorisation ou Floutage (Droit à l'image)</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2>🧛 Chasser l'Énergie Fantôme</h2>
+        <div class="card">
+          <p>Ton matériel consomme même quand tu ne l'utilises pas.</p>
+          <ul>
+            <li><strong>Le mode "Veille" est un piège :</strong> Un ordinateur en veille continue de consommer. Éteins-le vraiment le soir.</li>
+            <li><strong>La luminosité de l'écran :</strong> Baisser la luminosité de 100% à 70% économise jusqu'à 20% de batterie (et d'énergie).</li>
+            <li><strong>Le Dark Mode (Mode Sombre) :</strong> Sur les écrans OLED (smartphones modernes), le noir éteint les pixels. C'est bon pour la planète et pour tes yeux !</li>
+          </ul>
         </div>
       </section>
 
@@ -99,41 +73,17 @@
 
       <div class="quiz-wrapper">
         <div class="quiz-container">
-          <h2>🎮 Mission : Inspecteur RGPD</h2>
+          <h2>🎮 Mission : Éco-Gestes</h2>
           
           <!-- ÉCRAN DE FIN -->
           <div v-if="quizFinished">
-            <p class="mission-status">Mission Terminée !</p>
+            <p class="mission-status">Bilan Carbone Terminé !</p>
             <div class="score-box">{{ score }} / {{ questions.length }}</div>
-            <p v-if="score === questions.length">🌟 Bravo, tu es un véritable Gardien des Données !</p>
-            <p v-else>⚠️ Tu as laissé passer quelques fuites de données. Relis le cours !</p>
-
-            <div class="continue-choices">
-              <p class="choices-label">Que veux-tu faire maintenant ?</p>
-              <div class="choices-grid">
-                <button class="choice-button" @click="continueTo('stockage-hors-ue')">
-                  <span class="choice-icon">🔒</span>
-                  <span class="choice-title">Continuer : Stockage des données hors UE</span>
-                  <span class="choice-desc">Revoir ou approfondir le stockage hors UE</span>
-                </button>
-
-                <button class="choice-button" @click="continueTo('licences')">
-                  <span class="choice-icon">💰</span>
-                  <span class="choice-title">Continuer : Licences coûteuses</span>
-                  <span class="choice-desc">Explorer la page sur les licences</span>
-                </button>
-
-                <button class="choice-button" @click="continueTo('sobriete')">
-                  <span class="choice-icon">🌱</span>
-                  <span class="choice-title">Continuer : Sobriété & Écologie</span>
-                  <span class="choice-desc">Aller vers les pratiques sobres</span>
-                </button>
-              </div>
-
-              <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
-                <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
-                <button class="btn-next" @click="restartQuiz">Recommencer la mission</button>
-              </div>
+            <p v-if="score === questions.length">🌟 Bravo ! Tu es un véritable Éco-Résistant.</p>
+            <p v-else>⚠️ Ton empreinte carbone est encore trop élevée. Relis les conseils !</p>
+            <div style="display:flex; gap:0.75rem; justify-content:center; margin-top:1rem;">
+              <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+              <button class="btn-next" @click="restartQuiz">Refaire le bilan</button>
             </div>
           </div>
 
@@ -171,11 +121,13 @@
 </template>
 
 <script>
-import { completePage, unlockChildren } from '../stores/progress.js'
+import { unlockPage, navigateToPage } from '../../../router/progress.js'
 
 export default {
-  name: 'PageRGPD',
+  name: 'PageSobriete',
   mounted() {
+    // Débloquer cette page
+    unlockPage('sobriete')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -183,7 +135,7 @@ export default {
   },
   data() {
     return {
-      // --- DONNÉES DU QUIZ ---
+      // --- LOGIQUE DU QUIZ ---
       currentQuestion: 0,
       score: 0,
       hasAnswered: false,
@@ -192,39 +144,39 @@ export default {
       quizFinished: false,
       questions: [
         {
-          text: "Quelle loi protège les données des européens contre les GAFAM ?",
-          explanation: "C'est le Règlement Général sur la Protection des Données, actif depuis 2018.",
+          text: "Pourquoi est-il mieux d'envoyer un lien plutôt qu'une pièce jointe ?",
+          explanation: "La pièce jointe est dupliquée chez chaque destinataire, ce qui multiplie le stockage inutile.",
           options: [
-            { text: "Le CLOUD Act", isCorrect: false },
-            { text: "Le RGPD", isCorrect: true },
-            { text: "La Loi de Murphy", isCorrect: false }
+            { text: "C'est plus joli", isCorrect: false },
+            { text: "Les liens sont magiques", isCorrect: false},
+            { text: "Ça évite de stocker le fichier en plusieurs exemplaires", isCorrect: true  }
           ]
         },
         {
-          text: "Votre prof veut envoyer un fichier de 2Go. Quel outil est conforme ?",
-          explanation: "FileSender est l'outil sécurisé de l'Éducation Nationale. WeTransfer revend des données.",
+          text: "Quelle action permet d'économiser de l'énergie sur un écran OLED ?",
+          explanation: "Sur l'OLED, le noir = pixel éteint = 0 consommation.",
           options: [
-            { text: "WeTransfer", isCorrect: false },
-            { text: "FileSender", isCorrect: true },
-            { text: "Par mail en pièce jointe", isCorrect: false }
+            { text: "Mettre un fond d'écran blanc", isCorrect: false },
+            { text: "Activer le Mode Sombre (Dark Mode)", isCorrect: true },
+            { text: "Nettoyer l'écran avec un chiffon", isCorrect: false }
           ]
         },
         {
-          text: "Pourquoi le 'Cloud Act' américain est-il un problème pour l'école ?",
-          explanation: "Il permet aux espions US de lire les données stockées chez Microsoft ou Google.",
+          text: "Un email stocké dans ta boîte de réception consomme-t-il de l'énergie ?",
+          explanation: "Oui ! Il est stocké sur un disque dur dans un Data Center qui doit être alimenté et refroidi 24h/24.",
           options: [
-            { text: "Il permet aux USA d'accéder à nos données", isCorrect: true },
-            { text: "Il fait pleuvoir sur les serveurs", isCorrect: false },
-            { text: "Il rend les ordinateurs plus lents", isCorrect: false }
+            { text: "Non, une fois reçu il ne bouge plus", isCorrect: false },
+            { text: "Seulement s'il contient des smileys", isCorrect: false  },
+            { text: "Oui, tant qu'il n'est pas supprimé, il consomme", isCorrect: true }
           ]
         },
         {
-          text: "Quelle est la règle de la 'Minimisation' ?",
-          explanation: "On ne collecte que ce qui est strictement utile pour la mission.",
+          text: "Que faire de son ordinateur le soir ?",
+          explanation: "La veille consomme toujours un peu d'électricité. L'extinction complète est la seule solution zéro conso.",
           options: [
-            { text: "Rendre les fichiers tout petits", isCorrect: false },
-            { text: "Ne collecter que les données strictement nécessaires", isCorrect: true },
-            { text: "Parler le moins possible", isCorrect: false }
+            { text: "L'éteindre complètement", isCorrect: true },
+            { text: "Le mettre en veille", isCorrect: false },
+            { text: "Le laisser allumé pour les mises à jour", isCorrect: false }
           ]
         }
       ]
@@ -245,13 +197,10 @@ export default {
         this.hasAnswered = false;
         this.selectedAnswer = null;
       } else {
-        // Quiz fini : marquer la page comme complétée et débloquer les enfants
+        // marque la page comme complétée
         try {
-          completePage('confidentialite')
-          unlockChildren(['confidentialite', 'stockage-hors-ue', 'licences', 'sobriete'])
-        } catch (e) {
-          // ignore if store not available
-        }
+          completePage('sobriete')
+        } catch (e) { /* ignore */ }
         this.quizFinished = true;
       }
     },
@@ -264,29 +213,16 @@ export default {
     }
     ,
     continueTo(pageId) {
-      // Assure que la page courante est marquée complétée et que les enfants sont débloqués
-      try {
-        completePage('confidentialite')
-        unlockChildren(['confidentialite', 'stockage-hors-ue', 'licences', 'sobriete'])
-      } catch (e) {}
-
-      // Si la route existe (par name), on y va, sinon on retourne à l'accueil (arbre)
-      if (this.$router && this.$router.hasRoute && this.$router.hasRoute(pageId)) {
-        this.$router.push({ name: pageId })
-      } else if (pageId === 'tree' || pageId === '/' ) {
-        this.$router.push('/')
-      } else {
-        // fallback : redirige vers l'accueil (arbre des compétences)
-        this.$router.push('/')
-      }
+      navigateToPage('sobriete', pageId, this.$router)
     }
-  }
+  },
+
 }
 </script>
 
 <style scoped>
 /* Page wrapper avec décoration de fond */
-.rgpd-page {
+.sobriete-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5faf8 0%, #eef6f3 100%);
   position: relative;

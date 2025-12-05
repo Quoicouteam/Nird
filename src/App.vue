@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import SiteHeader from './components/SiteHeader.vue'
 import SiteFooter from './components/SiteFooter.vue'
-import SkillTreeModal from './components/SkillTreeModal.vue'
+import SkillTreeManager from './components/SkillTree/SkillTreeManager.vue'
 
 const showTree = ref(false)
 </script>
@@ -14,7 +14,7 @@ const showTree = ref(false)
       <RouterView />
     </main>
     <SiteFooter />
-    <SkillTreeModal v-if="showTree" @close="showTree = false" />
+    <SkillTreeManager v-if="showTree" @close="showTree = false" />
   </div>
 </template>
 

@@ -73,10 +73,59 @@
           <p><strong>La Solution : LINUX</strong></p>
         </div>
       </section>
-      
-      <!-- Bouton retour à la page de présentation / arbre -->
-      <div style="text-align:center; margin-top:2.5rem; margin-bottom:2rem;">
-        <button class="btn-next" @click="$router.push({ name: 'presentation' })">Retour à l'arbre 🌳</button>
+
+      <!-- ========================================= -->
+      <!-- PARTIE 2 : LE QUIZ INTERACTIF (JEU)       -->
+      <!-- ========================================= -->
+
+      <div class="quiz-wrapper">
+        <div class="quiz-container">
+          <h2>🎮 Mission : Comprendre Windows Payant</h2>
+          
+          <!-- ÉCRAN DE FIN -->
+          <div v-if="quizFinished">
+            <p class="mission-status">Mission Terminée !</p>
+            <div class="score-box">{{ score }} / {{ questions.length }}</div>
+            <p v-if="score === questions.length">🌟 Excellent ! Tu as compris les enjeux de Windows payant.</p>
+            <p v-else>⚠️ Relis les sections pour bien comprendre tous les aspects.</p>
+
+            <div class="continue-choices">
+              <p class="choices-label">Que veux-tu faire maintenant ?</p>
+              
+              <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
+                <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+                <button class="btn-next" @click="restartQuiz">Relancer le quiz</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- QUESTIONNAIRE -->
+          <div v-else>
+            <p class="question-count">Question {{ currentQuestion + 1 }} / {{ questions.length }}</p>
+            <h3 class="question-text">{{ questions[currentQuestion].text }}</h3>
+
+            <div v-for="(option, index) in questions[currentQuestion].options" :key="index">
+              <button 
+                class="btn-option" 
+                :class="{ 
+                    'correct': hasAnswered && option.isCorrect, 
+                    'wrong': hasAnswered && !option.isCorrect && selectedAnswer === index 
+                }"
+                :disabled="hasAnswered"
+                @click="selectAnswer(index, option.isCorrect)"
+              >
+                {{ option.text }}
+              </button>
+            </div>
+
+            <p v-if="hasAnswered && isCurrentCorrect" class="feedback success">✅ Correct ! {{ questions[currentQuestion].explanation }}</p>
+            <p v-if="hasAnswered && !isCurrentCorrect" class="feedback error">❌ Erreur ! {{ questions[currentQuestion].explanation }}</p>
+
+            <button v-if="hasAnswered" class="btn-next" @click="nextQuestion">
+              {{ currentQuestion < questions.length - 1 ? 'Question Suivante' : 'Voir le résultat' }}
+            </button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -84,16 +133,96 @@
 </template>
 
 <script>
+import { unlockPage, navigateToPage } from '../../../../router/progress.js'
+
 export default {
   name: 'PageWindows',
   mounted() {
+    // Débloquer cette page
+    unlockPage('windows-payant')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     } catch (e) {}
+  },
+  data() {
+    return {
+      // --- LOGIQUE DU QUIZ ---
+      currentQuestion: 0,
+      score: 0,
+      hasAnswered: false,
+      selectedAnswer: null,
+      isCurrentCorrect: false,
+      quizFinished: false,
+      questions: [
+        {
+          text: "Pourquoi dit-on que Windows n'est pas vraiment 'gratuit' ?",
+          explanation: "Le prix de la licence Windows est inclus dans le prix du PC (la 'Taxe Microsoft').",
+          options: [
+            { text: "Parce qu'il faut payer pour les mises à jour", isCorrect: false },
+            { text: "Parce que le prix de la licence est inclus dans le prix du PC", isCorrect: true },
+            { text: "Parce qu'il est illégal de l'utiliser gratuitement", isCorrect: false }
+          ]
+        },
+        {
+          text: "Quel est le principal problème avec la fin du support de Windows 10 en octobre 2025 ?",
+          explanation: "Windows 11 exige des processeurs récents (TPM 2.0), rendant obsolètes des millions de PC fonctionnels.",
+          options: [
+            { text: "Windows 10 va cesser de fonctionner", isCorrect: false },
+            { text: "Des millions de PC fonctionnels devront être jetés", isCorrect: true },
+            { text: "Il faudra acheter un nouveau disque dur", isCorrect: false }
+          ]
+        },
+        {
+          text: "Qu'est-ce que la 'Télémétrie' dans Windows ?",
+          explanation: "La télémétrie envoie des données sur vos habitudes d'utilisation aux serveurs de Microsoft.",
+          options: [
+            { text: "Un système de mesure de la température du PC", isCorrect: false },
+            { text: "L'envoi de données sur vos habitudes aux serveurs Microsoft", isCorrect: true },
+            { text: "Une fonctionnalité pour mesurer la vitesse d'Internet", isCorrect: false }
+          ]
+        },
+        {
+          text: "Quelle est l'alternative gratuite et respectueuse mentionnée dans la page ?",
+          explanation: "Linux est présenté comme l'alternative gratuite, légère, sécurisée et respectueuse de la vie privée.",
+          options: [
+            { text: "macOS", isCorrect: false },
+            { text: "Linux", isCorrect: true },
+            { text: "Chrome OS", isCorrect: false }
+          ]
+        }
+      ]
+    }
+  },
+  methods: {
+    selectAnswer(index, isCorrect) {
+      this.hasAnswered = true
+      this.selectedAnswer = index
+      this.isCurrentCorrect = isCorrect
+      if (isCorrect) {
+        this.score++
+      }
+    },
+    nextQuestion() {
+      if (this.currentQuestion < this.questions.length - 1) {
+        this.currentQuestion++
+        this.hasAnswered = false
+        this.selectedAnswer = null
+      } else {
+        this.quizFinished = true
+      }
+    },
+    restartQuiz() {
+      this.currentQuestion = 0
+      this.score = 0
+      this.hasAnswered = false
+      this.selectedAnswer = null
+      this.quizFinished = false
+    },
+    continueTo(pageId) {
+      navigateToPage('windows-payant', pageId, this.$router)
+    }
   }
-  
-  
 }
 </script>
 

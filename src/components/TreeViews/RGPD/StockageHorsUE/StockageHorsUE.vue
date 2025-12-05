@@ -107,18 +107,6 @@
                   <span class="choice-title">Continuer : Open Source</span>
                   <span class="choice-desc">Aller à la page Open Source</span>
                 </button>
-
-                <button class="choice-button" @click="continueTo('licences')">
-                  <span class="choice-icon">💰</span>
-                  <span class="choice-title">Continuer : Licences coûteuses</span>
-                  <span class="choice-desc">Explorer la page sur les licences</span>
-                </button>
-
-                <button class="choice-button" @click="continueTo('sobriete')">
-                  <span class="choice-icon">🌱</span>
-                  <span class="choice-title">Continuer : Sobriété & Écologie</span>
-                  <span class="choice-desc">Aller vers les pratiques sobres</span>
-                </button>
               </div>
 
               <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
@@ -162,11 +150,13 @@
 </template>
 
 <script>
-import { completePage, unlockChildren } from '../stores/progress.js'
+import { unlockPage, navigateToPage } from '../../../../router/progress.js'
 
 export default {
   name: 'PageStockage',
   mounted() {
+    // Débloquer cette page
+    unlockPage('stockage-hors-ue')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -236,10 +226,9 @@ export default {
         this.hasAnswered = false;
         this.selectedAnswer = null;
           } else {
-          // Quiz fini : marquer la page comme complétée et débloquer les suites
+          // Quiz fini : marquer la page comme complétée
           try {
             completePage('stockage-hors-ue')
-            unlockChildren(['licences', 'sobriete', 'open-source'])
           } catch (e) {
             // ignore
           }
@@ -255,19 +244,7 @@ export default {
     }
     ,
     continueTo(pageId) {
-      // marque comme complétée et débloque les sujets suivants
-      try {
-        completePage('stockage-hors-ue')
-        unlockChildren(['licences', 'sobriete', 'open-source'])
-      } catch (e) {}
-
-      if (this.$router && this.$router.hasRoute && this.$router.hasRoute(pageId)) {
-        this.$router.push({ name: pageId })
-      } else if (pageId === '/' || pageId === 'tree') {
-        this.$router.push('/')
-      } else {
-        this.$router.push('/')
-      }
+      navigateToPage('stockage-hors-ue', pageId, this.$router)
     }
   }
 }

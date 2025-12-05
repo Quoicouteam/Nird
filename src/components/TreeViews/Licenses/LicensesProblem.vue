@@ -1,13 +1,12 @@
 <script setup>
-import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { visitPage, completePage } from '../stores/progress.js'
+import { usePageUnlock } from '../../../router/usePageUnlock.js'
+import { completePage } from '../../../router/progress.js'
 
 const router = useRouter()
 
-onMounted(() => {
-  visitPage('licences')
-})
+// Débloquer automatiquement cette page
+usePageUnlock()
 
 function markAsRead() {
   completePage('licences')
@@ -159,26 +158,162 @@ function goToWindowsPayant() {
       </section>
     </article>
 
-    <!-- Carte de navigation vers WindowsPayant -->
-    <section class="section bottom-card-section">
-      <div class="bottom-card">
-        <div class="bottom-card-content">
-          <h3>💻 En savoir plus : Windows Payant</h3>
-          <p>Comprendre en détail les implications des versions payantes de Windows et comment s'en prémunir.</p>
+    <!-- ========================================= -->
+    <!-- PARTIE 2 : LE QUIZ INTERACTIF (JEU)       -->
+    <!-- ========================================= -->
+
+    <div class="quiz-wrapper">
+      <div class="quiz-container">
+        <h2>🎮 Mission : Comprendre les Licences</h2>
+        
+        <!-- ÉCRAN DE FIN -->
+        <div v-if="quizFinished">
+          <p class="mission-status">Mission Terminée !</p>
+          <div class="score-box">{{ score }} / {{ questions.length }}</div>
+          <p v-if="score === questions.length">🌟 Parfait ! Tu as compris les enjeux des licences payantes.</p>
+          <p v-else>⚠️ Relis bien les sections pour comprendre tous les aspects.</p>
+
+          <div class="continue-choices">
+            <p class="choices-label">Que veux-tu faire maintenant ?</p>
+            <div class="choices-grid">
+              <button class="choice-button" @click="continueTo('windows-payant')">
+                <span class="choice-icon">💰</span>
+                <span class="choice-title">Continuer : Windows Payant</span>
+                <span class="choice-desc">Explorer le cas de Windows</span>
+              </button>
+            </div>
+
+            <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
+              <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
+              <button class="btn-next" @click="restartQuiz">Relancer le quiz</button>
+            </div>
+          </div>
         </div>
-        <div class="bottom-card-actions">
-          <button class="btn-next" @click="goToWindowsPayant">Aller à Windows (payant)</button>
+
+        <!-- QUESTIONNAIRE -->
+        <div v-else>
+          <p class="question-count">Question {{ currentQuestion + 1 }} / {{ questions.length }}</p>
+          <h3 class="question-text">{{ questions[currentQuestion].text }}</h3>
+
+          <div v-for="(option, index) in questions[currentQuestion].options" :key="index">
+            <button 
+              class="btn-option" 
+              :class="{ 
+                  'correct': hasAnswered && option.isCorrect, 
+                  'wrong': hasAnswered && !option.isCorrect && selectedAnswer === index 
+              }"
+              :disabled="hasAnswered"
+              @click="selectAnswer(index, option.isCorrect)"
+            >
+              {{ option.text }}
+            </button>
+          </div>
+
+          <p v-if="hasAnswered && isCurrentCorrect" class="feedback success">✅ Correct ! {{ questions[currentQuestion].explanation }}</p>
+          <p v-if="hasAnswered && !isCurrentCorrect" class="feedback error">❌ Erreur ! {{ questions[currentQuestion].explanation }}</p>
+
+          <button v-if="hasAnswered" class="btn-next" @click="nextQuestion">
+            {{ currentQuestion < questions.length - 1 ? 'Question Suivante' : 'Voir le résultat' }}
+          </button>
         </div>
       </div>
-    </section>
-
-    <div class="actions">
-      <button class="action-button" @click="markAsRead">
-        J'ai compris, retour à l'accueil
-      </button>
     </div>
   </div>
 </template>
+
+<script>
+import { unlockPage, navigateToPage } from '../../../router/progress.js'
+
+export default {
+  name: 'PageLicences',
+  mounted() {
+    // Débloquer cette page
+    unlockPage('licences')
+    // S'assurer d'être en haut de la page lorsque la route est chargée
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    } catch (e) {}
+  },
+  data() {
+    return {
+      // --- LOGIQUE DU QUIZ ---
+      currentQuestion: 0,
+      score: 0,
+      hasAnswered: false,
+      selectedAnswer: null,
+      isCurrentCorrect: false,
+      quizFinished: false,
+      questions: [
+        {
+          text: "Quel est le principal problème des licences payantes pour les petites structures ?",
+          explanation: "Les coûts récurrents peuvent devenir prohibitifs pour les petites entreprises et écoles.",
+          options: [
+            { text: "Elles sont trop complexes à comprendre", isCorrect: false },
+            { text: "Elles génèrent des coûts prohibitifs", isCorrect: true },
+            { text: "Elles sont uniquement disponibles en anglais", isCorrect: false }
+          ]
+        },
+        {
+          text: "Qu'est-ce que le 'lock-in' (enfermement propriétaire) ?",
+          explanation: "Le lock-in rend difficile le changement de logiciel sans perdre ses données ou investissements.",
+          options: [
+            { text: "Un système de sécurité pour protéger les fichiers", isCorrect: false },
+            { text: "La difficulté de changer de logiciel sans perdre ses données", isCorrect: true },
+            { text: "Une fonctionnalité qui verrouille l'ordinateur", isCorrect: false }
+          ]
+        },
+        {
+          text: "Pourquoi les logiciels propriétaires posent-ils un problème de transparence ?",
+          explanation: "Sans accès au code source, impossible de vérifier la sécurité ou le respect de la vie privée.",
+          options: [
+            { text: "Parce que leur code source n'est pas accessible publiquement", isCorrect: true },
+            { text: "Parce qu'ils sont trop chers", isCorrect: false },
+            { text: "Parce qu'ils sont difficiles à installer", isCorrect: false }
+          ]
+        },
+        {
+          text: "Quel est l'avantage principal des logiciels libres et open source ?",
+          explanation: "L'accès au code source permet à tous d'examiner, modifier et améliorer le logiciel.",
+          options: [
+            { text: "Ils sont toujours plus rapides", isCorrect: false },
+            { text: "Accès au code source pour tous", isCorrect: true },
+            { text: "Ils n'ont jamais de bugs", isCorrect: false }
+          ]
+        }
+      ]
+    }
+  },
+  methods: {
+    selectAnswer(index, isCorrect) {
+      this.hasAnswered = true
+      this.selectedAnswer = index
+      this.isCurrentCorrect = isCorrect
+      if (isCorrect) {
+        this.score++
+      }
+    },
+    nextQuestion() {
+      if (this.currentQuestion < this.questions.length - 1) {
+        this.currentQuestion++
+        this.hasAnswered = false
+        this.selectedAnswer = null
+      } else {
+        this.quizFinished = true
+      }
+    },
+    restartQuiz() {
+      this.currentQuestion = 0
+      this.score = 0
+      this.hasAnswered = false
+      this.selectedAnswer = null
+      this.quizFinished = false
+    },
+    continueTo(pageId) {
+      navigateToPage('licences', pageId, this.$router)
+    }
+  }
+}
+</script>
 
 <style scoped>
 .page {
@@ -684,5 +819,169 @@ h3 {
 
 .action-button:active {
   transform: translateY(0);
+}
+
+/* Quiz wrapper */
+.quiz-wrapper {
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.quiz-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(46, 79, 59, 0.1);
+  border: 2px solid #d4e5da;
+  text-align: center;
+}
+
+.quiz-container h2 {
+  display: block;
+  margin-bottom: 2rem;
+  color: #2e4f3b;
+  border-color: #5a7d6a;
+}
+
+.question-count {
+  color: #5a7d6a;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  color: #2e4f3b;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Boutons options */
+.btn-option {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  background: white;
+  color: #555;
+  border: 2px solid #d4e5da;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.btn-option:hover:not(:disabled) {
+  border-color: #5a7d6a;
+  background: #f5faf8;
+  transform: translateX(5px);
+}
+
+.btn-option.correct {
+  background: rgba(125, 171, 138, 0.15);
+  border-color: #7dab8a;
+  color: #2e4f3b;
+}
+
+.btn-option.wrong {
+  background: rgba(248, 113, 113, 0.15);
+  border-color: #f87171;
+  color: #c53030;
+}
+
+/* Score box */
+.score-box {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #5a7d6a;
+  margin: 1.5rem 0;
+}
+
+.mission-status {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e4f3b;
+}
+
+/* Boutons */
+.btn-next {
+  background: linear-gradient(135deg, #5a7d6a, #7dab8a);
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(90, 125, 106, 0.2);
+}
+
+.btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 125, 106, 0.3);
+}
+
+/* Continuation choices (après quiz) */
+.continue-choices {
+  margin-top: 1.5rem;
+}
+
+.choices-label {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #2e4f3b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.choices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.choice-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  background: white;
+  border: 2px solid #d4e5da;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.choice-button:hover {
+  transform: translateY(-6px);
+  border-color: #5a7d6a;
+}
+
+.choice-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.choice-title { font-weight: 700; color: #2e4f3b; margin-bottom: 0.25rem; }
+.choice-desc { color: #666; font-size: 0.95rem; }
+
+/* Feedback */
+.feedback {
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.feedback.success {
+  color: #7dab8a;
+}
+
+.feedback.error {
+  color: #c53030;
 }
 </style>

@@ -1,18 +1,15 @@
 <script setup>
-import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { visitPage, completePage, unlockChildren } from '../stores/progress.js'
+import { usePageUnlock } from '../../router/usePageUnlock.js'
+import { navigateToPage } from '../../router/progress.js'
 
 const router = useRouter()
 
-onMounted(() => {
-  visitPage('presentation')
-})
+// Débloquer automatiquement cette page quand on y arrive
+usePageUnlock()
 
 function chooseNext(choice) {
-  completePage('presentation')
-  unlockChildren(['confidentialite', 'licences', 'sobriete'])
-  router.push(`/page/${choice}`)
+  navigateToPage('presentation', choice, router)
 }
 </script>
 
@@ -133,6 +130,13 @@ function chooseNext(choice) {
           <span class="choice-desc">Protéger vos données personnelles</span>
           <span class="choice-arrow">→</span>
         </button>
+        
+        <button class="choice-button" @click="chooseNext('windows')">
+            <span class="choice-icon">🪟</span>
+            <span class="choice-title">Windows & Proprietary OS</span>
+            <span class="choice-desc">Comprendre les systèmes d'exploitation propriétaires</span>
+            <span class="choice-arrow">→</span>
+          </button>
 
         <button class="choice-button" @click="chooseNext('licences')">
           <span class="choice-icon">💰</span>
@@ -148,12 +152,7 @@ function chooseNext(choice) {
           <span class="choice-arrow">→</span>
         </button>
 
-          <button class="choice-button" @click="chooseNext('windows')">
-            <span class="choice-icon">🪟</span>
-            <span class="choice-title">Windows & Proprietary OS</span>
-            <span class="choice-desc">Comprendre les systèmes d'exploitation propriétaires</span>
-            <span class="choice-arrow">→</span>
-          </button>
+      
       </div>
     </div>
   </div>

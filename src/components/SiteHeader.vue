@@ -1,13 +1,10 @@
 <script setup>
-import { ref } from 'vue'
-import SkillTreeModal from './SkillTreeModal.vue'
-
-const showTree = ref(false)
+const emit = defineEmits(['open-tree'])
 </script>
 
 <template>
   <header class="site-header">
-    <button class="tree-button" @click="showTree = true" title="Voir l'arbre de progression">
+    <button class="tree-button" @click="$emit('open-tree')" title="Voir l'arbre de progression">
       <svg viewBox="0 0 40 40" class="tree-icon">
         <!-- Tronc -->
         <path d="M18 38 L18 28 Q18 26 20 26 Q22 26 22 28 L22 38" fill="#8B5A2B"/>
@@ -24,8 +21,6 @@ const showTree = ref(false)
         <circle cx="26" cy="13" r="1.5" fill="#5a8d6a"/>
       </svg>
     </button>
-
-    <SkillTreeModal v-if="showTree" @close="showTree = false" />
   </header>
 </template>
 
@@ -40,6 +35,7 @@ const showTree = ref(false)
   align-items: center;
   padding: var(--base) 1.5rem;
   background: rgba(255, 255, 255, 0.95);
+
   backdrop-filter: blur(10px);
   border-bottom: 2px solid rgba(46, 79, 59, 0.1);
   z-index: 100;

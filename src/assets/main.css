@@ -11,7 +11,9 @@
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background: linear-gradient(180deg, #faf9f7 0%, #f5f8f6 50%, #f0f4f2 100%);
+
+  background: #ececec;
+
   color: #333;
   line-height: 1.6;
 }

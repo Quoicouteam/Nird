@@ -31,7 +31,7 @@ Notre équipe a choisi de participer aux défis suivants :
 ### 3. Défi : La zerguèm de la nuit
 - **Objectifs :** Gamifier la page en transformant le curseur en pistolet laser pour tirer sur des éléments, compter les points et inclure des ennemis qui ripostent.
 - **Notre approche :** Nous avons développé un mini-jeu de tir directement sur la page. Le curseur de l'utilisateur devient un viseur, lui permettant d'interagir de manière ludique avec le contenu en tirant dessus pour marquer des points.
-- **Dépôt associé :** [Lazergu-m-](https://github.com/Quoicouteam/Lazergu-m-)
+- **Dépôt associé :** [Lazergu-m-](https://github.com/Quoicouteam/Nird/tree/lazergame?tab=readme-ov-file)
 
 ### 4. Easter Egg : Hidden Snake
 - **Concept :** Un mini-jeu Snake est caché dans le site.

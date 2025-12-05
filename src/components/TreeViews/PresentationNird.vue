@@ -1,18 +1,15 @@
 <script setup>
-import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { visitPage, completePage, unlockChildren } from '../stores/progress.js'
+import { usePageUnlock } from '../../router/usePageUnlock.js'
+import { navigateToPage } from '../../router/progress.js'
 
 const router = useRouter()
 
-onMounted(() => {
-  visitPage('presentation')
-})
+// Débloquer automatiquement cette page quand on y arrive
+usePageUnlock()
 
 function chooseNext(choice) {
-  completePage('presentation')
-  unlockChildren(['confidentialite', 'licences', 'sobriete'])
-  router.push(`/page/${choice}`)
+  navigateToPage('presentation', choice, router)
 }
 </script>
 

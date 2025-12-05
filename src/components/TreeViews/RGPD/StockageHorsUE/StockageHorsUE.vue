@@ -1,5 +1,5 @@
 <template>
-  <div class="opensource-page">
+  <div class="stockage-page">
     
     <!-- ========================================= -->
     <!-- PARTIE 1 : LE CONTENU PÉDAGOGIQUE (COURS) -->
@@ -9,54 +9,79 @@
       
       <!-- HEADER -->
       <header>
-        <h1>🔓 Le Code Transparent : L'Open Source</h1>
-        <p class="subtitle">"Si c'est gratuit, c'est toi le produit." (Sauf si c'est Libre)</p>
+        <h1>☁️ La Forteresse Lointaine (Stockage Hors UE)</h1>
+        <p class="subtitle">Le Cloud n'est pas un nuage. C'est l'ordinateur de quelqu'un d'autre.</p>
       </header>
 
-      <!-- LE PIÈGE DU GRATUIT -->
+      <!-- LE MYTHE DU NUAGE -->
       <section class="card">
-        <h2>🕵️ Le Piège de la "Boîte Noire"</h2>
-        <p>La plupart des logiciels que tu utilises (Windows, TikTok, Chrome) sont des <strong>"Boîtes Noires"</strong> (Logiciels Propriétaires).</p>
-        <p>Leur code de fabrication est secret. Personne ne peut vérifier ce qu'ils font vraiment.</p>
-        <div class="alert-box">
-          <p>⚠️ <strong>Le Business Model :</strong> Ces logiciels sont souvent gratuits parce qu'ils installent des <strong>mouchards (trackers)</strong> qui enregistrent tout ce que tu fais pour revendre ton profil aux publicitaires.</p>
+        <p>Quand on te dit que tes fichiers sont "dans le Cloud", ils ne flottent pas dans le ciel. Ils sont stockés physiquement sur des disques durs, dans des hangars immenses (Data Centers) qui consomment énormément d'énergie et d'eau pour se refroidir.</p>
+        <p><strong>La question cruciale est : Où se trouve ce hangar ? Et à qui appartient-il ?</strong></p>
+      </section>
+
+      <!-- LE PROBLÈME JURIDIQUE -->
+      <section>
+        <h2>🇺🇸 Le Piège de l'Extra-territorialité</h2>
+        <div class="card">
+          <p>La majorité des données scolaires (ENT, notes, dossiers) transite souvent par les "Hyperscalers" : <strong>AWS (Amazon), Azure (Microsoft) ou Google Cloud</strong>.</p>
+          <p>Même si ces entreprises vous disent "Ne vous inquiétez pas, le serveur est à Paris", elles restent des entreprises américaines.</p>
+          <div class="alert-box">
+            <p>🚨 <strong>Le CLOUD Act (Encore lui) :</strong> Cette loi américaine oblige toute entreprise US à donner les données qu'elle stocke aux autorités américaines (FBI, NSA), même si ces données sont stockées physiquement en Europe. C'est une violation de notre souveraineté.</p>
+          </div>
         </div>
       </section>
 
-      <!-- LA SOLUTION OPEN SOURCE -->
+      <!-- LA SOLUTION SOUVERAINE -->
       <section>
-        <h2>🤝 La Philosophie du "Code Ouvert"</h2>
+        <h2>🇪🇺 La Souveraineté Numérique</h2>
         <div class="card">
-          <p>Un logiciel <strong>Open Source (ou Libre)</strong> est comme une recette de cuisine publique : tout le monde peut voir les ingrédients (le code).</p>
+          <p>Pour résister, le Village NIRD doit rapatrier ses ressources. C'est ce qu'on appelle la <strong>Souveraineté Numérique</strong> : être maître chez soi.</p>
           <ul>
-            <li><strong>Transparence Totale :</strong> Des experts du monde entier vérifient le code. S'il y a un virus ou un espion, il est découvert et supprimé immédiatement.</li>
-            <li><strong>Pas de "Lock-in" :</strong> Tu n'es pas prisonnier d'une marque. Le format des fichiers est ouvert.</li>
-            <li><strong>Respect de la vie privée :</strong> Ces logiciels sont créés par des communautés passionnées, pas par des entreprises qui veulent vendre tes données.</li>
+            <li><strong>Hébergement Local :</strong> Utiliser des hébergeurs européens (OVHcloud, Scaleway, Hetzner) qui ne sont pas soumis aux lois américaines.</li>
+            <li><strong>Auto-hébergement :</strong> Le stade ultime de la résistance. Installer son propre serveur dans le lycée (un simple vieux PC peut suffire pour commencer !).</li>
           </ul>
         </div>
       </section>
 
-      <!-- OÙ TROUVER LES OUTILS (REMPLACE L'ARMURERIE) -->
+      <!-- COMPARATEUR -->
       <section>
-        <h2>🗺️ Les Quartiers Généraux (Où chercher ?)</h2>
-        <div class="card">
-          <p>Tu découvriras des outils précis dans les autres branches de l'Arbre. Mais pour ta culture de Résistant, voici les endroits où trouver des ressources sûres :</p>
-          
-          <ul class="resource-list">
-            <li>
-              <strong>Apps.education.fr :</strong>
-              <br><span class="desc">La plateforme officielle de l'Éducation Nationale. Des outils libres, RGPD, et gratuits pour tous les profs et élèves.</span>
-            </li>
-            <li>
-              <strong>Framasoft :</strong>
-              <br><span class="desc">Une association française légendaire qui propose des alternatives à presque tous les outils Google ("Dégooglisons Internet").</span>
-            </li>
-            <li>
-              <strong>La Forge des Communs Numériques :</strong>
-              <br><span class="desc">L'atelier où les profs et développeurs construisent ensemble les outils de demain (cité dans le projet NIRD).</span>
-            </li>
-          </ul>
+        <h2>⚔️ Le Duel des Hébergeurs</h2>
+        <div class="card no-padding">
+          <table>
+            <thead>
+              <tr>
+                <th>❌ Le Cloud de l'Empire (GAFAM)</th>
+                <th>✅ Le Cloud Résistant (Souverain)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Soumis au droit américain (Patriot Act / Cloud Act).</td>
+                <td>Protégé par le droit européen (RGPD strict).</td>
+              </tr>
+              <tr>
+                <td>Données souvent répliquées aux USA sans qu'on le sache.</td>
+                <td>Garantie que les données restent en France/UE.</td>
+              </tr>
+              <tr>
+                <td>Tarifs opaques qui augmentent quand on est captif.</td>
+                <td>Tarifs transparents et soutien à l'économie locale.</td>
+              </tr>
+              <tr>
+                <td>Risque d'espionnage industriel ou politique.</td>
+                <td>Confidentialité garantie pour les services publics.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </section>
+
+      <!-- TRANSITION VERS LA PROCHAINE PAGE -->
+      <section style="margin-top: 2rem; text-align: center;">
+        <p style="color: var(--text-muted); font-style: italic;">
+          "C'est bien de stocker ses données en France... mais si le logiciel qu'on utilise est une 'Boîte Noire' fermée, sommes-nous vraiment en sécurité ?"<br>
+          👉 <strong>Prochaine étape : L'Open Source.</strong>
+        </p>
       </section>
 
       <!-- ========================================= -->
@@ -65,35 +90,28 @@
 
       <div class="quiz-wrapper">
         <div class="quiz-container">
-          <h2>🎮 Mission : Comprendre la Licence</h2>
+          <h2>🎮 Mission : Rapatriement des Données</h2>
           
           <!-- ÉCRAN DE FIN -->
           <div v-if="quizFinished">
-            <p class="mission-status">Analyse terminée !</p>
+            <p class="mission-status">Mission Terminée !</p>
             <div class="score-box">{{ score }} / {{ questions.length }}</div>
-            <p v-if="score === questions.length">🌟 Excellent ! Tu as compris la philosophie du Libre.</p>
-            <p v-else>⚠️ Tu confonds encore "Gratuit" et "Libre". Relis bien la partie philosophie !</p>
+            <p v-if="score === questions.length">🌟 Bravo ! Nos données sont désormais en sécurité sur le sol européen.</p>
+            <p v-else>⚠️ Attention, certaines de tes données ont été interceptées à la frontière !</p>
 
             <div class="continue-choices">
               <p class="choices-label">Que veux-tu faire maintenant ?</p>
               <div class="choices-grid">
-                <button class="choice-button" @click="continueTo('sobriete')">
-                  <span class="choice-icon">🌱</span>
-                  <span class="choice-title">Continuer : Sobriété</span>
-                  <span class="choice-desc">Aller vers les pratiques sobres</span>
+                <button class="choice-button" @click="continueTo('open-source')">
+                  <span class="choice-icon">📦</span>
+                  <span class="choice-title">Continuer : Open Source</span>
+                  <span class="choice-desc">Aller à la page Open Source</span>
                 </button>
-
-                <button class="choice-button" @click="continueTo('licences')">
-                  <span class="choice-icon">💰</span>
-                  <span class="choice-title">Continuer : Licences coûteuses</span>
-                  <span class="choice-desc">Explorer la page sur les licences</span>
-                </button>
-
               </div>
 
               <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
                 <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
-                <button class="btn-next" @click="restartQuiz">Relancer le scan</button>
+                <button class="btn-next" @click="restartQuiz">Recommencer la mission</button>
               </div>
             </div>
           </div>
@@ -132,11 +150,13 @@
 </template>
 
 <script>
-import { completePage, unlockChildren } from '../stores/progress.js'
+import { unlockPage, navigateToPage } from '../../../../router/progress.js'
 
 export default {
-  name: 'PageOpenSource',
-    mounted() {
+  name: 'PageStockage',
+  mounted() {
+    // Débloquer cette page
+    unlockPage('stockage-hors-ue')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -153,39 +173,39 @@ export default {
       quizFinished: false,
       questions: [
         {
-          text: "Que signifie l'expression 'Si c'est gratuit, c'est toi le produit' ?",
-          explanation: "Les entreprises comme Google ou TikTok se paient en vendant tes données personnelles.",
+          text: "Concrètement, c'est quoi le 'Cloud' ?",
+          explanation: "Ce n'est pas magique, c'est juste l'ordinateur de quelqu'un d'autre connecté à Internet.",
           options: [
-            { text:"Que le logiciel gagne de l'argent en vendant mes données", isCorrect: true  },
-            { text: "Que le logiciel est nul", isCorrect: false },
-            { text: "Que c'est un cadeau du gouvernement", isCorrect: false }
+            { text: "Un nuage de vapeur numérique", isCorrect: false },
+            { text: "Des serveurs physiques dans des Data Centers", isCorrect: true },
+            { text: "Un satellite dans l'espace", isCorrect: false }
           ]
         },
         {
-          text: "Quelle est la différence principale entre un logiciel 'Propriétaire' et 'Open Source' ?",
-          explanation: "L'Open Source permet à tout le monde de lire la recette (le code) et de vérifier la sécurité.",
+          text: "Si Microsoft met un serveur à Paris, est-il protégé des espions américains ?",
+          explanation: "Non ! À cause du CLOUD Act, la nationalité de l'entreprise prime sur la localisation du serveur.",
           options: [
-            { text: "Le Propriétaire est plus joli", isCorrect: false },
-            { text:"Il n'y a aucune différence", isCorrect: false },
-            { text: "L'Open Source a un code accessible et vérifiable par tous", isCorrect: true  }
+            { text: "Oui, car il est sur le sol français", isCorrect: false },
+            { text: "Ça dépend de la météo", isCorrect: false },
+            { text: "Non, car l'entreprise reste américaine (CLOUD Act)", isCorrect: true  }
           ]
         },
         {
-          text: "Où peut-on trouver des outils numériques sûrs pour l'école ?",
-          explanation: "C'est la plateforme officielle et sécurisée de l'Éducation Nationale.",
+          text: "Lequel de ces acteurs est une solution 'Souveraine' (Européenne) ?",
+          explanation: "OVHcloud est français (Roubaix). AWS est à Amazon (USA) et Azure à Microsoft (USA).",
           options: [
-            { text: "Sur Softonic ou 01net", isCorrect: false },
-            { text: "Sur apps.education.fr", isCorrect: true },
-            { text: "En cliquant sur les pubs Instagram", isCorrect: false }
+            { text: "AWS (Amazon Web Services)", isCorrect: false },
+            { text: "OVHcloud", isCorrect: true },
+            { text: "Microsoft Azure", isCorrect: false }
           ]
         },
         {
-          text: "Qui corrige les bugs dans un logiciel Libre ?",
-          explanation: "C'est la force du collectif : une communauté mondiale de passionnés et d'experts.",
+          text: "Quel est l'avantage principal de l'auto-hébergement ?",
+          explanation: "Si le serveur est chez toi, personne d'autre n'y a accès physiquement.",
           options: [
-            { text: "La communauté des développeurs et utilisateurs", isCorrect: true },
-            { text: "Uniquement le PDG de l'entreprise", isCorrect: false  },
-            { text: "Personne, les bugs restent pour toujours", isCorrect: false }
+            { text: "On contrôle physiquement ses données à 100%", isCorrect: true  },
+            { text: "C'est gratuit et facile", isCorrect: false},
+            { text: "Ça fait aller Internet plus vite", isCorrect: false }
           ]
         }
       ]
@@ -205,16 +225,15 @@ export default {
         this.currentQuestion++;
         this.hasAnswered = false;
         this.selectedAnswer = null;
-      } else {
-        // Quiz fini : marquer la page comme complétée et débloquer les suites
-        try {
-          completePage('open-source')
-          unlockChildren(['licences', 'sobriete'])
-        } catch (e) {
-          // ignore
+          } else {
+          // Quiz fini : marquer la page comme complétée
+          try {
+            completePage('stockage-hors-ue')
+          } catch (e) {
+            // ignore
+          }
+          this.quizFinished = true;
         }
-        this.quizFinished = true;
-      }
     },
     restartQuiz() {
       this.currentQuestion = 0;
@@ -222,21 +241,10 @@ export default {
       this.hasAnswered = false;
       this.selectedAnswer = null;
       this.quizFinished = false;
-    },
+    }
+    ,
     continueTo(pageId) {
-      // marque comme complétée et débloque les sujets suivants
-      try {
-        completePage('open-source')
-        unlockChildren(['licences', 'sobriete'])
-      } catch (e) {}
-
-      if (this.$router && this.$router.hasRoute && this.$router.hasRoute(pageId)) {
-        this.$router.push({ name: pageId })
-      } else if (pageId === '/' || pageId === 'tree') {
-        this.$router.push('/')
-      } else {
-        this.$router.push('/')
-      }
+      navigateToPage('stockage-hors-ue', pageId, this.$router)
     }
   }
 }

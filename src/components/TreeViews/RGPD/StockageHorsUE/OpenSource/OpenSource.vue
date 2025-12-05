@@ -1,14 +1,5 @@
 <template>
-  <div class="rgpd-page">
-    <!-- Décoration de fond végétale -->
-    <div class="nature-bg">
-      <div class="leaf leaf-1">🍃</div>
-      <div class="leaf leaf-2">🌿</div>
-      <div class="leaf leaf-3">🍂</div>
-      <div class="leaf leaf-4">🌱</div>
-      <div class="leaf leaf-5">🍃</div>
-      <div class="leaf leaf-6">🌿</div>
-    </div>
+  <div class="opensource-page">
     
     <!-- ========================================= -->
     <!-- PARTIE 1 : LE CONTENU PÉDAGOGIQUE (COURS) -->
@@ -18,78 +9,53 @@
       
       <!-- HEADER -->
       <header>
-        <h1>🛡️ Le Bouclier de Données (RGPD)</h1>
-        <p class="subtitle">Protège ton identité face à l'Empire Numérique</p>
+        <h1>🔓 Le Code Transparent : L'Open Source</h1>
+        <p class="subtitle">"Si c'est gratuit, c'est toi le produit." (Sauf si c'est Libre)</p>
       </header>
 
-      <!-- INTRODUCTION -->
+      <!-- LE PIÈGE DU GRATUIT -->
       <section class="card">
-        <p>Le Règlement Général sur la Protection des Données (RGPD) est une réglementation de l'Union Européenne entrée en vigueur le <strong>25 mai 2018</strong>. C'est l'armure qui protège les citoyens contre l'exploitation abusive de leurs données personnelles.</p>
-      </section>
-
-      <!-- C'EST QUOI ? -->
-      <section>
-        <h2>🧐 C'est quoi ce code secret ?</h2>
-        <div class="card">
-          <p>Le RGPD n'est pas une punition administrative. C'est la loi qui dit que <strong>tes données t'appartiennent</strong>. Personne ne peut les voler, les vendre ou les stocker sans ton accord.</p>
-          <p>Dans un établissement scolaire, le RGPD protège les données les plus sensibles : celles des mineurs (élèves), leurs notes, leurs adresses et leurs parcours scolaires.</p>
+        <h2>🕵️ Le Piège de la "Boîte Noire"</h2>
+        <p>La plupart des logiciels que tu utilises (Windows, TikTok, Chrome) sont des <strong>"Boîtes Noires"</strong> (Logiciels Propriétaires).</p>
+        <p>Leur code de fabrication est secret. Personne ne peut vérifier ce qu'ils font vraiment.</p>
+        <div class="alert-box">
+          <p>⚠️ <strong>Le Business Model :</strong> Ces logiciels sont souvent gratuits parce qu'ils installent des <strong>mouchards (trackers)</strong> qui enregistrent tout ce que tu fais pour revendre ton profil aux publicitaires.</p>
         </div>
       </section>
 
-      <!-- POURQUOI ? -->
+      <!-- LA SOLUTION OPEN SOURCE -->
       <section>
-        <h2>⚠️ Pourquoi avons-nous besoin de ce bouclier ?</h2>
+        <h2>🤝 La Philosophie du "Code Ouvert"</h2>
         <div class="card">
-          <p><strong>Le danger du profilage :</strong> Quand un établissement utilise des outils gratuits de Big Tech, ces entreprises aspirent des données pour créer un "double numérique" de l'élève (goûts, difficultés, opinions).</p>
-          <hr class="divider">
-          <p><strong>Le CLOUD Act :</strong> La plupart des géants (Microsoft, Google) sont américains. La loi US leur permet d'accéder aux données stockées, même en Europe. Le RGPD + des serveurs locaux bloquent cette porte dérobée.</p>
-        </div>
-      </section>
-
-      <!-- LES 5 PILIERS -->
-      <section>
-        <h2>🖐️ Les 5 Piliers de la Résistance</h2>
-        <div class="card">
-          <ul> 
-            <li><strong>La Finalité :</strong> On ne collecte pas des données "au cas où".</li>
-            <li><strong>La Minimisation :</strong> On ne prend que le strict nécessaire (Sobriété).</li>
-            <li><strong>La Durée de Conservation :</strong> Les données ont une date de péremption.</li>
-            <li><strong>La Sécurité :</strong> Chiffrement obligatoire. Pas de clé USB qui traîne !</li>
-            <li><strong>Les Droits des Personnes :</strong> Tu as le droit de demander "Qu'est-ce que vous savez sur moi ?".</li>
+          <p>Un logiciel <strong>Open Source (ou Libre)</strong> est comme une recette de cuisine publique : tout le monde peut voir les ingrédients (le code).</p>
+          <ul>
+            <li><strong>Transparence Totale :</strong> Des experts du monde entier vérifient le code. S'il y a un virus ou un espion, il est découvert et supprimé immédiatement.</li>
+            <li><strong>Pas de "Lock-in" :</strong> Tu n'es pas prisonnier d'une marque. Le format des fichiers est ouvert.</li>
+            <li><strong>Respect de la vie privée :</strong> Ces logiciels sont créés par des communautés passionnées, pas par des entreprises qui veulent vendre tes données.</li>
           </ul>
         </div>
       </section>
 
-      <!-- TABLEAU COMPARATIF -->
+      <!-- OÙ TROUVER LES OUTILS (REMPLACE L'ARMURERIE) -->
       <section>
-        <h2>✅ Les bons réflexes (Le Comparateur)</h2>
-        <div class="card no-padding">
-          <table>
-            <thead>
-              <tr>
-                <th>❌ Pratique de l'Empire</th>
-                <th>✅ Pratique Résistante (NIRD)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Groupe WhatsApp / Facebook</td>
-                <td>Signal ou Messagerie ENT</td>
-              </tr>
-              <tr>
-                <td>Google Drive / Dropbox</td>
-                <td>Nextcloud / Serveur du Lycée</td>
-              </tr>
-              <tr>
-                <td>WeTransfer</td>
-                <td>FileSender (Éducation Nationale)</td>
-              </tr>
-              <tr>
-                <td>Photos sans floutage</td>
-                <td>Autorisation ou Floutage (Droit à l'image)</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2>🗺️ Les Quartiers Généraux (Où chercher ?)</h2>
+        <div class="card">
+          <p>Tu découvriras des outils précis dans les autres branches de l'Arbre. Mais pour ta culture de Résistant, voici les endroits où trouver des ressources sûres :</p>
+          
+          <ul class="resource-list">
+            <li>
+              <strong>Apps.education.fr :</strong>
+              <br><span class="desc">La plateforme officielle de l'Éducation Nationale. Des outils libres, RGPD, et gratuits pour tous les profs et élèves.</span>
+            </li>
+            <li>
+              <strong>Framasoft :</strong>
+              <br><span class="desc">Une association française légendaire qui propose des alternatives à presque tous les outils Google ("Dégooglisons Internet").</span>
+            </li>
+            <li>
+              <strong>La Forge des Communs Numériques :</strong>
+              <br><span class="desc">L'atelier où les profs et développeurs construisent ensemble les outils de demain (cité dans le projet NIRD).</span>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -99,40 +65,23 @@
 
       <div class="quiz-wrapper">
         <div class="quiz-container">
-          <h2>🎮 Mission : Inspecteur RGPD</h2>
+          <h2>🎮 Mission : Comprendre la Licence</h2>
           
           <!-- ÉCRAN DE FIN -->
           <div v-if="quizFinished">
-            <p class="mission-status">Mission Terminée !</p>
+            <p class="mission-status">Analyse terminée !</p>
             <div class="score-box">{{ score }} / {{ questions.length }}</div>
-            <p v-if="score === questions.length">🌟 Bravo, tu es un véritable Gardien des Données !</p>
-            <p v-else>⚠️ Tu as laissé passer quelques fuites de données. Relis le cours !</p>
+            <p v-if="score === questions.length">🌟 Excellent ! Tu as compris la philosophie du Libre.</p>
+            <p v-else>⚠️ Tu confonds encore "Gratuit" et "Libre". Relis bien la partie philosophie !</p>
 
             <div class="continue-choices">
               <p class="choices-label">Que veux-tu faire maintenant ?</p>
               <div class="choices-grid">
-                <button class="choice-button" @click="continueTo('stockage-hors-ue')">
-                  <span class="choice-icon">🔒</span>
-                  <span class="choice-title">Continuer : Stockage des données hors UE</span>
-                  <span class="choice-desc">Revoir ou approfondir le stockage hors UE</span>
-                </button>
-
-                <button class="choice-button" @click="continueTo('licences')">
-                  <span class="choice-icon">💰</span>
-                  <span class="choice-title">Continuer : Licences coûteuses</span>
-                  <span class="choice-desc">Explorer la page sur les licences</span>
-                </button>
-
-                <button class="choice-button" @click="continueTo('sobriete')">
-                  <span class="choice-icon">🌱</span>
-                  <span class="choice-title">Continuer : Sobriété & Écologie</span>
-                  <span class="choice-desc">Aller vers les pratiques sobres</span>
-                </button>
               </div>
 
               <div style="margin-top:1rem; display:flex; gap:0.75rem; justify-content:center;">
                 <button class="btn-next" @click="continueTo('/')">Aller à l'arbre 🌳</button>
-                <button class="btn-next" @click="restartQuiz">Recommencer la mission</button>
+                <button class="btn-next" @click="restartQuiz">Relancer le scan</button>
               </div>
             </div>
           </div>
@@ -171,11 +120,13 @@
 </template>
 
 <script>
-import { completePage, unlockChildren } from '../stores/progress.js'
+import { unlockPage, navigateToPage } from '../../../../../router/progress.js'
 
 export default {
-  name: 'PageRGPD',
+  name: 'PageOpenSource',
   mounted() {
+    // Débloquer cette page
+    unlockPage('open-source')
     // S'assurer d'être en haut de la page lorsque la route est chargée
     try {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -183,7 +134,7 @@ export default {
   },
   data() {
     return {
-      // --- DONNÉES DU QUIZ ---
+      // --- LOGIQUE DU QUIZ ---
       currentQuestion: 0,
       score: 0,
       hasAnswered: false,
@@ -192,39 +143,39 @@ export default {
       quizFinished: false,
       questions: [
         {
-          text: "Quelle loi protège les données des européens contre les GAFAM ?",
-          explanation: "C'est le Règlement Général sur la Protection des Données, actif depuis 2018.",
+          text: "Que signifie l'expression 'Si c'est gratuit, c'est toi le produit' ?",
+          explanation: "Les entreprises comme Google ou TikTok se paient en vendant tes données personnelles.",
           options: [
-            { text: "Le CLOUD Act", isCorrect: false },
-            { text: "Le RGPD", isCorrect: true },
-            { text: "La Loi de Murphy", isCorrect: false }
+            { text:"Que le logiciel gagne de l'argent en vendant mes données", isCorrect: true  },
+            { text: "Que le logiciel est nul", isCorrect: false },
+            { text: "Que c'est un cadeau du gouvernement", isCorrect: false }
           ]
         },
         {
-          text: "Votre prof veut envoyer un fichier de 2Go. Quel outil est conforme ?",
-          explanation: "FileSender est l'outil sécurisé de l'Éducation Nationale. WeTransfer revend des données.",
+          text: "Quelle est la différence principale entre un logiciel 'Propriétaire' et 'Open Source' ?",
+          explanation: "L'Open Source permet à tout le monde de lire la recette (le code) et de vérifier la sécurité.",
           options: [
-            { text: "WeTransfer", isCorrect: false },
-            { text: "FileSender", isCorrect: true },
-            { text: "Par mail en pièce jointe", isCorrect: false }
+            { text: "Le Propriétaire est plus joli", isCorrect: false },
+            { text:"Il n'y a aucune différence", isCorrect: false },
+            { text: "L'Open Source a un code accessible et vérifiable par tous", isCorrect: true  }
           ]
         },
         {
-          text: "Pourquoi le 'Cloud Act' américain est-il un problème pour l'école ?",
-          explanation: "Il permet aux espions US de lire les données stockées chez Microsoft ou Google.",
+          text: "Où peut-on trouver des outils numériques sûrs pour l'école ?",
+          explanation: "C'est la plateforme officielle et sécurisée de l'Éducation Nationale.",
           options: [
-            { text: "Il permet aux USA d'accéder à nos données", isCorrect: true },
-            { text: "Il fait pleuvoir sur les serveurs", isCorrect: false },
-            { text: "Il rend les ordinateurs plus lents", isCorrect: false }
+            { text: "Sur Softonic ou 01net", isCorrect: false },
+            { text: "Sur apps.education.fr", isCorrect: true },
+            { text: "En cliquant sur les pubs Instagram", isCorrect: false }
           ]
         },
         {
-          text: "Quelle est la règle de la 'Minimisation' ?",
-          explanation: "On ne collecte que ce qui est strictement utile pour la mission.",
+          text: "Qui corrige les bugs dans un logiciel Libre ?",
+          explanation: "C'est la force du collectif : une communauté mondiale de passionnés et d'experts.",
           options: [
-            { text: "Rendre les fichiers tout petits", isCorrect: false },
-            { text: "Ne collecter que les données strictement nécessaires", isCorrect: true },
-            { text: "Parler le moins possible", isCorrect: false }
+            { text: "La communauté des développeurs et utilisateurs", isCorrect: true },
+            { text: "Uniquement le PDG de l'entreprise", isCorrect: false  },
+            { text: "Personne, les bugs restent pour toujours", isCorrect: false }
           ]
         }
       ]
@@ -245,12 +196,11 @@ export default {
         this.hasAnswered = false;
         this.selectedAnswer = null;
       } else {
-        // Quiz fini : marquer la page comme complétée et débloquer les enfants
+        // Quiz fini : marquer la page comme complétée
         try {
-          completePage('confidentialite')
-          unlockChildren(['confidentialite', 'stockage-hors-ue', 'licences', 'sobriete'])
+          completePage('open-source')
         } catch (e) {
-          // ignore if store not available
+          // ignore
         }
         this.quizFinished = true;
       }
@@ -261,24 +211,9 @@ export default {
       this.hasAnswered = false;
       this.selectedAnswer = null;
       this.quizFinished = false;
-    }
-    ,
+    },
     continueTo(pageId) {
-      // Assure que la page courante est marquée complétée et que les enfants sont débloqués
-      try {
-        completePage('confidentialite')
-        unlockChildren(['confidentialite', 'stockage-hors-ue', 'licences', 'sobriete'])
-      } catch (e) {}
-
-      // Si la route existe (par name), on y va, sinon on retourne à l'accueil (arbre)
-      if (this.$router && this.$router.hasRoute && this.$router.hasRoute(pageId)) {
-        this.$router.push({ name: pageId })
-      } else if (pageId === 'tree' || pageId === '/' ) {
-        this.$router.push('/')
-      } else {
-        // fallback : redirige vers l'accueil (arbre des compétences)
-        this.$router.push('/')
-      }
+      navigateToPage('open-source', pageId, this.$router)
     }
   }
 }

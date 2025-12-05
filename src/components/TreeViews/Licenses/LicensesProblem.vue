@@ -1,13 +1,12 @@
 <script setup>
-import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { visitPage, completePage } from '../stores/progress.js'
+import { usePageUnlock } from '../../../router/usePageUnlock.js'
+import { completePage } from '../../../router/progress.js'
 
 const router = useRouter()
 
-onMounted(() => {
-  visitPage('licences')
-})
+// Débloquer automatiquement cette page
+usePageUnlock()
 
 function markAsRead() {
   completePage('licences')

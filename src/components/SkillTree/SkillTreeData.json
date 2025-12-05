@@ -1,0 +1,44 @@
+{
+  "root": {
+    "id": "presentation",
+    "title": "NIRD",
+    "route": "/"
+  },
+  "children": [
+    {
+      "id": "confidentialite",
+      "title": "Confidentialité",
+      "subtitle": "RGPD",
+      "route": "/page/confidentialite",
+      "parent": "presentation"
+    },
+    {
+      "id": "stockage-hors-ue",
+      "title": "Stockage",
+      "subtitle": "hors UE",
+      "route": "/page/stockage-hors-ue",
+      "parent": "confidentialite"
+    },
+    {
+      "id": "open-source",
+      "title": "Open Source",
+      "subtitle": "Liberté",
+      "route": "/page/open-source",
+      "parent": "stockage-hors-ue"
+    },
+    {
+      "id": "licences",
+      "title": "Licences",
+      "subtitle": "coûteuses",
+      "route": "/page/licences",
+      "parent": "presentation"
+    },
+    {
+      "id": "sobriete",
+      "title": "Sobriété",
+      "subtitle": "Écologie",
+      "route": "/page/sobriete",
+      "parent": "presentation"
+    }
+  ]
+}

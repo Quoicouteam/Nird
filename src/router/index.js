@@ -1,17 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PresentationNird from '../views/PresentationNird.vue'
-import PlaceholderPage from '../views/PlaceholderPage.vue'
-import LicensesProblem from '../views/LicensesProblem.vue'
-import RGPDPage from '../views/rgpd.vue'
-import StockageHorsUE from '../views/StockageHorsUE.vue'
-import OpenSource from '../views/OpenSource.vue'
-import SobrieteEtEcologie from '../views/SobriétéEtEcologie.vue'
+import PresentationNird from '../components/TreeViews/PresentationNird.vue'
+import LicensesProblem from '../components/TreeViews/Licenses/LicensesProblem.vue'
+import RGPDPage from '../components/TreeViews/RGPD/RGPD.vue'
+import StockageHorsUE from '../components/TreeViews/RGPD/StockageHorsUE/StockageHorsUE.vue'
+import OpenSource from '../components/TreeViews/RGPD/StockageHorsUE/OpenSource/OpenSource.vue'
+import SobrieteEtEcologie from '../components/TreeViews/SobrieteEcologie/SobriétéEtEcologie.vue'
+import AccessDenied from '../components/TreeViews/AccessDenied.vue'
+import { isPageUnlocked } from './progress.js'
 
 const routes = [
   {
     path: '/',
     name: 'presentation',
     component: PresentationNird
+  },
+  {
+    path: '/access-denied',
+    name: 'access-denied',
+    component: AccessDenied
   },
   {
     path: '/page/confidentialite',
@@ -59,7 +65,7 @@ const routes = [
     component: SobrieteEtEcologie,
     meta: {
       title: 'Sobriété & Écologie',
-      parent: 'open-source'
+      parent: 'presentation'
     }
   }
 ]
@@ -67,6 +73,43 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+// Guard de navigation : empêche l'accès aux pages si le parent n'est pas débloqué
+router.beforeEach((to, from, next) => {
+  console.log('🔍 [v2] Guard navigation:', { 
+    to: to.name, 
+    from: from.name,
+    parent: to.meta?.parent,
+    fullRoute: to
+  })
+  
+  // Pages toujours accessibles
+  if (to.name === 'presentation' || to.path === '/' || to.name === 'access-denied') {
+    console.log('✅ Page toujours accessible:', to.name)
+    return next()
+  }
+  
+  // Vérifier UNIQUEMENT si la page a un parent requis qui est débloqué
+  // La page elle-même sera débloquée par usePageUnlock() à l'arrivée
+  if (to.meta?.parent) {
+    const parentUnlocked = isPageUnlocked(to.meta.parent)
+    console.log('🔐 Vérification parent:', { 
+      parent: to.meta.parent, 
+      unlocked: parentUnlocked,
+      allUnlocked: JSON.parse(localStorage.getItem('nird-progress') || '{}').unlockedPages
+    })
+    
+    if (!parentUnlocked) {
+      // Rediriger vers la page d'accès refusé si le parent n'est pas débloqué
+      console.warn(`⚠️ Accès refusé à ${to.name} : parent ${to.meta.parent} non débloqué`)
+      return next({ name: 'access-denied' })
+    }
+  }
+  
+  // Si le parent est débloqué (ou pas de parent), on laisse passer
+  console.log('✅ Accès autorisé à', to.name)
+  next()
 })
 
 export default router
